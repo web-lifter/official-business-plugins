@@ -1,0 +1,10 @@
+# Skill-local virtualenv and Python caches (created at runtime, never committed).
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+# Engine embedding cache (written at runtime).
+.cache/
+# Smoke-test scratch.
+TEST_*
+output/

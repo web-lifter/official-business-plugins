@@ -1,0 +1,24 @@
+{
+  "name": "business-operations",
+  "version": "1.0.1",
+  "description": "5 skills for SMB operations â€” revenue channel mapping, KPI frameworks, stakeholder briefs, bottleneck detection, and pricing strategy",
+  "author": {
+    "name": "John O'Connor",
+    "email": "john@weblifter.com.au",
+    "url": "https://github.com/johnoconnor0"
+  },
+  "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/business-operations",
+  "repository": "https://github.com/web-lifter/official-business-plugins",
+  "license": "MIT",
+  "keywords": [
+    "smb",
+    "operations",
+    "kpi",
+    "pricing",
+    "revenue",
+    "bottleneck",
+    "stakeholder",
+    "brief"
+  ],
+  "skills": "./skills/"
+}

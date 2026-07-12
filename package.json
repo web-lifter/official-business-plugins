@@ -1,0 +1,11 @@
+{
+  "name": "official-business-plugins",
+  "private": true,
+  "description": "Web Lifter business plugin marketplace for Claude Code — validation scripts",
+  "scripts": {
+    "check": "node scripts/check-versions.mjs && node scripts/check-validate.mjs",
+    "check:versions": "node scripts/check-versions.mjs",
+    "check:validate": "node scripts/check-validate.mjs",
+    "check:bumps": "node scripts/check-version-bumps.mjs"
+  }
+}

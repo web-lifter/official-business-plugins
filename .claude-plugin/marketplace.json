@@ -1,0 +1,101 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "official-business-plugins",
+  "description": "Official Web Lifter business plugin marketplace — five plugins spanning SMB operations, data science, economics, brand + SEO marketing, and venture building. Every skill produces evidence-backed markdown in Australian English and writes to the shared .project/ workspace (see OUTPUT-CONVENTIONS.md).",
+  "owner": {
+    "name": "John O'Connor",
+    "email": "john@weblifter.com.au",
+    "url": "https://github.com/web-lifter"
+  },
+  "plugins": [
+    {
+      "name": "business-operations",
+      "version": "1.0.1",
+      "description": "5 skills for SMB operations — revenue channel mapping, KPI frameworks, stakeholder briefs, bottleneck detection, and pricing strategy",
+      "source": "./business-operations",
+      "category": "operations",
+      "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/business-operations",
+      "keywords": [
+        "smb",
+        "operations",
+        "kpi",
+        "pricing",
+        "revenue",
+        "bottleneck",
+        "stakeholder"
+      ]
+    },
+    {
+      "name": "data-science",
+      "version": "2.0.0",
+      "description": "9 data-science skills — dataset profiling & quality audit, data-dictionary generation, data-pipeline architecture, cohort analysis, anomaly-detection rule building, A/B test design, experiment readouts, forecasting model specs, and causal-impact analysis",
+      "source": "./data-science",
+      "category": "data-science",
+      "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/data-science",
+      "keywords": [
+        "data-science",
+        "data-analysis",
+        "experimentation",
+        "ab-testing",
+        "forecasting",
+        "causal-inference",
+        "cohort-analysis",
+        "anomaly-detection"
+      ]
+    },
+    {
+      "name": "economics",
+      "version": "2.0.0",
+      "description": "9 skills — unit economics (CAC/LTV), market sizing (TAM/SAM/SOM), pricing architecture, cost-structure modelling, break-even scenario modelling, cost-benefit analysis, competitive-dynamics analysis, elasticity estimation, and moat-strength audit",
+      "source": "./economics",
+      "category": "economics",
+      "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/economics",
+      "keywords": [
+        "economics",
+        "business",
+        "strategy",
+        "unit-economics",
+        "pricing",
+        "tam-sam-som",
+        "elasticity",
+        "moats"
+      ]
+    },
+    {
+      "name": "marketing",
+      "version": "2.0.0",
+      "description": "28 marketing skills — end-to-end brand creation (identity, guidelines, audience, competitors, logo, colour, design tokens, disclaimers, copy) plus end-to-end SEO (keyword research + clustering, SERP & competitor analysis, on-page/technical/CWV audits, backlinks, content briefs, schema + entity modelling, local SEO)",
+      "source": "./marketing",
+      "category": "marketing",
+      "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/marketing",
+      "keywords": [
+        "marketing",
+        "brand",
+        "seo",
+        "keyword-research",
+        "content",
+        "schema",
+        "core-web-vitals",
+        "local-seo",
+        "design-tokens"
+      ]
+    },
+    {
+      "name": "startups",
+      "version": "1.0.0",
+      "description": "70 skills across the full venture-building workflow — venture chassis, customer discovery, Strategyzer value-proposition & business-model canvases, competitor analysis, relationships & channels, prototyping, MVP planning + engineering bridge, and Lean-Startup experimentation",
+      "source": "./startups",
+      "category": "startups",
+      "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/startups",
+      "keywords": [
+        "startups",
+        "venture",
+        "lean-startup",
+        "strategyzer",
+        "customer-development",
+        "mvp",
+        "prototyping"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# keyword-clustering-and-mapping — self-contained engine dependencies.
+# Core (always required):
+pandas>=2.0
+scikit-learn>=1.3
+numpy>=1.26
+nltk>=3.8
+plotly>=5.18
+markdown>=3.5
+
+# Semantic embeddings (mpnet/mini/e5/bge presets). Pulls torch — large first
+# install. The runner degrades to tf-idf automatically if this is absent.
+sentence-transformers>=2.6
+
+# Advanced clustering (hdbscan auto-count, UMAP projection, ANN graph).
+hdbscan>=0.8
+umap-learn>=0.5
+hnswlib>=0.8.0
+
+# Optional static image export of Plotly charts (kept <1.0 to avoid needing a
+# system Chrome install). Not required for the interactive HTML dashboard.
+kaleido<1.0

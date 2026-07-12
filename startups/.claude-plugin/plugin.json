@@ -1,0 +1,36 @@
+{
+  "name": "startups",
+  "version": "1.0.0",
+  "description": "70 skills spanning the full venture-building workflow — venture chassis (scaffolding, status, phase routing, vision, hypotheses, pivot log, handoff), customer discovery, Strategyzer value-proposition & business-model canvases, competitor analysis, customer relationships & channels, prototyping, MVP planning + engineering bridge (architecture, ADRs, API, Supabase RLS, Cloudflare/Vercel deploy, analytics), and Lean-Startup experimentation. Composes on top of the @web-lifter/claude-memex venture profile.",
+  "author": {
+    "name": "John O'Connor",
+    "email": "john@weblifter.com.au",
+    "url": "https://github.com/johnoconnor0"
+  },
+  "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/startups",
+  "repository": "https://github.com/web-lifter/official-business-plugins",
+  "license": "MIT",
+  "keywords": [
+    "startups",
+    "venture",
+    "lean-startup",
+    "strategyzer",
+    "customer-development",
+    "mvp",
+    "prototyping",
+    "business-model-canvas",
+    "value-proposition-canvas"
+  ],
+  "skills": "./skills/",
+  "agents": [
+    "./agents/business-model-orchestrator.md",
+    "./agents/competitor-analysis-orchestrator.md",
+    "./agents/customer-discovery-orchestrator.md",
+    "./agents/experimentation-orchestrator.md",
+    "./agents/mvp-planning-orchestrator.md",
+    "./agents/prototyping-orchestrator.md",
+    "./agents/relationships-channels-orchestrator.md",
+    "./agents/value-proposition-orchestrator.md",
+    "./agents/venture-core-orchestrator.md"
+  ]
+}

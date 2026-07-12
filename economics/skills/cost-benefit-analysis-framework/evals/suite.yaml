@@ -1,0 +1,85 @@
+# Hand-authored on 2026-05-22. Tune judge_criteria as the skill matures.
+
+skill: cost-benefit-analysis-framework
+description: "Eval suite for the cost-benefit-analysis-framework skill"
+
+
+test_cases:
+  - id: activate-positive-canonical
+    kind: activation
+    description: "should fire on a multi-option investment decision request"
+    user_input: "Help me compare three options for replacing our ERP module — build, buy, or partner."
+    expected_activation: true
+
+  - id: activate-positive-paraphrase
+    kind: activation
+    description: "should fire when the user phrases it as an investment decision"
+    user_input: "We have $200k of capital and three projects competing for it. Which one wins?"
+    expected_activation: true
+
+  - id: activate-positive-name-mention
+    kind: activation
+    description: "should fire when the skill is mentioned by name"
+    user_input: "run cost-benefit-analysis-framework on the ERP decision"
+    expected_activation: true
+
+  - id: activate-positive-npv-mention
+    kind: activation
+    description: "should fire when the user asks for NPV-style comparison"
+    user_input: "I need NPV and IRR comparison across our build vs buy options."
+    expected_activation: true
+
+  - id: activate-negative-unrelated
+    kind: activation
+    description: "should NOT fire on unrelated coding question"
+    user_input: "how do I configure SSH key forwarding on Windows?"
+    expected_activation: false
+
+  - id: activate-negative-near-miss-unit-economics
+    kind: activation
+    description: "should NOT fire when the user is asking about unit economics (different skill)"
+    user_input: "What's my LTV:CAC ratio?"
+    expected_activation: false
+
+  - id: activate-negative-pricing
+    kind: activation
+    description: "should NOT fire on pricing-strategy questions"
+    user_input: "Help me design a tiered pricing structure."
+    expected_activation: false
+
+  - id: functional-golden
+    kind: functional
+    description: "produces the comparison report described in examples/"
+    user_input: "Compare three options for replacing our finance ERP — build in-house ($310k year-0, $48k/yr maintenance, savings $35-46k/yr + productivity $60-105k/yr), buy NetSuite ($60k Y0 + $96-112k/yr, savings $50-88k/yr), partner with ISV ($90k Y0 + $72-84k/yr + 15% rev share, savings $55-94k/yr). 5-year horizon, 11% discount rate."
+    expected_outputs:
+      - kind: file_created
+        path_glob: ".project/.economics/reports/cost-benefit-analysis-framework.md"
+      - kind: file_created
+        path_glob: ".project/.economics/reports/cba-outputs.json"
+    judge_criteria:
+      - "Report contains NPV, IRR, payback, profitability index for each option"
+      - "Report contains a qualitative scorecard with the 5 documented dimensions"
+      - "Report contains a sensitivity / tornado table"
+      - "Report contains a recommendation OR an explicit Data Gaps log explaining why a recommendation is withheld"
+      - "No American spellings present in the narrative (color, optimize, behavior, organize, center) — Australian or neutral forms both pass"
+      - "Discount rate is stated explicitly with a rationale"
+      - "Do-nothing baseline is included"
+    timeout_seconds: 360
+
+  - id: edge-empty-input
+    kind: edge-case
+    description: "handles empty input gracefully"
+    user_input: ""
+    expected_error: "empty-argument"
+
+  - id: edge-single-option
+    kind: edge-case
+    description: "halts when only one option is provided"
+    user_input: "Should we buy NetSuite?"
+    expected_error: "insufficient-options"
+
+  - id: edge-no-discount-rate
+    kind: edge-case
+    description: "elicits discount rate rather than assuming"
+    user_input: "Compare $200k investment in marketing vs $200k investment in product. 3-year payoff."
+    expected_error: "missing-discount-rate-or-elicits"

@@ -1,0 +1,27 @@
+{
+  "name": "data-science",
+  "version": "2.0.0",
+  "description": "9 data-science skills — dataset profiling & quality audit, data-dictionary generation, data-pipeline architecture, cohort analysis, anomaly-detection rule building, A/B test design, experiment readouts, forecasting model specs, and causal-impact analysis",
+  "author": {
+    "name": "John O'Connor",
+    "email": "john@weblifter.com.au",
+    "url": "https://github.com/johnoconnor0"
+  },
+  "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/data-science",
+  "repository": "https://github.com/web-lifter/official-business-plugins",
+  "license": "MIT",
+  "keywords": [
+    "data-science",
+    "data-analysis",
+    "experimentation",
+    "ab-testing",
+    "forecasting",
+    "causal-inference",
+    "cohort-analysis",
+    "anomaly-detection"
+  ],
+  "skills": "./skills/",
+  "agents": [
+    "./skills/ab-test-designer/agents/stats-reviewer.md"
+  ]
+}
