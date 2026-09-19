@@ -29,4 +29,4 @@
 
 Without the Cloudflare MCP the account-state section is marked "MCP unavailable — resource IDs TBD" and the user runs the listed `wrangler` commands manually.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

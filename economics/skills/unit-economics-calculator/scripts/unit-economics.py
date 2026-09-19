@@ -10,15 +10,22 @@ Usage:
 """
 
 import argparse
+import math
 import sys
 
 
 def calculate_unit_economics(arpu: float, cogs: float, cac: float,
                               monthly_churn: float, gross_margin_override: float | None) -> dict:
     """Calculate unit economics from inputs."""
-    if monthly_churn <= 0:
-        print("Error: Churn rate must be greater than 0.", file=sys.stderr)
-        sys.exit(1)
+    values = [arpu, cogs, cac, monthly_churn]
+    if gross_margin_override is not None:
+        values.append(gross_margin_override)
+    if not all(math.isfinite(v) for v in values):
+        raise ValueError("inputs must be finite")
+    if arpu <= 0 or cogs < 0 or cac < 0 or not 0 < monthly_churn <= 100:
+        raise ValueError("ARPU must be positive, costs non-negative, and monthly churn in (0,100]")
+    if gross_margin_override is not None and not 0 <= gross_margin_override <= 100:
+        raise ValueError("gross margin override must be in [0,100]")
 
     gross_margin_pct = gross_margin_override if gross_margin_override is not None else ((arpu - cogs) / arpu * 100)
     gross_profit = arpu * (gross_margin_pct / 100)
@@ -92,7 +99,7 @@ def print_report(metrics: dict) -> None:
     print(f"  Contribution margin/mo:  ${metrics['contribution_margin']:>10,.2f}")
     print()
     print("-" * 55)
-    print("  HEALTH ASSESSMENT")
+    print("  ILLUSTRATIVE HEURISTICS (not universal benchmarks)")
     print("-" * 55)
     for note in assess_health(metrics):
         print(f"  {note}")
@@ -109,7 +116,10 @@ def main() -> None:
                         help="Override gross margin percent instead of computing from ARPU/COGS")
     args = parser.parse_args()
 
-    metrics = calculate_unit_economics(args.arpu, args.cogs, args.cac, args.churn, args.gross_margin_override)
+    try:
+        metrics = calculate_unit_economics(args.arpu, args.cogs, args.cac, args.churn, args.gross_margin_override)
+    except ValueError as exc:
+        parser.error(str(exc))
     print_report(metrics)
 
 

@@ -1,10 +1,15 @@
 ---
 name: venture-status
 description: Print a human-readable snapshot of the current venture — phase, hypothesis tallies (open/accepted/refuted), interviews logged per segment, BMC version, outstanding test cards, recent log activity. Read-only — never mutates state.
-argument-hint: [optional segment-slug to filter]
+argument-hint: "[optional segment-slug to filter]"
 allowed-tools: Read Glob Grep Bash
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # venture-status
 
@@ -27,11 +32,9 @@ where relevant; otherwise produce a venture-wide report.
 
 **Objective:** Don't run on the wrong directory.
 
-1. Check `memex.config.json` exists in the cwd and has `profile ==
-   "venture"`. If not, abort with the message `not a venture workspace —
-   run /venture-init first`.
-2. Read `.memex/index.md` head (first 50 lines).
-3. Read the tail of `.memex/log.md` (last 20 entries via `grep '^## \['`
+1. Resolve the verified venture root using `../../RUNTIME.md`. If no workspace or supplied dossier is available, state that and recommend `venture-init`.
+2. Read `index.md` head (first 50 lines).
+3. Read the tail of `log.md` (last 20 entries via `grep '^## \['`
    then take the last 20).
 
 ---
@@ -56,7 +59,7 @@ The report has these sections in this order:
 5. **Test cards** — count by status (`open` / `concluded`).
 6. **Learning cards** — count and the most recent one's title.
 7. **VPCs** — for each segment, the latest VPC version and its fit
-   status (`fit` if all prioritised pains/gains have relievers/creators,
+   coverage (`mapped` if all prioritised pains/gains have relievers/creators,
    `partial` otherwise).
 8. **BMC** — current version number, status of each cell (`hypothesis`
    vs `fact`).
@@ -69,7 +72,7 @@ The report has these sections in this order:
 12. **Prototypes** — counts under `08-prototype/{paper,digital,feedback}/`.
 13. **MVP** — does `09-mvp/mvp-spec.md` exist? metrics? tech-stack? ADR
     count? schema? deploy plans? analytics? feasibility?
-14. **Open questions** — count under `.memex/.open-questions/` (excluding
+14. **Open questions** — count under `.open-questions/` (excluding
     `README.md`).
 15. **Recent activity** — last 5 entries from `log.md`.
 16. **Suggested next actions** — call out the obvious gap (e.g. "no

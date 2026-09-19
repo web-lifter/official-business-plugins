@@ -1,6 +1,6 @@
 # phase-router — references
 
-The routing rules encoded in this skill match the four-step customer-development model. See [`startups/SOURCES.md`](../../../SOURCES.md) for the underlying citations.
+The routing rules encoded in this skill match the four-step customer-development model. See [Startups sources](../../SOURCES.md) for the underlying citations.
 
 ## The four-step model
 

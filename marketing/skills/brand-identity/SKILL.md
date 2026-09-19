@@ -1,10 +1,15 @@
 ---
 name: brand-identity
 description: Generate core brand identity — mission, vision, values, voice, tone, and personality framework — producing a foundational brand identity document grounded in archetypes
-argument-hint: [business-description-or-context]
+argument-hint: "[business-description-or-context]"
 allowed-tools: Read Write Edit Grep Glob
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Brand Identity
 

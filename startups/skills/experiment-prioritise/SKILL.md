@@ -1,10 +1,15 @@
 ---
 name: experiment-prioritise
 description: Rank open hypotheses by risk × impact × ease-of-test with the formula explicit. Outputs a ranked list of what to test next. Read-only.
-argument-hint: [optional: --segment=<slug> or --cell=<bmc-cell>]
+argument-hint: "[optional: --segment=<slug> or --cell=<bmc-cell>]"
 allowed-tools: Read Glob Grep
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # experiment-prioritise
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `01-hypotheses/hypothesis-register.md`. Filter to `open`
    hypotheses. Apply optional segment / cell filter.
 3. Read existing test cards to identify already-tested hypotheses.

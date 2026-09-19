@@ -1,10 +1,15 @@
 ---
 name: ab-test-designer
 description: Design rigorous A/B/n experiments — hypothesis, power analysis, MDE, randomisation unit, guardrails, decision criteria — and route to stats-reviewer for peer-review.
-argument-hint: [hypothesis-and-context]
+argument-hint: "[hypothesis-and-context]"
 allowed-tools: Read Write Edit Bash(python:${CLAUDE_PLUGIN_ROOT}/scripts/power-calc.py) Agent AskUserQuestion
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # A/B Test Designer
 ultrathink

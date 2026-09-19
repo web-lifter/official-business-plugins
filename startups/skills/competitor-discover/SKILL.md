@@ -1,10 +1,15 @@
 ---
 name: competitor-discover
 description: Surface competitors across five sources — direct, indirect, substitutes, current workaround, do-nothing. Web-search required; cite every competitor with a URL.
-argument-hint: [optional: --segment=<slug>]
+argument-hint: "[optional: --segment=<slug>]"
 allowed-tools: Read Write Edit Glob Grep WebSearch
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # competitor-discover
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read primary segment profile, latest VPC, BMC value-propositions
    cell. These ground the search terms.
 

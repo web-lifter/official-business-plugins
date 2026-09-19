@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # divergent-ideate
 
 Methodology: the design-thinking diverge/converge loop. See `references.md` for the underlying literature (SCAMPER, IDEO).
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read context — segment profiles, latest VPC, latest BMC,
    competitor insights. These ground the ideation but should not
    constrain it.

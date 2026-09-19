@@ -1,10 +1,15 @@
 ---
 name: bmc-link-vpc
 description: Link each VPC to the segment + value-propositions cell of the latest BMC. Adds bidirectional links so the VPC and BMC stay in sync. Read-mostly — only adds links; never replaces cell content.
-argument-hint: [optional: vpc-segment-slug to link only one]
+argument-hint: "[optional: vpc-segment-slug to link only one]"
 allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # bmc-link-vpc
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Find the latest BMC and all latest VPCs (one per segment).
 
 ## Phase 2: For each VPC

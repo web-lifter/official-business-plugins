@@ -1,7 +1,7 @@
 ---
 name: serp-analysis
 description: Analyse a single query's SERP — features present, top-10 organic results, content-format mix, intent, and concrete ranking opportunity recommendations.
-argument-hint: [query-and-region]
+argument-hint: "[query-and-region]"
 allowed-tools: Read Write Bash(curl *)
 # Tool justification:
 #   Read         — read any local query brief or prior SERP snapshot supplied by the user
@@ -11,6 +11,11 @@ effort: medium
 # agent rationale: serp-analyst persona governs intent + ranking-opportunity interpretation
 agent: serp-analyst
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # SERP Analysis
 ultrathink

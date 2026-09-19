@@ -1,10 +1,15 @@
 ---
 name: internal-linking-planner
 description: Build an internal link plan from a sitemap or URL list — producing a hub-and-spoke topology, authority scores, and a prioritised link-recommendation table.
-argument-hint: [sitemap-or-url-list]
+argument-hint: "[sitemap-or-url-list]"
 allowed-tools: Read Write Bash
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Internal Linking Planner
 

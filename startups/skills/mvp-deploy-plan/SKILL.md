@@ -1,59 +1,31 @@
 ---
 name: mvp-deploy-plan
-description: Produce the deployment plan. Delegates to vercel-deploy-plan and cloudflare-deploy-plan. Thin orchestrator.
-argument-hint: [no args]
-allowed-tools: Read Write Edit Glob Grep
+description: "Plan deployment for the selected MVP stack, including Vercel or Cloudflare where applicable. Do not provision or deploy."
+argument-hint: "[selected stack or venture]"
+allowed-tools: Read Write Edit Glob Grep Bash
 effort: medium
 ---
 
 # mvp-deploy-plan
 
-Idempotency: safe to re-run; thin orchestrator. Re-running re-invokes the sub-skills, each of which rewrites its own file.
+## Runtime preflight
 
-Delegation chain: calls `/vercel-deploy-plan` then `/cloudflare-deploy-plan` based on what is in `tech-stack.md`, then cross-checks the two outputs.
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
 
 ## User Context
 
 $ARGUMENTS
 
-## Phase 1: Pre-flight
+## Phase 1: Read constraints
 
-1. Verify venture profile.
-2. Read `tech-stack.md`, `architecture-overview.md`. Halt if missing.
+Resolve the venture workspace and read `09-mvp/tech-stack.md`, architecture, schema/migration plan, traffic expectations, data residency, budget and rollback requirements. Do not assume any provider is required. See [connector confirmation](../../references/connector-confirmation.md).
 
-## Phase 2: Decide which sub-plans to run
+## Phase 2: Produce provider plans
 
-Check the tech stack for which platforms apply:
+For Cloudflare, load the bundled `cloudflare-deploy-plan` workflow when relevant. For Vercel, write `09-mvp/deploy/vercel.md` directly: project/root directory, runtime/framework version to verify, build/output settings, preview/staging/production separation, environment variable names (never values), domains/DNS, database connectivity, migration sequence, observability, smoke checks and rollback. Verify current provider limits using official documentation when available; otherwise label them unverified.
 
-- Vercel in stack → run `/vercel-deploy-plan`
-- Cloudflare in stack → run `/cloudflare-deploy-plan`
-- Both → run both in sequence
+For another host, use the same requirements-based plan and explain the provider-specific verification still needed. There is no bundled `vercel-deploy-plan` skill; do not invoke a nonexistent command. A missing optional connector does not prevent a plan from supplied evidence.
 
-## Phase 3: Sequenced delegation
+## Phase 3: Cross-check and deliver
 
-1. `/vercel-deploy-plan` (if applicable) → produces
-   `09-mvp/deploy/vercel.md`.
-2. `/cloudflare-deploy-plan` (if applicable) → produces
-   `09-mvp/deploy/cloudflare.md`.
-
-## Phase 4: Cross-check
-
-- Env vars listed in Vercel match env vars referenced in Cloudflare
-  bindings.
-- DNS / domain plan is consistent across both.
-- Observability hooks don't double-up.
-
-## Phase 5: Cascade
-
-Recommend `/mvp-feasibility` next.
-
-## Phase 6: Log
-
-Append: `## [<today>] mvp-deploy-plan | written`.
-
-## Important principles
-
-- **Thin.** Delegate to sub-skills.
-- **Plan, never deploy.** Reaffirmed in every sub-skill.
-- **Cross-check matters.** Misconfigured env vars across platforms
-  cause silent failures.
+Check domain ownership, TLS termination, environment alignment, secrets ownership, stateful dependencies, costs and rollback ordering across providers. Avoid duplicate hosting services without a stated requirement. Produce the [deployment summary](templates/output-template.md), individual provider plans and explicit open questions. Do not mutate resources, execute migrations or deploy as part of planning.

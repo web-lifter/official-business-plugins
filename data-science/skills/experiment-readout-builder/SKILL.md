@@ -1,10 +1,15 @@
 ---
 name: experiment-readout-builder
 description: Analyse A/B test results — significance, CIs, segment cuts, novelty/primacy check, SRM, decision matrix application, and follow-up experiments.
-argument-hint: [results-data-or-csv]
+argument-hint: "[results-data-or-csv]"
 allowed-tools: Read Write Edit Bash(python:*) Agent AskUserQuestion
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Experiment Readout Builder
 ultrathink

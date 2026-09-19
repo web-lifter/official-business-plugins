@@ -1,10 +1,15 @@
 ---
 name: break-even-scenario-modeller
 description: Model break-even under multiple scenarios — sensitivity to price, volume, and cost — with CVP graph spec and runway-impact analysis.
-argument-hint: [financials-and-scenarios]
+argument-hint: "[financials-and-scenarios]"
 allowed-tools: Read Write Edit Bash(python:${CLAUDE_PLUGIN_ROOT}/scripts/cvp-calc.py) AskUserQuestion
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Break-Even Scenario Modeller
 ultrathink

@@ -1,6 +1,6 @@
 {
   "name": "data-science",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "9 data-science skills — dataset profiling & quality audit, data-dictionary generation, data-pipeline architecture, cohort analysis, anomaly-detection rule building, A/B test design, experiment readouts, forecasting model specs, and causal-impact analysis",
   "author": {
     "name": "John O'Connor",

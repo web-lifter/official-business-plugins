@@ -1,43 +1,23 @@
----
-title: Churn model
-slug: churn-model
-type: funnel
-status: active
-owner: {{venture_name}}
-created: {{date}}
-updated: {{date}}
----
-
 # Churn model
 
-Source funnel: [funnel-model.md](funnel-model.md)
-Anchor monthly retention rate: {{rate}}%
-Implied monthly churn: {{churn}}%
+Inputs and evidence: {{rate, period, source, measured or assumed}}
+Definitions: r = retention; c = 1-r. Survival = r**n; mean paid periods = 1/c.
 
-## Sensitivity table
+| Monthly retention | Monthly churn | Annual retention | Mean lifetime (months) |
+|---|---|---|---|
+| {{r}} | {{c}} | {{r**12}} | {{1/c or unbounded}} |
 
-| Monthly retention | Monthly churn | Annual retention | Avg lifetime (mo) |
-|-------------------|---------------|------------------|-------------------|
-| {{r}}             | {{c}}         | {{annual}}       | {{lifetime}}      |
+## Cohort and sensitivity
 
-## Cohort decay (anchor rate)
+{{Shares after 1, 3, 6, 12 and 24 months; valid anchor +/-5pp cases.}}
 
-| Month | Cohort still active |
-|-------|---------------------|
-| 1     | {{pct}}             |
-| 3     | {{pct}}             |
-| 6     | {{pct}}             |
-| 12    | {{pct}}             |
-| 24    | {{pct}}             |
+## Economics, where inputs exist
 
-## Interpretation
+Gross profit/month = ARPU * gross-margin fraction.
+Contribution LTV = gross profit/month / churn.
+Payback months = CAC / gross profit/month.
+LTV:CAC = contribution LTV / CAC, where CAC > 0.
 
-- Average customer lifetime: {{X}} months
-- Cohort still here at 12 months: {{pct}}%
-- ±5pp sensitivity: {{range}}
+## Limitations and next evidence
 
-## Implications for unit economics
-
-- LTV ≈ price × {{X}}
-- CAC payback target: < {{months}}
-- Hand off to `business-economics/unit-economics` for rigorous LTV/CAC.
+{{Constant-rate assumptions, data gaps, uncertainty and finite horizon.}}

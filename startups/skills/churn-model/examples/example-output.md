@@ -1,71 +1,40 @@
----
-title: Churn model
-slug: churn-model
-type: funnel
-status: active
-owner: ContractIQ
-created: 2026-05-21
-updated: 2026-05-21
----
+# Illustrative churn model: ContractIQ
 
-# Churn model
+Assumed monthly retention: 94%; churn: 6%. These are hypothetical scenario inputs, not observed Australian SaaS benchmarks or validated venture results.
 
-Source funnel: [funnel-model.md](funnel-model.md)
-**Anchor monthly retention rate: 94%** (i.e. 6% monthly churn — the working assumption for a pre-PMF AU mid-market B2B SaaS targeting in-house legal teams).
+| Monthly retention | Monthly churn | Annual retention | Mean paid periods (months) |
+|---|---|---|---|
+| 50% | 50% | 0.0% | 2.0 |
+| 60% | 40% | 0.2% | 2.5 |
+| 70% | 30% | 1.4% | 3.3 |
+| 80% | 20% | 6.9% | 5.0 |
+| 85% | 15% | 14.2% | 6.7 |
+| 90% | 10% | 28.2% | 10.0 |
+| 92% | 8% | 36.8% | 12.5 |
+| 94% | 6% | 47.6% | 16.7 |
+| 95% | 5% | 54.0% | 20.0 |
+| 97% | 3% | 69.4% | 33.3 |
+| 99% | 1% | 88.6% | 100.0 |
 
-The 6%-monthly figure sits at the high end of SaaS gross-churn benchmarks for that segment; we will revalidate once 5+ paying logos have ≥ 3 months of data.
+## Anchor cohort
 
-## Sensitivity table
+Using r = 0.94 and survival r**n:
 
-| Monthly retention (r) | Monthly churn (1−r) | Annual retention r^12 | Avg lifetime 1/(1−r) (months) |
-|-----------------------|---------------------|-----------------------|-------------------------------|
-| 50%                   | 50%                 | 0.0%                  | 2.0                           |
-| 70%                   | 30%                 | 1.4%                  | 3.3                           |
-| 80%                   | 20%                 | 6.9%                  | 5.0                           |
-| 85%                   | 15%                 | 14.2%                 | 6.7                           |
-| 90%                   | 10%                 | 28.2%                 | 10.0                          |
-| 92%                   | 8%                  | 36.8%                 | 12.5                          |
-| **94% (anchor)**      | **6%**              | **47.7%**             | **16.7**                      |
-| 95%                   | 5%                  | 54.0%                 | 20.0                          |
-| 97%                   | 3%                  | 69.4%                 | 33.3                          |
-| 99%                   | 1%                  | 88.6%                 | 100.0                         |
+| Month | Cohort still active |
+|---|---|
+| 0 | 100.0% |
+| 1 | 94.0% |
+| 3 | 83.1% |
+| 6 | 69.0% |
+| 12 | 47.6% |
+| 24 | 22.7% |
 
-## Cohort decay at 94% monthly retention
+Average lifetime is 16.6667 months before rounding. At 89% retention it is 9.0909 months; at 99% it is 100 months. This sensitivity makes the high-retention forecast fragile.
 
-Using `(1 − r)^n` where r = 0.06 (the churn rate):
+## Contribution economics
 
-| Month | Cohort still active | Calculation |
-|-------|---------------------|-------------|
-| 0     | 100.0%              | (0.94)^0    |
-| 1     | 94.0%               | (0.94)^1    |
-| 2     | 88.4%               | (0.94)^2    |
-| 3     | 83.1%               | (0.94)^3    |
-| 6     | 69.0%               | (0.94)^6    |
-| 9     | 57.3%               | (0.94)^9    |
-| 12    | 47.6%               | (0.94)^12   |
-| 15    | 39.5%               | (0.94)^15   |
-| 18    | 32.8%               | (0.94)^18   |
-| 21    | 27.3%               | (0.94)^21   |
-| 24    | 22.7%               | (0.94)^24   |
+Assumed ARPU AU$300/month, gross margin 85%, CAC AU$1,800:
 
-After 24 months, ~23% of a starting cohort remains at the 6% monthly churn assumption.
+Gross profit/month = AU$255. Contribution LTV = 255 / 0.06 = **AU$4,250**. LTV:CAC = **2.36x**. CAC payback = 1,800 / 255 = **7.06 months**. Revenue LTV before costs is AU$5,000, not the value used in the contribution ratio. No generic benchmark establishes that these economics are viable for this venture.
 
-## Interpretation
-
-- **Average customer lifetime:** 16.7 months (≈ 1.4 years).
-- **Cohort still active at 12 months:** 47.6%.
-- **±5pp sensitivity:**
-  - Drop to 89% retention (11% churn) → lifetime falls to 9.1 months (−7.6 months).
-  - Rise to 99% retention (1% churn) → lifetime rises to 100 months (+83.3 months).
-  - The high-retention end of the curve is enormously sensitive; SaaS unit economics live or die in the 95%–99% band.
-
-## Implications for unit economics
-
-- **LTV at AU$300/seat/month, 16.7-month average lifetime:** ≈ AU$5,010 per seat (before gross-margin adjustment). Apply ~85% gross margin → contribution LTV ≈ AU$4,260.
-- **CAC payback target:** under 6 months. At a target CAC of AU$1,800 per seat (≈ 6 months of revenue), the LTV/CAC ratio is ~2.8x — below the 3x SaaS rule of thumb, so we should either (a) get CAC under AU$1,500 via referrals, or (b) lift retention to 96%+ via Keep-stage investment.
-- Hand off to `business-economics/unit-economics` for a rigorous LTV/CAC with gross-margin and CAC-payback breakdown.
-
-## Notes
-
-- The 6% baseline came from public commentary on AU SaaS mid-market churn (Skok benchmarks adapted to the local market); refine with our own data after Q2 2026.
-- Annual retention `r^12` is conservative; real cohorts often see front-loaded churn in months 1–3, then a plateau. We will track this once we have ≥ 6 monthly cohorts.
+This flat-rate model ignores changing retention, expansion, discounting and censoring. Replace assumptions with observed cohort data; the model is not necessarily conservative.

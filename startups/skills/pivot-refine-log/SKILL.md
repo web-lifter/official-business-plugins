@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # pivot-refine-log
 
 Idempotency: append-only. Each invocation produces a new dated entry; existing entries are never modified.
@@ -13,7 +18,7 @@ Idempotency: append-only. Each invocation produces a new dated entry; existing e
 Records every pivot or refine decision so the customer-development loop
 is auditable. Append-only — entries never get edited after the fact.
 
-Method: Steve Blank's verify / pivot / refine discipline from the customer-development model (*The Four Steps to the Epiphany*; *The Startup Owner's Manual*). See `startups/SOURCES.md`.
+Method: Steve Blank's verify / pivot / refine discipline from the customer-development model (*The Four Steps to the Epiphany*; *The Startup Owner's Manual*). See [Startups sources](../../SOURCES.md).
 
 ## User Context
 
@@ -29,10 +34,10 @@ summary. If absent, prompt via `AskUserQuestion`.
 **Objective:** Validate the entry type and confirm we have something
 substantive to log.
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify the user explicitly chose `pivot` or `refine`. If they're not
    sure, surface the rule from
-   `claude-memex/templates/profiles/venture/.memex/.rules/pivot-refine-rules.md`:
+   [the local runtime contract](../../RUNTIME.md):
    pivot = change a core element of the model, keep another. Refine =
    tweak the same model. If they can't tell, it's almost certainly a
    refine.

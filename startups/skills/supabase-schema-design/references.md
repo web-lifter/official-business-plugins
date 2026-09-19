@@ -32,4 +32,4 @@
 
 Without the Supabase MCP the plan is docs-only; the user applies the SQL via `supabase db push` or the dashboard SQL editor. Phase 6 (gated apply) is skipped.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

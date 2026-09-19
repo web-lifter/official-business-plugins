@@ -4,7 +4,7 @@ cba-calculator.py — Cost-Benefit Analysis calculation engine.
 
 Reads a JSON deck of options with year-by-year signed cashflows and a discount
 rate; emits NPV, IRR, payback, discounted payback, profitability index, and
-benefit-cost ratio per option.
+net-flow ratio per option. Gross benefit-cost ratio requires separate gross streams.
 
 Input schema (see SKILL.md Phase 2):
 
@@ -55,7 +55,7 @@ def npv(rate: float, cashflows: list[float]) -> float:
 
 
 def irr(cashflows: list[float], guess: float = 0.1) -> float | None:
-    """Bisection IRR. Returns None when no sign change (pure outflow / inflow)."""
+    """Find one IRR in [-0.99, 10]; None is inconclusive outside this bracket."""
     has_positive = any(cf > 0 for cf in cashflows)
     has_negative = any(cf < 0 for cf in cashflows)
     if not (has_positive and has_negative):
@@ -64,6 +64,10 @@ def irr(cashflows: list[float], guess: float = 0.1) -> float | None:
     lo, hi = -0.99, 10.0
     f_lo = npv(lo, cashflows)
     f_hi = npv(hi, cashflows)
+    if f_lo == 0:
+        return lo
+    if f_hi == 0:
+        return hi
     if f_lo * f_hi > 0:
         return None
 
@@ -82,6 +86,8 @@ def irr(cashflows: list[float], guess: float = 0.1) -> float | None:
 
 
 def payback(cashflows: list[float]) -> float | None:
+    if cashflows and cashflows[0] >= 0:
+        return 0.0
     cum = 0.0
     for t, cf in enumerate(cashflows):
         prev = cum
@@ -92,6 +98,8 @@ def payback(cashflows: list[float]) -> float | None:
 
 
 def discounted_payback(rate: float, cashflows: list[float]) -> float | None:
+    if cashflows and cashflows[0] >= 0:
+        return 0.0
     cum = 0.0
     for t, cf in enumerate(cashflows):
         prev = cum
@@ -115,12 +123,16 @@ def pv_split(rate: float, cashflows: list[float]) -> tuple[float, float]:
 
 
 def evaluate_option(name: str, cashflows: list[float], rate: float) -> dict:
+    if not math.isfinite(rate) or rate <= -1:
+        raise ValueError("discount rate must be finite and greater than -1")
+    if not cashflows or not all(math.isfinite(cf) for cf in cashflows):
+        raise ValueError("cashflows must contain finite numbers")
     notes: list[str] = []
 
     v_npv = npv(rate, cashflows)
     v_irr = irr(cashflows)
     if v_irr is None:
-        notes.append("IRR undefined — cashflows do not change sign.")
+        notes.append("IRR not resolved by the finite bracket; it may be absent or non-unique. Do not infer no sign changes.")
 
     v_payback = payback(cashflows)
     if v_payback is None:
@@ -131,8 +143,11 @@ def evaluate_option(name: str, cashflows: list[float], rate: float) -> dict:
         notes.append("Discounted payback never reached within horizon.")
 
     pv_cost, pv_benefit = pv_split(rate, cashflows)
-    pi = (pv_benefit / pv_cost) if pv_cost > 0 else None
-    bcr = pi  # identical under this decomposition; both reported for audience clarity
+    net_flow_ratio = (pv_benefit / pv_cost) if pv_cost > 0 else None
+    initial_outlay = -cashflows[0] if cashflows[0] < 0 else 0
+    pi = (v_npv + initial_outlay) / initial_outlay if initial_outlay else None
+    bcr = None
+    notes.append("Gross benefit-cost ratio requires separate benefit and cost streams; signed net cashflows alone are insufficient. net_flow_ratio is a different measure.")
 
     total_cost = sum(-cf for cf in cashflows if cf < 0)
     total_benefit = sum(cf for cf in cashflows if cf > 0)
@@ -144,7 +159,8 @@ def evaluate_option(name: str, cashflows: list[float], rate: float) -> dict:
         "payback_years": round(v_payback, 3) if v_payback is not None else None,
         "discounted_payback_years": round(v_dpayback, 3) if v_dpayback is not None else None,
         "profitability_index": round(pi, 4) if pi is not None else None,
-        "benefit_cost_ratio": round(bcr, 4) if bcr is not None else None,
+        "benefit_cost_ratio": bcr,
+        "net_flow_ratio": round(net_flow_ratio, 4) if net_flow_ratio is not None else None,
         "total_nominal_cost": round(total_cost, 2),
         "total_nominal_benefit": round(total_benefit, 2),
         "notes": notes,
@@ -170,6 +186,9 @@ def main() -> int:
         print(f"error=invalid-json detail={exc}", file=sys.stderr)
         return 2
 
+    if not isinstance(deck, dict):
+        print("error=invalid-input detail=deck must be an object", file=sys.stderr)
+        return 2
     rate = deck.get("discount_rate")
     options = deck.get("options")
     if rate is None or not isinstance(options, list) or not options:
@@ -181,7 +200,7 @@ def main() -> int:
             evaluate_option(opt["name"], [float(cf) for cf in opt["cashflows"]], float(rate))
             for opt in options
         ]
-    except (KeyError, TypeError, ValueError) as exc:
+    except (KeyError, TypeError, ValueError, OverflowError, ZeroDivisionError) as exc:
         print(f"error=invalid-option detail={exc}", file=sys.stderr)
         return 2
 
@@ -193,8 +212,8 @@ def main() -> int:
     }
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    print(json.dumps(payload, indent=2))
+    output_path.write_text(json.dumps(payload, indent=2, allow_nan=False), encoding="utf-8")
+    print(json.dumps(payload, indent=2, allow_nan=False))
     return 0
 
 

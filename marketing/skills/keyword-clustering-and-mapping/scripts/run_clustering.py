@@ -12,7 +12,7 @@ Replaces the external ``keyword-cluster`` CLI. Imports the engine vendored under
 - Page-type & intent-aware mapping (engine), opportunity-matrix fix (engine), and
   a single offline ``dashboard.html`` (via build_dashboard.py).
 
-Everything runs locally with Python — no CLI, no network API.
+The engine runs locally with Python. Optional semantic models and NLTK resources may require explicit downloads; do not assume an offline first run.
 
 Example:
     python run_clustering.py \
@@ -57,15 +57,21 @@ _MODE_ALIASES = {
 
 
 def _load_exclusions(focus_file: str | None) -> list[str]:
-    if not focus_file or not os.path.exists(focus_file):
+    if not focus_file:
         return []
+    if not os.path.isfile(focus_file):
+        raise ValueError("focus file does not exist")
     try:
         with open(focus_file, encoding="utf-8") as f:
             data = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        return []
+    except (json.JSONDecodeError, OSError) as exc:
+        raise ValueError("focus file must be readable JSON") from exc
+    if not isinstance(data, dict):
+        raise ValueError("focus file must contain an object")
     terms = data.get("exclude") or data.get("exclusions") or []
-    return [str(t).strip().lower() for t in terms if str(t).strip()]
+    if not isinstance(terms, list) or any(not isinstance(t, str) for t in terms):
+        raise ValueError("focus exclusions must be a list of strings")
+    return [t.strip().lower() for t in terms if t.strip()]
 
 
 def _apply_exclusions(df: pd.DataFrame, terms: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -130,12 +136,12 @@ def main() -> None:
     p.add_argument("--auto-k", dest="auto_k", default="silhouette", choices=["none", "silhouette"])
     p.add_argument("--similarity", default="semantic", choices=["semantic", "tfidf", "hybrid"])
     p.add_argument("--embedding-model", dest="embedding_model", default="mpnet")
-    p.add_argument("--mode", default="optimise_expand", help="optimise_only | optimise_expand | greenfield")
+    p.add_argument("--mode", choices=sorted(_MODE_ALIASES), default="optimise_expand", help="optimise_only | optimise_expand | greenfield")
     p.add_argument("--focus-file", dest="focus_file", default=None, help="focus.json with an 'exclude' list.")
     p.add_argument("--no-dashboard", dest="no_dashboard", action="store_true")
     ns = p.parse_args()
 
-    mode = _MODE_ALIASES.get(str(ns.mode).strip().lower(), "optimise_expand")
+    mode = _MODE_ALIASES[ns.mode]
     os.makedirs(ns.output, exist_ok=True)
 
     # Degrade gracefully if semantic deps are unavailable.

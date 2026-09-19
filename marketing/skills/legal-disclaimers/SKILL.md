@@ -1,10 +1,15 @@
 ---
 name: legal-disclaimers
 description: Generate legal disclaimers, privacy notices, cookie banners, and terms-of-service templates customised for industry, jurisdiction, and use case
-argument-hint: [business-type-and-jurisdiction]
+argument-hint: "[business-type-and-jurisdiction]"
 allowed-tools: Read Write Edit Grep Glob
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Legal Disclaimers
 

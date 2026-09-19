@@ -1,10 +1,15 @@
 ---
 name: keyword-research
 description: Expand seed terms into a prioritised keyword set with intent classification, volume, difficulty, and parent-topic grouping — ready for clustering or content planning.
-argument-hint: [seed-terms-and-market]
+argument-hint: "[seed-terms-and-market]"
 allowed-tools: Read Write
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Keyword Research
 ultrathink

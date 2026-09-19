@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # test-card-build
 
 Builds the five-part test card from Strategyzer's *Value Proposition Design* (Osterwalder, Pigneur, Bernarda & Smith, 2014). Refuses to write a test card on a hypothesis that fails `/hypothesis-falsifiability-check`. See `references.md`.
@@ -22,7 +27,7 @@ fake door, A/B, Wizard of Oz).
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the hypothesis row from
    `01-hypotheses/hypothesis-register.md`.
 3. Verify it passes

@@ -1,0 +1,65 @@
+{
+  "name": "official-business-plugins",
+  "plugins": [
+    {
+      "name": "business-operations",
+      "source": {
+        "source": "local",
+        "path": "./business-operations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "data-science",
+      "source": {
+        "source": "local",
+        "path": "./data-science"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "economics",
+      "source": {
+        "source": "local",
+        "path": "./economics"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "marketing",
+      "source": {
+        "source": "local",
+        "path": "./marketing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "startups",
+      "source": {
+        "source": "local",
+        "path": "./startups"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

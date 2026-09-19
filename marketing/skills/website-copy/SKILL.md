@@ -1,10 +1,15 @@
 ---
 name: website-copy
 description: Generate website copy for homepage, about, features, pricing, and contact pages aligned to brand voice — SEO-aware, conversion-focused, with meta descriptions and CTAs
-argument-hint: [brand-spec-and-pages-needed]
+argument-hint: "[brand-spec-and-pages-needed]"
 allowed-tools: Read Write Edit Grep Glob
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Website Copy
 

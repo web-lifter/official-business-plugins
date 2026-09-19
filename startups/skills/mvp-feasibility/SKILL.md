@@ -1,10 +1,15 @@
 ---
 name: mvp-feasibility
 description: Surface technical, regulatory, and resource feasibility risks. Reads outputs of mvp-tech-plan, mvp-schema-plan, mvp-deploy-plan plus optional Supabase/Cloudflare MCP quota probes. Writes 09-mvp/feasibility.md.
-argument-hint: [no args]
+argument-hint: "[no args]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # mvp-feasibility
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `mvp-spec.md`, `tech-stack.md`, `architecture-overview.md`,
    `schema/migrations-plan.md`, `deploy/vercel.md`,
    `deploy/cloudflare.md`, `analytics/events-spec.md`.

@@ -11,7 +11,7 @@ updated: 2026-05-21
 # Revenue / cost sketch — BMC v1
 
 This is a sketch, not a financial model. Pre-revenue, pre-MVP. Brackets
-only. Run `business-economics/unit-economics` once we have a paid
+only. Run `economics:unit-economics-calculator` once we have a paid
 pilot, a month of Anthropic billing, and a real go-to-market plan.
 
 ## Revenue
@@ -65,5 +65,5 @@ the market.
 - **H-007** (proposed, fixed costs): External counsel rubric review can be quarterly (not monthly) without classifier drift. Falsifier: precision drops > 5% between quarterly reviews on the held-out test set.
 
 When ≥ 1 paid pilot is live and Anthropic billing is real, hand off to
-`business-economics/unit-economics` for the modelled view; this sketch
+`economics:unit-economics-calculator` for the modelled view; this sketch
 should be linked from there.

@@ -1,6 +1,6 @@
 # six-ways-to-innovate — references
 
-The six lenses this skill applies come from Strategyzer. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The six lenses this skill applies come from Strategyzer. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## The six lenses
 

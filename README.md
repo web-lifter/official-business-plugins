@@ -1,73 +1,94 @@
-# Web Lifter — Official Business Plugins
+# Web Lifter - Official Business Plugins
 
-The Web Lifter **business** plugin marketplace for Claude Code.
+Business workflows for ChatGPT, Codex and Claude Code: **5 plugins, 122 skills**.
+Australian English, evidence-backed Markdown, explicit permissions and portable
+workspace behaviour. Import compatibility is separate from having a shell,
+provider credentials or a mounted project in a particular chat.
 
-**5 plugins · 121 skills · Australian English throughout · evidence-backed markdown outputs.**
-
-Lifestyle plugins (health, finance, productivity) live in the separate [official-lifestyle-plugins](https://github.com/web-lifter/official-lifestyle-plugins) marketplace. Engineering-lifecycle tooling lives in [John OS](https://github.com/johnoconnor0/johns-os). All of them write to the shared `.project/` workspace (see [`OUTPUT-CONVENTIONS.md`](OUTPUT-CONVENTIONS.md)).
-
-## Quick Start
-
-The marketplace manifest is at this repo's root, so it installs with the standard one-liner:
-
-```bash
-# Add the marketplace
-/plugin marketplace add web-lifter/official-business-plugins
-
-# Install plugins — the @suffix is the marketplace name
-/plugin install marketing@official-business-plugins
-/plugin install startups@official-business-plugins
-/plugin install data-science@official-business-plugins
-/plugin install economics@official-business-plugins
-/plugin install business-operations@official-business-plugins
-```
-
-### Updating
-
-Claude Code reads marketplaces from a local cache re-fetched on demand:
-
-```bash
-/plugin marketplace update official-business-plugins
-/plugin update marketing@official-business-plugins
-```
-
-See [`CHANGELOG.md`](CHANGELOG.md) for what changed in each release.
-
-## Plugins
-
-| Plugin | Skills | Summary |
+| Plugin | Skills | Scope |
 |---|---:|---|
-| [`business-operations`](business-operations/) | 5 | Revenue channel mapping, KPI frameworks, stakeholder briefs, bottleneck detection, pricing strategy |
-| [`data-science`](data-science/) | 9 | Dataset profiling & quality audit, data dictionaries, pipeline architecture, cohort analysis, anomaly detection, A/B test design, experiment readouts, forecasting, causal-impact analysis |
-| [`economics`](economics/) | 9 | Unit economics (CAC/LTV), market sizing (TAM/SAM/SOM), pricing architecture, cost structure, break-even, cost-benefit, competitive dynamics, elasticity, moat-strength audit |
-| [`marketing`](marketing/) | 28 | End-to-end brand creation (identity, guidelines, audience, logo, colour, design tokens, disclaimers, copy) + end-to-end SEO (keyword research + clustering, SERP & competitor analysis, on-page/technical/CWV audits, backlinks, content briefs, schema + entity modelling, local SEO) |
-| [`startups`](startups/) | 70 | Full venture workflow — venture chassis, customer discovery, value-proposition & business-model canvases, competitor analysis, relationships & channels, prototyping, MVP planning + engineering bridge, Lean-Startup experimentation. Ships 9 orchestrator agents. |
+| [business-operations](business-operations/) | 5 | Revenue, KPI, stakeholder, bottleneck and pricing workflows |
+| [data-science](data-science/) | 9 | Data quality, experiments, cohorts, pipelines, forecasting and causal analysis |
+| [economics](economics/) | 9 | Unit economics, pricing, market size, costs, investment and competition |
+| [marketing](marketing/) | 30 | Brand, SEO, keyword clustering, plus explicit setup and status |
+| [startups](startups/) | 69 | Venture discovery, design, experimentation and MVP planning |
+
+## ChatGPT and Codex
+
+Use the repository root when adding this GitHub marketplace through a supported
+marketplace import surface. The native catalogue is
+[.agents/plugins/marketplace.json](.agents/plugins/marketplace.json), with one
+`.codex-plugin/plugin.json` per plugin. The Claude catalogue is retained for
+compatible importers. Use one catalogue/install source, not two installations of
+the same plugin. Availability varies by host and workspace policy.
+
+A sync of `main` cannot pick up unmerged review-branch changes. After merging a
+reviewed change, resync and check each plugin's imported version. Then exercise
+one ordinary workflow and one missing-capability scenario. Packaging checks
+alone do not prove the workspace import or an authenticated integration works.
+
+See [COMPATIBILITY.md](COMPATIBILITY.md) for the host matrix and acceptance checks.
+
+## Claude Code
+
+```text
+/plugin marketplace add web-lifter/official-business-plugins
+/plugin install startups@official-business-plugins
+/plugin install marketing@official-business-plugins
+/plugin marketplace update official-business-plugins
+```
+
+The other plugin names use the same `@official-business-plugins` suffix.
+
+## Runtime and safety
+
+Every plugin bundles a `RUNTIME.md`. Skills use available tools rather than
+assuming Claude-specific tool names exist in another host. A hosted chat returns
+its actual sandbox files or Markdown, never a claim that it wrote to an unmounted
+repository. Local outputs follow [OUTPUT-CONVENTIONS.md](OUTPUT-CONVENTIONS.md).
+
+Startups is self-contained: new ventures use
+`.project/plans/startups/<slug>/`; existing Memex venture profiles are optional
+legacy workspaces, not a dependency. No automatic migration occurs.
+
+Marketing no longer installs packages on session start. Invoke `seo-setup` for an
+explicit dependency review and opt-in installation. Python 3.11+ is required for
+bundled helpers; Lighthouse is separately installed and invoked only on request.
+Paid APIs and connector mutations require authorisation. Never put keys in a chat,
+report or repository; prefer an already authorised connector in ChatGPT.
 
 ## Repository layout
 
-```
-official-business-plugins/
-├── .claude-plugin/marketplace.json   # Marketplace catalogue (5 plugins)
-├── <plugin>/
-│   ├── .claude-plugin/plugin.json
-│   ├── skills/<skill>/               # SKILL.md + templates/ + examples/ + evals/
-│   ├── agents/  commands/  hooks/    # where applicable
-│   └── settings.json
-├── scripts/                          # check-versions, check-validate, check-version-bumps
-├── tests/                            # Python smoke tests for embedded scripts
-├── CHANGELOG.md  SECURITY.md  OUTPUT-CONVENTIONS.md  LICENSE
-└── README.md
+```text
+.agents/plugins/marketplace.json     # Generated native catalogue
+.claude-plugin/marketplace.json      # Authoritative plugin inventory/versions
+<plugin>/.codex-plugin/plugin.json   # Generated OpenAI package metadata
+<plugin>/.claude-plugin/plugin.json  # Claude package metadata
+<plugin>/RUNTIME.md                  # Capability and output contract
+<plugin>/skills/<skill>/SKILL.md     # One shared instruction tree
+<plugin>/skills/<skill>/agents/openai.yaml
+startups/agents/                     # Optional Claude orchestrators
+scripts/                            # Packaging and version checks
+tests/                             # Deterministic regression tests
 ```
 
-## Validation
+## Development and checks
 
 ```bash
-node scripts/check-versions.mjs    # marketplace ↔ plugin.json version sync
-node scripts/check-validate.mjs    # delegates to `claude plugin validate`
+python -m pip install -r requirements-dev.txt
+python scripts/sync-openai.py          # Regenerate native metadata after edits
+python scripts/sync-openai.py --check
+python scripts/check-portability.py
+node scripts/check-versions.mjs
+python -m pytest tests -q
+node scripts/check-validate.mjs        # Requires installed official Claude CLI
 ```
 
-Both must pass green. See [`.claude/CLAUDE.md`](.claude/CLAUDE.md) for development standards.
+The CI workflow also executes generated cohort SQL against a temporary PostgreSQL
+17 service and invokes the official Claude validator. It does not call paid APIs,
+deploy infrastructure or claim to run prompt-quality evaluations.
 
-## License
+[Audit and 69-skill Startups disposition](docs/audits/2026-09-19-marketplace-audit.md)
+| [Changelog](CHANGELOG.md) | [Security](SECURITY.md) | [Development standards](AGENTS.md)
 
-MIT
+MIT. Lifestyle and John OS engineering repositories remain separate projects.

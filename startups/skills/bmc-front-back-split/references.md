@@ -10,7 +10,7 @@ The front-stage / back-stage view is the standard split of the Business Model Ca
 
 The sequencing advice — test front-stage hypotheses first because they are typically cheaper to falsify — is consistent with the build-measure-learn discipline in Eric Ries, *The Lean Startup* (Crown Business, 2011).
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

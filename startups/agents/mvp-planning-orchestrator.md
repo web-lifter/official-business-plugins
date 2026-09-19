@@ -5,13 +5,16 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # mvp-planning-orchestrator
 
 ## Before you start
 
 Read:
 
-1. `memex.config.json`
+1. the verified venture root (see `../RUNTIME.md`)
 2. Run `customer-discovery-status` (read-only) — must be 🟢 to
    proceed past `mvp-scope` without `--force`
 3. `09-mvp/mvp-spec.md`, `mvp-metrics.md`, `tech-stack.md`,

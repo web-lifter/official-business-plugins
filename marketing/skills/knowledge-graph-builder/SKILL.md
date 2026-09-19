@@ -1,10 +1,15 @@
 ---
 name: knowledge-graph-builder
 description: Construct knowledge graph specifications from business entities and relationships for Neo4j, JSON-LD, or Supabase/PostgreSQL JSONB implementation
-argument-hint: [business-entities-and-relationships]
+argument-hint: "[business-entities-and-relationships]"
 allowed-tools: Read Grep Glob Write Edit Bash(python:*)
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Knowledge Graph Builder
 

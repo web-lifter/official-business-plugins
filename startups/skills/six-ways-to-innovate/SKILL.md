@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # six-ways-to-innovate
 
 Idempotency: each run writes a dated candidates file `six-ways-candidates-<slug>-<YYYY-MM-DD>.md`. Re-running on the same day overwrites that day's file.
 
-Method: the "six ways to innovate" lenses from Osterwalder, Pigneur, Bernarda & Smith, *Value Proposition Design* (Wiley, 2014). See `references.md` and `startups/SOURCES.md`.
+Method: the "six ways to innovate" lenses from Osterwalder, Pigneur, Bernarda & Smith, *Value Proposition Design* (Wiley, 2014). See `references.md` and [Startups sources](../../SOURCES.md).
 
 This skill is **generative** — outputs are *candidate* hypotheses, not
 facts. The user reviews and adds the worthwhile ones to the
@@ -22,7 +27,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the segment's profile.md and the latest VPC.
 3. Read the hypothesis register — to dedupe; don't propose hypotheses
    already in the register.

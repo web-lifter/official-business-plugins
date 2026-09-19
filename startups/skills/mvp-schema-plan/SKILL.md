@@ -1,10 +1,15 @@
 ---
 name: mvp-schema-plan
 description: Translate MVP scope and VPC into a database schema. Sequenced delegation to data-model-from-vpc → supabase-schema-design → optionally upstream database-design/postgres-schema-audit for QA. Thin orchestrator.
-argument-hint: [no args]
+argument-hint: "[no args]"
 allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # mvp-schema-plan
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `mvp-spec.md`, `tech-stack.md`. Halt if either missing.
 3. Confirm tech stack includes Supabase (or compatible Postgres
    target).

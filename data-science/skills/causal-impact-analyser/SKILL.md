@@ -1,10 +1,15 @@
 ---
 name: causal-impact-analyser
 description: Quasi-experimental design and analysis (diff-in-diff, synthetic control, ITS, regression discontinuity) for when randomised testing is infeasible. Routes to stats-reviewer.
-argument-hint: [intervention-and-data]
+argument-hint: "[intervention-and-data]"
 allowed-tools: Read Write Edit Agent AskUserQuestion
 effort: max
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Causal Impact Analyser
 ultrathink

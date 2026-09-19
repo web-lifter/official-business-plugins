@@ -1,13 +1,18 @@
 ---
 name: competitive-dynamics-analyser
 description: Porter 5 Forces + game-theory primer for a specific market — equilibrium prediction, response-game tree, exit scenarios. Routes to red-team-strategist agent.
-argument-hint: [market-and-players]
+argument-hint: "[market-and-players]"
 allowed-tools: Read Write Edit Agent AskUserQuestion
 paths:
   - "**/competitive*.md"
   - "**/5-forces*.md"
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Competitive Dynamics Analyser
 ultrathink

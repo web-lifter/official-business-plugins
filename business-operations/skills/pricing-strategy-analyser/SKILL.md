@@ -1,10 +1,15 @@
 ---
 name: pricing-strategy-analyser
 description: Recommend a pricing strategy — model, price points, packaging, and elasticity guard-rails — grounded in Van Westendorp, value-based pricing, and anchoring/decoy frameworks
-argument-hint: [product-or-pricing-context]
+argument-hint: "[product-or-pricing-context]"
 allowed-tools: Read Write Edit
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Pricing Strategy Analyser
 ultrathink

@@ -1,10 +1,15 @@
 ---
 name: content-gap-analysis
 description: Identify keywords competitors rank for that your domain doesn't — producing topical gap clusters, opportunity scores, and a prioritised content roadmap.
-argument-hint: [our-domain plus 2-5 competitor domains]
+argument-hint: "[our-domain plus 2-5 competitor domains]"
 allowed-tools: Read Write Bash
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Content Gap Analysis
 

@@ -6,6 +6,11 @@ allowed-tools: Read Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # experiment-design
 
 Matches a hypothesis to the right experiment type using the menu codified in Ash Maurya's *Running Lean* (3rd ed., 2022) and the Strategyzer test-card library. See `references.md`.
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the hypothesis row.
 3. Read `02-customer-discovery/test-cards/` for any existing tests
    covering this hypothesis (avoid duplicate experiment types).

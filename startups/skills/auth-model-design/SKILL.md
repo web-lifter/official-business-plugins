@@ -1,10 +1,15 @@
 ---
 name: auth-model-design
 description: Design the auth.users / profiles / roles / RLS-policy stack for typical SaaS patterns. Output is SQL plus a policy table. Supabase MCP optional. Read-only.
-argument-hint: [optional: --pattern=user|saas|tenant|marketplace]
+argument-hint: "[optional: --pattern=user|saas|tenant|marketplace]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # auth-model-design
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `tech-stack.md`, `mvp-spec.md`, primary segment profile.
 3. Default pattern is `user` (one user account per person) unless
    override.

@@ -37,4 +37,4 @@ Appended to [`vpc-au-midmarket-inhouse-counsel-v1.md`](vpc-au-midmarket-inhouse-
 ## Gap list
 
 - **P-07 (embarrassment when finance discovers missed clause) has no reliever.** Likely overlap with the audit-defensible decision log (G-05 creator) — the same mechanism that creates the gain (auditable record) may also relieve this pain (the audit log is the defence when finance asks). Recommend re-mapping in [`/value-map-build au-midmarket-inhouse-counsel --version=2`](../value-map-build/).
-- **Cross-company precedent gain (raised in 2/7 interviews) deliberately omitted** — conflicts with confidentiality positioning. Logged as an open question in [`.memex/.open-questions/`](../.memex/.open-questions/), not a fit gap.
+- **Cross-company precedent gain (raised in 2/7 interviews) deliberately omitted** — conflicts with confidentiality positioning. Logged as an open question in [`.open-questions/`](../.open-questions/), not a fit gap.

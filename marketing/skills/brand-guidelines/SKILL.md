@@ -1,10 +1,15 @@
 ---
 name: brand-guidelines
 description: Compile comprehensive brand guidelines covering logo, colour, typography, imagery, voice, and do's/don'ts — produces a complete brand book ready for design handoff
-argument-hint: [brand-name-or-existing-assets]
+argument-hint: "[brand-name-or-existing-assets]"
 allowed-tools: Read Write Edit Grep Glob
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Brand Guidelines
 

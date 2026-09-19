@@ -20,4 +20,4 @@
 4. **Dashboards in repo.** Source-controlled config (PostHog API import in CI). No dashboards built by hand in the UI.
 5. **No PII in events.** Email, full name, contract title, document text all excluded.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

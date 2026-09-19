@@ -1,6 +1,6 @@
 # value-map-build — references
 
-The value map (left half of the Value Proposition Canvas) per Strategyzer. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The value map (left half of the Value Proposition Canvas) per Strategyzer. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## The Value Proposition Canvas
 

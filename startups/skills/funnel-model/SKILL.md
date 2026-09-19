@@ -1,10 +1,15 @@
 ---
 name: funnel-model
 description: Build a quantitative customer funnel — visitors → signups → activations → paid → retained — with per-step conversion rates and end-to-end yield. Hands off to mvp-planning/funnel-instrumentation-spec to translate stages into events.
-argument-hint: [optional: --segment=<slug>]
+argument-hint: "[optional: --segment=<slug>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # funnel-model
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `get-keep-grow.md` and `channel-strategy.md`.
 3. Read competitor table for benchmark conversion rates if available.
 

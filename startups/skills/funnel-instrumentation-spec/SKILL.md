@@ -1,10 +1,15 @@
 ---
 name: funnel-instrumentation-spec
 description: Produce a concrete event/property spec from a funnel-model output. Translates Awareness → Sign-up → Activation → Conversion → Retention into named events with properties. Pairs with mvp-analytics-plan.
-argument-hint: [no args]
+argument-hint: "[no args]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # funnel-instrumentation-spec
 
@@ -16,7 +21,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `06-relationships-channels/funnel-model.md`. Halt if missing.
 3. Read `09-mvp/analytics/events-spec.md` if it exists.
 

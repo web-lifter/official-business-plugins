@@ -1,10 +1,15 @@
 ---
 name: architecture-design
 description: Produce a system-architecture document — Mermaid component diagram, data-flow diagram, integration surface, sync/async boundaries. One file per architectural decision under 09-mvp/architecture/.
-argument-hint: [optional: --topic=<focus-area>]
+argument-hint: "[optional: --topic=<focus-area>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # architecture-design
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `09-mvp/tech-stack.md`. Halt if missing.
 3. Read `mvp-spec.md`, `mvp-metrics.md` for what needs to be built.
 

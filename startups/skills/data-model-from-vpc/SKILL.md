@@ -1,14 +1,19 @@
 ---
 name: data-model-from-vpc
 description: Translate the value-map outputs and customer-profile outputs into a draft entity-relationship model. Bridges value-proposition → schema work. Output is Mermaid ERD plus an entity list with attributes, types, and relationships. No connector calls.
-argument-hint: [optional: --segment=<slug>]
+argument-hint: "[optional: --segment=<slug>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # data-model-from-vpc
 
-Method: Jobs-to-be-done lens (Christensen et al. 2016) and Value Proposition Canvas (Osterwalder et al. 2014) — see `startups/SOURCES.md`.
+Method: Jobs-to-be-done lens (Christensen et al. 2016) and Value Proposition Canvas (Osterwalder et al. 2014) — see [Startups sources](../../SOURCES.md).
 
 Idempotency: side-effect-free planner; rewrites `09-mvp/schema/erd.mmd` and `entity-list.md` in place.
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read latest VPC for the segment.
 3. Read segment profile (jobs / pains / gains).
 4. Read `mvp-spec.md` to constrain to MVP-scope features.

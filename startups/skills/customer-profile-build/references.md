@@ -1,6 +1,6 @@
 # customer-profile-build — references
 
-The customer profile (right half of the Value Proposition Canvas) per Strategyzer, with jobs tagged functional/social/emotional per the jobs-to-be-done lens. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The customer profile (right half of the Value Proposition Canvas) per Strategyzer, with jobs tagged functional/social/emotional per the jobs-to-be-done lens. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## The Value Proposition Canvas
 
