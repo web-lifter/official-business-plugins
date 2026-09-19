@@ -5,4 +5,3 @@
 - Add native OpenAI packaging, skill UI metadata and a capability-aware runtime contract.
 - Correct portable frontmatter and packaging/resource validation.
 - See the repository audit for behaviour changes and regression coverage.
-
