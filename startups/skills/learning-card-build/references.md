@@ -15,7 +15,7 @@ The skill enforces:
 3. **The will-now decision is mandatory.** Without it the test is not validated learning.
 4. **Hypothesis flip is the user's choice.** The skill outputs the recommended `/hypothesis-register flip` command but does not auto-flip — the user reviews and runs explicitly. This preserves the audit trail and prevents silent register mutations.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

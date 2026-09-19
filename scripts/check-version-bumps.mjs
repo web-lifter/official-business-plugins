@@ -21,7 +21,6 @@
  *   1 — a changed plugin shipped under an unchanged version, or a git error
  */
 
-import { readFile } from "node:fs/promises";
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -58,7 +57,7 @@ try {
 const marketplacePath = join(repoRoot, ".claude-plugin", "marketplace.json");
 let marketplace;
 try {
-  marketplace = JSON.parse(await readFile(marketplacePath, "utf8"));
+  marketplace = JSON.parse(git(["show", `${headRef}:.claude-plugin/marketplace.json`]));
 } catch (err) {
   console.error(red(`✗ Failed to read ${marketplacePath}: ${err.message}`));
   process.exit(1);
@@ -74,9 +73,8 @@ const relativePlugins = (marketplace.plugins ?? [])
 
 let changedFiles;
 try {
-  changedFiles = git(["diff", "--name-only", `${diffBase}`, headRef])
-    .split("\n")
-    .map((l) => l.trim())
+  changedFiles = git(["diff", "--name-only", "-z", `${diffBase}`, headRef])
+    .split("\0")
     .filter(Boolean);
 } catch (err) {
   console.error(red(`✗ git diff ${diffBase}..${headRef} failed: ${err.message.trim()}`));
@@ -122,9 +120,14 @@ for (const { name, dir } of relativePlugins) {
     continue;
   }
 
-  if (baseVersion === headVersion) {
+  const release = /^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/;
+  const oldParts = release.test(baseVersion || "") ? baseVersion.split(".").map(BigInt) : null;
+  const newParts = release.test(headVersion || "") ? headVersion.split(".").map(BigInt) : null;
+  const firstChange = oldParts && newParts ? newParts.findIndex((v, i) => v !== oldParts[i]) : -1;
+  const increased = firstChange >= 0 && newParts[firstChange] > oldParts[firstChange];
+  if (!increased) {
     failures.push(
-      `${name}: files changed but version stayed at ${headVersion} — bump it ` +
+      `${name}: files changed but version did not increase (${baseVersion} -> ${headVersion}) — bump it ` +
         `(both plugin.json and the marketplace.json entry).`,
     );
   } else {

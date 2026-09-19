@@ -1,10 +1,15 @@
 ---
 name: bmc-build
 description: Construct the initial Business Model Canvas from venture vision and customer-discovery state. Tags every cell as hypothesis or fact. Writes 05-business-model/bmc-vN.md (or 01-hypotheses/bmc-v1.md).
-argument-hint: [optional: --version=N]
+argument-hint: "[optional: --version=N]"
 allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # bmc-build
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Determine target version: existing `bmc-v*.md` files → max + 1, or
    1 if none. v1 lives in `01-hypotheses/`; v≥2 lives in
    `05-business-model/`.

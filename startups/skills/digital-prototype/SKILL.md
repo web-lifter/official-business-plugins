@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # digital-prototype
 
 Idempotency: one digital-prototype README per `<slug>`; re-running updates the README in place.
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the converged finalist matching `$ARGUMENTS`.
 3. Read the matching `08-prototype/paper/<slug>.md` if it exists. The
    guidance is paper-first; warn if there's no paper prototype yet.

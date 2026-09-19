@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # figma-design-handoff
 
 Read-only Figma MCP integration. No mutating calls (`add_code_connect_map`, `send_code_connect_mappings`) are issued.
@@ -22,7 +27,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Detect whether the Figma MCP is connected. If not, fall back to a
    docs-only plan that lists what *would* be pulled, and instruct the
    user to connect the MCP and re-run.

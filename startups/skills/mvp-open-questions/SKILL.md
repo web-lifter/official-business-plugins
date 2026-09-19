@@ -1,82 +1,35 @@
 ---
 name: mvp-open-questions
-description: Roll all `?`-tagged items from MVP planning files into 09-mvp/open-questions.md, plus surface them as files under .memex/.open-questions/. Pure aggregation driven by memex hooks — no novel logic.
-argument-hint: [no args]
+description: "Aggregate unresolved MVP planning items with source references. Refresh the report explicitly without requiring external hooks."
+argument-hint: "[venture or supplied MVP files]"
 allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
 # mvp-open-questions
 
-Idempotency: safe to re-run; rewrites the aggregate file each time. Promoted `.open-questions/<slug>.md` files are never deleted by a re-run.
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
 
 ## User Context
 
 $ARGUMENTS
 
-## Phase 1: Scan MVP planning files
+## Phase 1: Inspect
 
-Read every file under `09-mvp/` and grep for unresolved markers:
+Resolve the venture root. Read Markdown planning files under `09-mvp/`, excluding `open-questions.md` itself and generated copies/archives. Never recursively ingest the previous aggregate. With large inputs, report the files covered and any uninspected files rather than claiming complete coverage.
 
-- Lines starting with `?` or `TODO:` or `TBD:`
-- Sections titled `## Open questions` or `## Risks and unknowns`
-- Frontmatter `status: draft` (the artifact itself is unresolved)
+Find lines beginning `?`, `TODO:` or `TBD:`, and unresolved items in `Open questions` or `Risks and unknowns` sections. A draft file is a review task, not proof that every statement is unresolved. Ignore explicitly resolved items and illustrative placeholders in templates. Capture source path, heading or line, exact question, severity and current status.
 
-## Phase 2: Group and write
+## Phase 2: Refresh the aggregate
 
-Group by source file. Write `09-mvp/open-questions.md`:
+Deduplicate by source path plus normalised question. Reconcile against the existing report so owner, decision and resolution annotations are preserved. Write `09-mvp/open-questions.md` using the [template](templates/output-template.md). Link each item to its real source relative to the output file. Do not invent questions or infer that disappearance from an input proves resolution.
 
-```markdown
----
-title: MVP open questions
-slug: mvp-open-questions
-type: open-question
-status: active
-owner: <venture name>
-created: <today>
-updated: <today>
----
+## Phase 3: Promote only when useful
 
-# MVP open questions
+For material blockers, create a non-destructive `.open-questions/<slug>.md` record containing title, source, question, evidence needed, owner (or unassigned), status and review date. Preserve existing promoted records and link them from the aggregate. No external template or index-update hook is required.
 
-Aggregated from `09-mvp/` files. Each item links to its source.
+## Phase 4: Report actual changes
 
-## From mvp-spec.md
-- ...
-
-## From tech-stack.md
-- ...
-
-## From schema/migrations-plan.md
-- ...
-
-(... per file ...)
-
-## Promoted to .open-questions/
-
-The following items have been promoted to first-class open-question
-files for tracking:
-
-- [.open-questions/<slug>.md](../.memex/.open-questions/<slug>.md)
-```
-
-## Phase 3: Promote to .open-questions/
-
-For items severe enough to track (regulatory blockers, technical
-unknowns, resource constraints), create a corresponding file under
-`.memex/.open-questions/<slug>.md` with the full open-question
-template (per `claude-memex/templates/profiles/venture/.memex/.open-questions/README.md`).
-
-## Phase 4: Log
-
-Append: `## [<today>] mvp-open-questions | <N> aggregated, <M>
-promoted`.
-
-## Important principles
-
-- **Aggregation only.** Don't invent questions; surface what's there.
-- **Promote severe items.** A `?` in tech-stack might just be a
-  gap; a regulatory `?` is a blocker.
-- **Re-runnable.** Each run refreshes the aggregate.
-- **Memex hooks handle the rest.** `index-update.py` picks up the
-  new files in `.open-questions/`.
+Update index links and append a log entry only when a file changed. Report unresolved blockers and any incomplete coverage. Do not log a no-op rerun. In hosted chat, return the report and explicitly distinguish it from persisted venture state.

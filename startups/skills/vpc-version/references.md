@@ -1,6 +1,6 @@
 # vpc-version — references
 
-The validated-learning loop that motivates versioning the VPC comes from Lean Startup. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The validated-learning loop that motivates versioning the VPC comes from Lean Startup. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## The validated-learning loop
 

@@ -1,37 +1,11 @@
----
-title: MVP open questions
-slug: mvp-open-questions
-type: open-question
-status: active
-owner: {{venture-name}}
-created: {{YYYY-MM-DD}}
-updated: {{YYYY-MM-DD}}
----
-
 # MVP open questions
 
-Aggregated from `09-mvp/`. Each item links to its source.
+Scope: {{files inspected and omitted}}
 
-## From mvp-spec.md
-- {{question — line:N}}
+| Source and location | Question | Severity | Owner | Status | Evidence needed |
+|---|---|---|---|---|---|
+| {{relative source link}} | {{question from source}} | {{severity}} | {{owner or unassigned}} | {{status}} | {{evidence}} |
 
-## From tech-stack.md
-- {{...}}
+## Promoted records
 
-## From architecture/architecture-overview.md
-- {{...}}
-
-## From schema/migrations-plan.md
-- {{...}}
-
-## From deploy/{vercel,cloudflare}.md
-- {{...}}
-
-## From feasibility.md
-- {{...}}
-
-## Promoted to `.open-questions/`
-
-The following items have been promoted to first-class open-question files for tracking:
-
-- [.open-questions/{{slug}}.md]({{path}}) — {{severity}}
+{{Links relative to this report, e.g. ../.open-questions/payment-provider.md. Preserve existing decisions.}}

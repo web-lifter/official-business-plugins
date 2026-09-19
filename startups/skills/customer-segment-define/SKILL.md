@@ -1,16 +1,21 @@
 ---
 name: customer-segment-define
-description: Walk the user through specifying customer segments — occupation, demographics, problems they have. Distinguishes users from paying customers per Blank's customer-development model. Scaffolds the segment folder with required files. Optional richer personas via brand-manager.
+description: Walk the user through specifying customer segments — occupation, demographics, problems they have. Distinguishes users from paying customers per Blank's customer-development model. Scaffolds the segment folder with required files. Optional richer personas via marketing.
 argument-hint: <segment-slug> [optional one-line description]
 allowed-tools: Read Write Bash Glob
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # customer-segment-define
 
 Idempotency: refuses to overwrite an existing segment without `--update`. With `--update`, re-runs preserve already-populated profile / early-adopter / interview-guide content.
 
-Method: customer-segment definition per Steve Blank's customer-development model. Insists on the user-vs-paying-customer distinction (a user is not necessarily a buyer; the *Startup Owner's Manual* treats these as separate roles). See `references.md` and `startups/SOURCES.md`.
+Method: customer-segment definition per Steve Blank's customer-development model. Insists on the user-vs-paying-customer distinction (a user is not necessarily a buyer; the *Startup Owner's Manual* treats these as separate roles). See `references.md` and [Startups sources](../../SOURCES.md).
 
 ## User Context
 
@@ -25,7 +30,7 @@ seeds the question loop in Phase 2.
 
 **Objective:** Confirm we're in a venture and the slug is fresh.
 
-1. Verify `memex.config.json#/profile == "venture"`.
+1. Resolve the venture workspace using `../../RUNTIME.md`.
 2. Confirm `02-customer-discovery/segments/<slug>/` does **not** already
    exist. If it does:
    - If `--update` was passed, proceed to Phase 2 with existing values
@@ -58,8 +63,8 @@ Use `AskUserQuestion` to gather:
 6. **Sub-segments** — if there are obvious sub-types (e.g. "café owner"
    splits into "single store" vs "multi-site"), name them.
 7. **Optional richer persona** — ask whether the user wants to delegate
-   to `brand-manager/target-audience` for a deeper psychographic
-   persona. If yes, hand off (the brand-manager skill writes its output
+   to `marketing:target-audience` for a deeper psychographic
+   persona. If yes, hand off (the marketing skill writes its output
    into a `persona.md` alongside `profile.md`).
 
 ---
@@ -100,7 +105,7 @@ updated: <today>
 
 The `README.md` is the only file with `type: segment`; the others use
 `type: profile`, `type: profile`, `type: profile`, etc. (see
-`reference.md` §1 for the per-file type mapping).
+`references.md` §1 for the per-file type mapping).
 
 ---
 
@@ -140,6 +145,6 @@ The `README.md` is the only file with `type: segment`; the others use
 3. **User describes a market segment, not a customer segment** — push
    back: "ABS small businesses" is a market; "café owners with 2-5
    staff in inner Sydney" is a customer segment.
-4. **Optional persona delegation chosen but `brand-manager` not
+4. **Optional persona delegation chosen but `marketing` not
    installed** — skip with a warning; `profile.md` and
    `early-adopters.md` are still scaffolded.

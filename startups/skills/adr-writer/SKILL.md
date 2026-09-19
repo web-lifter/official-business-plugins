@@ -6,9 +6,14 @@ allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # adr-writer
 
-Method: Nygard 2011 ADR template (status / context / decision / consequences / alternatives). See `references.md` and `startups/SOURCES.md`.
+Method: Nygard 2011 ADR template (status / context / decision / consequences / alternatives). See `references.md` and [Startups sources](../../SOURCES.md).
 
 Idempotency: safe to re-run; each call writes a new ADR with the next sequence number. Existing ADRs are never overwritten — supersede with a new ADR linking back.
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Compute next ADR number: max existing
    `09-mvp/architecture/ADR-*.md` + 1.
 3. Slugify the decision title.

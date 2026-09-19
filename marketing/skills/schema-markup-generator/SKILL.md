@@ -1,10 +1,15 @@
 ---
 name: schema-markup-generator
 description: Generate copy-paste JSON-LD schema markup for any page type — Article, Product, FAQPage, LocalBusiness, HowTo, and more — with validation notes and Rich Results test command.
-argument-hint: [page-type-and-content]
+argument-hint: "[page-type-and-content]"
 allowed-tools: Read Write
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Schema Markup Generator
 

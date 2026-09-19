@@ -36,7 +36,7 @@ Pending — `--delegate-headline` not run for this version. The current
 draft is grounded in the H-002 falsifier (median review time ≤ 25
 minutes) and the H-008 differentiation hypothesis (AU/NZ
 specialisation). If polish is requested, hand off to
-`brand-manager/website-copy` with these constraints:
+`marketing:website-copy` with these constraints:
 
 - Lead with the time-saved promise.
 - Mention AU/NZ context in the sub-headline, not the headline.

@@ -1,10 +1,15 @@
 ---
 name: broken-link-scanner
 description: Crawl a domain or sitemap to find broken links (4xx/5xx), orphan pages, and soft-404s — with a prioritised remediation register.
-argument-hint: [domain-or-sitemap]
+argument-hint: "[domain-or-sitemap]"
 allowed-tools: Read Write Bash
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Broken Link Scanner
 

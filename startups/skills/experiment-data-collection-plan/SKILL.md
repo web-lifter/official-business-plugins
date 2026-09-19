@@ -6,9 +6,14 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # experiment-data-collection-plan
 
-Method: test card / learning card discipline from Osterwalder et al. 2014 — see `references.md` and `startups/SOURCES.md`.
+Method: test card / learning card discipline from Osterwalder et al. 2014 — see `references.md` and [Startups sources](../../SOURCES.md).
 
 Idempotency: safe to re-run; appends or replaces the `## Data collection plan` section on the named test card.
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `02-customer-discovery/test-cards/<TC-NNN>.md`. Halt if
    missing or status `concluded`.
 3. Read `mvp-analytics-plan` events spec if it exists.

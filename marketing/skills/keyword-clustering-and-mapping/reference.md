@@ -2,7 +2,7 @@
 
 ## Bundled engine
 
-The clustering engine is **vendored** under `scripts/keyword_clustering/` and run via `scripts/run_clustering.py` — there is no external `keyword-cluster` CLI. `scripts/setup_env.py` builds a venv from `scripts/requirements.txt`. Helpers: `scripts/crawl_pages.py` (page enrichment) and `scripts/build_dashboard.py` (the offline dashboard). Skill-specific additions over the base engine: page-type classification (`keyword_clustering/page_types.py`), intent×page-type-aware mapping (`scoring.map_keywords_to_pages`), and the structured architecture plan (`keyword_clustering/architecture.py` → `architecture.json`).
+The clustering engine is **vendored** under `scripts/keyword_clustering/` and run via `scripts/run_clustering.py` — there is no external `keyword-cluster` CLI. `scripts/setup_env.py` checks readiness; `--install` explicitly creates a persistent data-directory environment from `scripts/requirements.txt`, after user approval. Advanced dependencies require `--optional`. Helpers: `scripts/crawl_pages.py` (page enrichment) and `scripts/build_dashboard.py` (the offline dashboard). Skill-specific additions over the base engine: page-type classification (`keyword_clustering/page_types.py`), intent×page-type-aware mapping (`scoring.map_keywords_to_pages`), and the structured architecture plan (`keyword_clustering/architecture.py` → `architecture.json`).
 
 ## Engine Inputs
 

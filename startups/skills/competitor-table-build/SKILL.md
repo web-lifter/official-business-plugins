@@ -1,10 +1,15 @@
 ---
 name: competitor-table-build
 description: Populate the canonical competitor table — name, category, segments served, pricing, features, source URL, verified date. One table per venture.
-argument-hint: [optional: --add=<name>]
+argument-hint: "[optional: --add=<name>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # competitor-table-build
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read existing `04-competitors/competitor-table.md` if any.
 3. Read `competitor-discover` output from chat history if running in
    sequence; otherwise prompt for candidates.

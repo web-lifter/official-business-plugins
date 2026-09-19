@@ -1,6 +1,6 @@
 # hypothesis-register — references
 
-The hypothesis-status conventions enforced by this skill (`open` → `accepted` / `refuted` / `superseded`, never deleted, status-flips require evidence) come from two primary sources. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The hypothesis-status conventions enforced by this skill (`open` → `accepted` / `refuted` / `superseded`, never deleted, status-flips require evidence) come from two primary sources. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## Hypothesis-status conventions
 

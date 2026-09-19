@@ -1,10 +1,15 @@
 ---
 name: revenue-channel-mapper
 description: Map every revenue channel onto a unified canvas — contribution %, CAC, LTV, friction score — then prioritise with RICE and produce a 90-day experiment list
-argument-hint: [business-description-or-data-path]
+argument-hint: "[business-description-or-data-path]"
 allowed-tools: Read Write Edit Bash(cat:*) Bash(wc:*)
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Revenue Channel Mapper
 ultrathink

@@ -84,7 +84,7 @@ If H-001 had been stated as:
 
 …and the calling skill (`/hypothesis-register add`) would refuse the
 addition unless `--force` was passed. With `--force`, the override
-would be logged to `.memex/log.md` as:
+would be logged to `log.md` as:
 
 ```
 ## [2026-05-21] gate-override | hypothesis-falsifiability-check

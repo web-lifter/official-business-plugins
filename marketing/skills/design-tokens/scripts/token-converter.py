@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 from typing import Any
@@ -39,6 +40,8 @@ class Token:
     """A single design token: a leaf in the token tree."""
 
     def __init__(self, path: list[str], value: Any, type_: str | None = None) -> None:
+        if not path:
+            raise ValueError("a token must have a name, not an unnamed root $value")
         self.path = path  # e.g. ["color", "brand", "primary"]
         self.value = value
         self.type = type_
@@ -93,7 +96,7 @@ def parse_style_dictionary(data: dict[str, Any]) -> list[Token]:
         if not isinstance(node, dict):
             return
         if "value" in node:
-            tokens.append(Token(path=path, value=node["value"]))
+            tokens.append(Token(path=path, value=node["value"], type_=node.get("type")))
             return
         for key, child in node.items():
             walk(child, path + [key])
@@ -152,11 +155,28 @@ def _resolve_reference(value: Any) -> str:
 def _format_value_for_css(value: Any, type_: str | None) -> str:
     """Format a token value as a CSS string."""
     if isinstance(value, dict):
+        if type_ == "dimension":
+            number, unit = value.get("value"), value.get("unit")
+            if isinstance(number, bool) or not isinstance(number, (int, float)) or not math.isfinite(number) or unit not in ("px", "rem"):
+                raise ValueError("dimension requires a finite numeric value and px/rem unit")
+            return f"{number}{unit}"
         # Composite token (e.g. shadow). Best-effort serialisation.
         if type_ == "shadow":
-            return f"{value.get('offsetX', '0')} {value.get('offsetY', '0')} {value.get('blur', '0')} {value.get('spread', '0')} {value.get('color', '#000')}"
-        return json.dumps(value)
+            dims = [_format_value_for_css(value.get(k, "0"), "dimension") for k in ("offsetX", "offsetY", "blur", "spread")]
+            colour = _format_value_for_css(value.get("color", "#000"), "color")
+            return ("inset " if value.get("inset") else "") + " ".join([*dims, colour])
+        raise ValueError(f"CSS emission for composite {type_!r} is not implemented; preserve JSON instead")
+    if isinstance(value, list):
+        if type_ == "shadow":
+            return ", ".join(_format_value_for_css(v, "shadow") for v in value)
+        if type_ == "fontFamily" and all(isinstance(v, str) for v in value):
+            return ", ".join(json.dumps(v) for v in value)
+        raise ValueError(f"CSS emission for array {type_!r} is not implemented; preserve JSON instead")
+    if isinstance(value, bool) or value is None:
+        raise ValueError("null and boolean values cannot be emitted as CSS tokens")
     if isinstance(value, (int, float)):
+        if not math.isfinite(value):
+            raise ValueError("CSS numeric tokens must be finite")
         return str(value)
     return _resolve_reference(value)
 
@@ -190,6 +210,8 @@ def emit_style_dictionary(tokens: list[Token]) -> str:
             node = node.setdefault(segment, {})
         leaf_key = token.path[-1]
         node[leaf_key] = {"value": token.value}
+        if token.type:
+            node[leaf_key]["type"] = token.type
     return json.dumps(root, indent=2) + "\n"
 
 
@@ -250,6 +272,7 @@ def main() -> int:
         print(f"ERROR: emit failed: {exc}", file=sys.stderr)
         return 1
 
+    args.output_path.parent.mkdir(parents=True, exist_ok=True)
     args.output_path.write_text(output, encoding="utf-8")
     print(f"Wrote {len(tokens)} tokens -> {args.output_path} ({args.format})")
     return 0

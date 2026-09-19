@@ -1,10 +1,15 @@
 ---
 name: bmc-front-back-split
 description: Render the latest BMC into front-stage (right side — what the customer sees) and back-stage (left side — what the business does) views, so users can sequence work appropriately. Pure derivation — never modifies the source BMC.
-argument-hint: [optional: --version=N]
+argument-hint: "[optional: --version=N]"
 allowed-tools: Read Write Glob
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # bmc-front-back-split
 

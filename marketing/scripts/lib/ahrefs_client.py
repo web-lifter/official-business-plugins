@@ -1,7 +1,7 @@
 """Ahrefs API client for marketing (stub).
 
 Provides backlink intelligence via the Ahrefs API v3. Credentials are read
-from the encrypted vault under provider ``ahrefs``, key ``api_key``.
+from the plaintext credentials file or environment under provider ``ahrefs``, key ``api_key``.
 
 Note: Ahrefs API access requires an Ahrefs Enterprise plan. This module is
 a functional stub — the endpoint paths and response shapes match the

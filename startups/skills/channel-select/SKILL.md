@@ -1,14 +1,19 @@
 ---
 name: channel-select
 description: Match the venture to direct vs indirect channels. Outputs a channel strategy ranking primary, secondary, and tertiary channels with rationale. Writes 06-relationships-channels/channel-strategy.md.
-argument-hint: [optional: --segment=<slug>]
+argument-hint: "[optional: --segment=<slug>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # channel-select
 
-Methodology: Business Model Canvas channels cell (Osterwalder & Pigneur, 2010) plus the direct-vs-indirect heuristics from David Skok and Steve Blank. See `startups/SOURCES.md`.
+Methodology: Business Model Canvas channels cell (Osterwalder & Pigneur, 2010) plus the direct-vs-indirect heuristics from David Skok and Steve Blank. See [Startups sources](../../SOURCES.md).
 
 Idempotency: re-running overwrites `06-relationships-channels/channel-strategy.md`; prior fit-report sections are preserved unless the primary channel changed.
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read segment profiles (where do they spend time?), latest BMC
    (current channels cell), competitor table (where do competitors
    distribute?).

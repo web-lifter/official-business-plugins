@@ -5,6 +5,9 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # competitor-analysis-orchestrator
 
 ## Before you start

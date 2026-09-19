@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # vpc-version
 
 Idempotency: bumps the VPC by exactly one version per invocation; refuses if `v<N+1>` already exists. The prior version's `status:` is set to `superseded` and a forward link is added.
 
-Method: Lean Startup validated-learning loop — each turn of build-measure-learn that materially changes the canvas warrants a new versioned snapshot, with the prior version kept as audit trail (Ries, *The Lean Startup*, 2011). See `references.md` and `startups/SOURCES.md`.
+Method: Lean Startup validated-learning loop — each turn of build-measure-learn that materially changes the canvas warrants a new versioned snapshot, with the prior version kept as audit trail (Ries, *The Lean Startup*, 2011). See `references.md` and [Startups sources](../../SOURCES.md).
 
 ## User Context
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Find the latest `03-value-proposition/vpc-<slug>-v*.md`. Halt if
    none exists — route to `value-map-build` first.
 

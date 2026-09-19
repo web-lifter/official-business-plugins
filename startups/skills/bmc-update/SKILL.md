@@ -1,10 +1,15 @@
 ---
 name: bmc-update
 description: Apply changes from the hypothesis register to the BMC — when a hypothesis flips to accepted/refuted, update the relevant cell and bump to v(N+1). Tracks the diff in a changelog. Marks the prior version superseded.
-argument-hint: [optional: hypothesis-id-or-comma-list]
+argument-hint: "[optional: hypothesis-id-or-comma-list]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # bmc-update
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Find the latest BMC. Halt if none — route to `/bmc-build`.
 3. Read hypothesis register; find hypotheses whose `Updated` date is
    newer than the latest BMC's `updated` and whose status is

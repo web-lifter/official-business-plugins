@@ -22,4 +22,4 @@
 4. **Decision rule set at design time.** "We'll see when the data comes in" is forbidden. The rule fires automatically at the end of the timeframe.
 5. **Timeframe is mandatory.** Indefinite experiments never conclude.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

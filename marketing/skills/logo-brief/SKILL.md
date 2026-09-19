@@ -1,10 +1,15 @@
 ---
 name: logo-brief
 description: Create comprehensive logo design briefs with concept directions, references, constraints, and deliverables — ready for human designers or AI image generators
-argument-hint: [brand-name-and-context]
+argument-hint: "[brand-name-and-context]"
 allowed-tools: Read Write Edit Grep Glob
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Logo Brief
 

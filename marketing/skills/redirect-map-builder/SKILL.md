@@ -1,10 +1,15 @@
 ---
 name: redirect-map-builder
 description: Build a 301 redirect map between old and new sitemaps for site migrations — URL pattern matching, slug similarity scoring, confidence bands, and server-config snippets.
-argument-hint: [old-sitemap-and-new-sitemap]
+argument-hint: "[old-sitemap-and-new-sitemap]"
 allowed-tools: Read Write
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Redirect Map Builder
 

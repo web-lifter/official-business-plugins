@@ -1,15 +1,20 @@
 ---
 name: cloudflare-deploy-plan
 description: Cloudflare deployment plan — Workers vs Pages, D1 vs Hyperdrive, KV vs R2, queues, bindings, wrangler.toml. Optionally probes the user's account via the Cloudflare MCP (read-only). Mutations would require the connector-confirmation flow.
-argument-hint: [optional: --cloudflare-account=<id>]
+argument-hint: "[optional: --cloudflare-account=<id>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # cloudflare-deploy-plan
 
 Cites the connector-confirmation idiom in
-[`shared/reference/connector-confirmation.md`](../../../../shared/reference/connector-confirmation.md).
+[`connector-confirmation.md`](../../references/connector-confirmation.md).
 **Read-only by default.** No skill in this marketplace runs
 `wrangler deploy`.
 
@@ -23,7 +28,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `tech-stack.md`, `architecture-overview.md`.
 3. If Cloudflare MCP connected and `--cloudflare-account` given,
    probe in parallel (read-only):
@@ -147,7 +152,7 @@ wrangler deploy
 
 ## Phase 5: Cascade
 
-Recommend pairing with `/vercel-deploy-plan` if Vercel is fronting the
+Recommend pairing with `/mvp-deploy-plan` if Vercel is fronting the
 Workers. Recommend `/mvp-feasibility` once both plans exist to
 cross-check.
 
@@ -165,3 +170,5 @@ Append: `## [<today>] cloudflare-deploy-plan | <N> resources`.
   meet the need — don't propose duplicates.
 - **Graceful degrade.** Without the MCP, the plan is docs-only with
   TBD resource IDs.
+
+Do not delegate back to a calling deployment orchestrator. Return the Cloudflare-specific plan to the caller; do not start another `mvp-deploy-plan` run.

@@ -212,5 +212,5 @@ Suggested initial run: `--apply-through=M-03` to land the schema without RLS, th
 ## Post-apply
 
 - [ ] `generate_typescript_types` → `src/lib/database.types.ts`
-- [ ] Append `## [2026-05-21] migration-plan | M-01..M-07 applied` to `.memex/log.md`
+- [ ] Append `## [2026-05-21] migration-plan | M-01..M-07 applied` to `log.md`
 - [ ] Run smoke test via `npm run test:rls` (which signs in as two distinct users in two distinct orgs and confirms cross-org reads return 0 rows).

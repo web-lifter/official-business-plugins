@@ -1,7 +1,7 @@
 {
   "name": "startups",
-  "version": "1.0.0",
-  "description": "70 skills spanning the full venture-building workflow — venture chassis (scaffolding, status, phase routing, vision, hypotheses, pivot log, handoff), customer discovery, Strategyzer value-proposition & business-model canvases, competitor analysis, customer relationships & channels, prototyping, MVP planning + engineering bridge (architecture, ADRs, API, Supabase RLS, Cloudflare/Vercel deploy, analytics), and Lean-Startup experimentation. Composes on top of the @web-lifter/claude-memex venture profile.",
+  "version": "1.1.0",
+  "description": "69 skills spanning the full venture-building workflow — venture chassis (scaffolding, status, phase routing, vision, hypotheses, pivot log, handoff), customer discovery, Strategyzer value-proposition & business-model canvases, competitor analysis, customer relationships & channels, prototyping, MVP planning + engineering bridge (architecture, ADRs, API, Supabase RLS, Cloudflare/Vercel deploy, analytics), and Lean-Startup experimentation. Self-contained venture workspace with optional legacy Memex support.",
   "author": {
     "name": "John O'Connor",
     "email": "john@weblifter.com.au",

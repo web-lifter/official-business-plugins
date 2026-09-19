@@ -2,7 +2,7 @@
 """Validate anomaly detection thresholds against historical data.
 
 Reads a CSV of historical metric values and proposed thresholds,
-then reports trigger counts and estimated false positive rates.
+then reports trigger counts and observed breach rates (false-positive rates require truth labels).
 
 Usage:
     python validate-thresholds.py data.csv --upper 95.0 --lower 10.0
@@ -11,6 +11,8 @@ Usage:
 
 import argparse
 import csv
+import math
+import statistics
 import sys
 from pathlib import Path
 
@@ -35,11 +37,14 @@ def load_values(csv_path: str, column: str | None) -> list[float]:
             sys.exit(1)
 
         for row_num, row in enumerate(reader, start=2):
-            raw = row.get(target_col, "").strip()
+            raw = (row.get(target_col) or "").strip()
             if raw == "":
                 continue
             try:
-                values.append(float(raw))
+                value = float(raw)
+                if not math.isfinite(value):
+                    raise ValueError("non-finite value")
+                values.append(value)
             except ValueError:
                 print(f"Warning: Skipping non-numeric value on row {row_num}: '{raw}'", file=sys.stderr)
 
@@ -52,10 +57,15 @@ def load_values(csv_path: str, column: str | None) -> list[float]:
 
 def validate(values: list[float], upper: float | None, lower: float | None) -> None:
     """Validate thresholds and print report."""
+    if not values or not all(math.isfinite(v) for v in values):
+        raise ValueError("values must be a non-empty list of finite numbers")
+    if any(v is not None and not math.isfinite(v) for v in (upper, lower)):
+        raise ValueError("thresholds must be finite")
+    if upper is not None and lower is not None and lower > upper:
+        raise ValueError("lower threshold cannot exceed upper threshold")
     total = len(values)
     mean = sum(values) / total
-    sorted_vals = sorted(values)
-    median = sorted_vals[total // 2]
+    median = statistics.median(values)
 
     print(f"Dataset: {total} data points")
     print(f"Range:   {min(values):.2f} - {max(values):.2f}")
@@ -67,18 +77,18 @@ def validate(values: list[float], upper: float | None, lower: float | None) -> N
         rate = breaches / total * 100
         print(f"Upper threshold ({upper}): {breaches} triggers ({rate:.1f}% of data)")
         if rate > 5:
-            print("  WARNING: >5% trigger rate suggests threshold is too sensitive.")
+            print("  NOTE: >5% breach rate implies alert workload; sensitivity requires labelled outcomes.")
         elif rate == 0:
-            print("  NOTE: Zero triggers -- threshold may be too lenient.")
+            print("  NOTE: No observed breaches; detection sensitivity is not established.")
 
     if lower is not None:
         breaches = sum(1 for v in values if v < lower)
         rate = breaches / total * 100
         print(f"Lower threshold ({lower}): {breaches} triggers ({rate:.1f}% of data)")
         if rate > 5:
-            print("  WARNING: >5% trigger rate suggests threshold is too sensitive.")
+            print("  NOTE: >5% breach rate implies alert workload; sensitivity requires labelled outcomes.")
         elif rate == 0:
-            print("  NOTE: Zero triggers -- threshold may be too lenient.")
+            print("  NOTE: No observed breaches; detection sensitivity is not established.")
 
     if upper is None and lower is None:
         print("No thresholds specified. Use --upper and/or --lower.")
@@ -93,7 +103,10 @@ def main() -> None:
     args = parser.parse_args()
 
     values = load_values(args.csv_file, args.column)
-    validate(values, args.upper, args.lower)
+    try:
+        validate(values, args.upper, args.lower)
+    except ValueError as exc:
+        parser.error(str(exc))
 
 
 if __name__ == "__main__":

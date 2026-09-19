@@ -1,18 +1,23 @@
 ---
 name: hypothesis-falsifiability-check
 description: Audit a hypothesis for the four failure modes — no falsifier, no measurement, no threshold, no timeframe. Blocking. --force overrides and is logged.
-argument-hint: [hypothesis-id-or-text]
+argument-hint: "[hypothesis-id-or-text]"
 allowed-tools: Read Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # hypothesis-falsifiability-check
 
-**Blocking gate.** Refuses to add or update a hypothesis that lacks an observable falsifier, a named measurement, a specific threshold, or a timeframe. Override with `--force`; the override is logged to `.memex/log.md`.
+**Blocking gate.** Refuses to add or update a hypothesis that lacks an observable falsifier, a named measurement, a specific threshold, or a timeframe. Override with `--force`; the override is logged to `log.md`.
 
 **Why it is blocking.** Eric Ries (*The Lean Startup*, 2011) defines validated learning as the difference between progress and motion: a startup advances when it runs experiments that can produce a refutation. A hypothesis without a falsifier cannot be refuted, so any experiment built on it is theatre. This skill enforces the discipline upstream of `/test-card-build`. See `references.md`.
 
-**Override behaviour.** `--force` proceeds with the unsafe hypothesis and writes a `gate-override` entry to `.memex/log.md` so the bypass is traceable in the venture's audit trail. Use sparingly; the next reviewer (often you, three weeks later) will see it.
+**Override behaviour.** `--force` proceeds with the unsafe hypothesis and writes a `gate-override` entry to `log.md` so the bypass is traceable in the venture's audit trail. Use sparingly; the next reviewer (often you, three weeks later) will see it.
 
 **Idempotency:** read-only on the register unless `--force` is set; safe to call repeatedly.
 
@@ -71,7 +76,7 @@ Plus a markdown summary printed to chat.
 - `pass` — return success; the calling skill (e.g.
   `hypothesis-register`) proceeds.
 - `fail` (no `--force`) — refuse, surface the gap list.
-- `fail` with `--force` — proceed but log to `.memex/log.md`:
+- `fail` with `--force` — proceed but log to `log.md`:
   `## [<today>] gate-override | hypothesis-falsifiability-check
   bypassed for H-NN (issues: <list>)`.
 

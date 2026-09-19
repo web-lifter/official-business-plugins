@@ -1,6 +1,6 @@
 # divergent-ideate — references
 
-See [`startups/SOURCES.md`](../../../../SOURCES.md) for the canonical citation list.
+See [Startups sources](../../SOURCES.md) for the canonical citation list.
 
 ## Primary sources
 

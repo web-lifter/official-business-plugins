@@ -10,7 +10,7 @@ Combined with the validated-learning loop in:
 
 A BMC version bump is driven by hypothesis-register flips — a hypothesis `accepted` flips the matching cell entry from `hypothesis` to `fact` with an evidence link; a hypothesis `refuted` removes or replaces the cell entry. The rule that ≥ 2 cell changes implies a pivot is consistent with Ries's definition of a pivot as a structured course-correction.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

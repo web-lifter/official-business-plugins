@@ -1,15 +1,20 @@
 ---
 name: supabase-schema-design
 description: Design the full Supabase schema for the MVP — tables, columns, FKs, indexes, RLS policies, RPC functions, triggers. Uses the Supabase MCP for live introspection when available; gracefully degrades. Mutations gated by connector-confirmation idiom.
-argument-hint: [optional: --supabase-project=<ref>]
+argument-hint: "[optional: --supabase-project=<ref>]"
 allowed-tools: Read Write Edit Glob Grep AskUserQuestion
 effort: high
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # supabase-schema-design
 
 Cites the connector-confirmation idiom in
-[`shared/reference/connector-confirmation.md`](../../../../shared/reference/connector-confirmation.md). See `references.md` for the RLS / index / FK rules this skill enforces.
+[`connector-confirmation.md`](../../references/connector-confirmation.md). See `references.md` for the RLS / index / FK rules this skill enforces.
 
 Idempotency: side-effect-free planner by default; rewrites `09-mvp/schema/migrations-plan.md` in place. Optional Phase 6 apply is destructive on re-run and refuses to re-apply migrations already in `list_migrations`.
 
@@ -21,7 +26,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `09-mvp/schema/entity-list.md` and `09-mvp/schema/erd.mmd`.
    Halt if missing — route to `/data-model-from-vpc`.
 3. Read `tech-stack.md` to confirm Supabase is the chosen DB.
@@ -137,7 +142,7 @@ flow:
    rollback steps).
 2. Use `AskUserQuestion` with options "Yes, apply" and "No, abort."
 3. If yes, call `apply_migration` via the Supabase MCP. On success,
-   log the migration to `.memex/log.md`.
+   log the migration to `log.md`.
 4. If no, log the abort.
 
 ## Phase 7: Cascade

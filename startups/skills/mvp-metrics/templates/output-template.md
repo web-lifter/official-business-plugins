@@ -25,11 +25,13 @@ updated: {{YYYY-MM-DD}}
 |--------|-----------|-----------|--------|
 | {{name}} | {{value}} | {{window}} | {{where}} |
 
+## Sample and data quality
+
+{{Minimum usable sample, cohort definition, missing-data handling and guardrails per metric.}}
+
 ## Decision rules
 
-At end of timeframe:
-- All hypothesis metrics ≥ threshold → MVP succeeded; proceed to scale.
-- Any hypothesis metric < threshold → MVP refuted on that hypothesis; build learning card; decide pivot vs refine.
+At the end of the timeframe, apply each metric's pre-specified direction (minimum, maximum or interval), sample requirement and guardrails. Report supported, not supported or inconclusive. Do not infer scale readiness from a pass, or refutation from missing data.
 
 ## Hand-off
 

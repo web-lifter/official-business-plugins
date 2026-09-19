@@ -11,4 +11,4 @@ The same structure is repeated and refined in:
 
 The skill requires that the `differentiator` slot describe something **observable** (e.g. "we cover AU/NZ commercial MSAs and flag PPSA-specific risks") rather than aspirational ("better UX").
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.

@@ -5,6 +5,9 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # experimentation-orchestrator
 
 Plan-time agent for the test-card → run → learning-card loop.
@@ -13,7 +16,7 @@ Plan-time agent for the test-card → run → learning-card loop.
 
 Read:
 
-1. `memex.config.json`
+1. the verified venture root (see `../RUNTIME.md`)
 2. Hypothesis register — count `open` with falsifier
 3. Test cards — count `open` and how old each is
 4. Learning cards — recent (last 30 days)

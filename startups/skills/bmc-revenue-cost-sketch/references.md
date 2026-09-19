@@ -15,11 +15,11 @@ When the venture has any of:
 - ≥ 1 month of infrastructure billing (real cost numbers)
 - A go-to-market plan needing CAC / LTV modelling
 
-…escalate to **`business-economics/unit-economics`** for the modelled version. This sketch should be linked from there as the precursor.
+…escalate to **`economics:unit-economics-calculator`** for the modelled version. This sketch should be linked from there as the precursor.
 
 ## Canonical references
 
 - **Osterwalder, Alexander & Pigneur, Yves.** *Business Model Generation.* Wiley, 2010. — defines the Revenue Streams and Cost Structure cells.
 - **Maurya, Ash.** *Running Lean* (3rd ed.). O'Reilly, 2022. — the "unit economics first" sequencing this skill defers to.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.

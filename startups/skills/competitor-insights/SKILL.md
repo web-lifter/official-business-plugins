@@ -1,10 +1,15 @@
 ---
 name: competitor-insights
 description: Synthesise across competitor-table, all SWOTs, and shadow BMCs — what did we learn, what does that change in our hypotheses? Outputs 04-competitors/insights.md plus proposed register updates.
-argument-hint: [optional: --segment=<slug>]
+argument-hint: "[optional: --segment=<slug>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # competitor-insights
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `04-competitors/competitor-table.md`, all
    `04-competitors/swot/*/README.md`, and all
    `05-business-model/shadow-*-v*.md`.

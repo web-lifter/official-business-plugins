@@ -5,6 +5,9 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # value-proposition-orchestrator
 
 Plan-time agent for the Ch. 4 VPC sequence on a single segment.
@@ -13,7 +16,7 @@ Plan-time agent for the Ch. 4 VPC sequence on a single segment.
 
 Read:
 
-1. `memex.config.json` — confirm `profile == "venture"`
+1. the verified venture root (see `../RUNTIME.md`) — resolve without requiring Memex
 2. `02-customer-discovery/segments/<slug>/profile.md` — `status:
    active` required for VPC work
 3. `03-value-proposition/vpc-<slug>-v*.md` — latest version, fit

@@ -1,10 +1,15 @@
 ---
 name: mvp-build-plan
 description: Translate mvp-spec.md into a sprint plan — features → tickets → estimates, paired to hypotheses. Delegates to software-development/plan-orchestrator (upstream) for the parallel multi-agent coverage check when an audit-grade plan is needed.
-argument-hint: [optional: --use-orchestrator]
+argument-hint: "[optional: --use-orchestrator]"
 allowed-tools: Read Write Edit Glob Grep Agent
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # mvp-build-plan
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `09-mvp/mvp-spec.md` (must exist, status `active`).
 3. Read `09-mvp/mvp-metrics.md`, `09-mvp/tech-stack.md` (if exists),
    `09-mvp/architecture/ADR-*.md` (if exist), `09-mvp/schema/*` (if

@@ -1,12 +1,17 @@
 ---
 name: operational-bottleneck-detector
 description: Identify operational bottlenecks across people, process, systems, and supply; quantify throughput loss; and produce a prioritised remediation queue with effort/impact scores
-argument-hint: [process-or-data-source]
+argument-hint: "[process-or-data-source]"
 allowed-tools: Read Write Edit Bash(python3:*) Agent
 effort: high
 context: fork
 agent: Explore
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Operational Bottleneck Detector
 ultrathink

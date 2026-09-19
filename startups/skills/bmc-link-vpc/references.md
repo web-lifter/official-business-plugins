@@ -7,7 +7,7 @@ Connects two of the canonical Strategyzer canvases:
 
 The two canvases are designed to be used together: each BMC segment maps to one VPC, and each VPC value-map back-fills the BMC's Value Propositions cell.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

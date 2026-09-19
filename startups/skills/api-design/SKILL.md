@@ -1,10 +1,15 @@
 ---
 name: api-design
 description: REST and/or GraphQL API design — route inventory, OpenAPI schema (or GraphQL schema), error contracts, auth and rate-limit decisions, idempotency rules. Writes 09-mvp/architecture/api-design.md.
-argument-hint: [optional: --style=rest|graphql|both]
+argument-hint: "[optional: --style=rest|graphql|both]"
 allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # api-design
 
@@ -16,7 +21,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `tech-stack.md`, `mvp-spec.md`, latest schema draft if any.
 3. Default style is REST unless override.
 

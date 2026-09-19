@@ -1,7 +1,7 @@
 ---
 name: keyword-clustering-and-mapping
 description: Cluster a master keyword list, map clusters to existing pages with page-type & intent awareness, propose a target site architecture, detect gaps + cannibalisation, and produce a single offline HTML dashboard — fully self-contained, no external CLI or API.
-argument-hint: [keyword-csv-path]
+argument-hint: "[keyword-csv-path]"
 allowed-tools: Read Write Bash(python *) Bash(pip *)
 # Tool justification:
 #   Read              — load the master keyword CSV and parse clustering CSV outputs (Phases 1, 4)
@@ -12,6 +12,11 @@ effort: high
 # agent rationale: content-strategist persona governs roadmap synthesis after clustering completes
 agent: content-strategist
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Keyword Clustering & Mapping
 ultrathink
@@ -28,7 +33,7 @@ ultrathink
 
 Takes the master keyword CSV from `keyword-list-developer` (or any CSV with a `keyword` column), clusters it, maps clusters to existing site pages **with page-type & intent awareness**, proposes a target site architecture, identifies content gaps and cannibalisation, and assembles every output into one offline HTML dashboard.
 
-This skill is **fully self-contained**. The clustering engine is bundled under `scripts/keyword_clustering/` and run locally via `scripts/run_clustering.py` — there is **no external `keyword-cluster` CLI and no network API**. The only external dependency is the Python packages in `scripts/requirements.txt`, installed once into a skill-local virtualenv by `scripts/setup_env.py`.
+This skill is **fully self-contained**. The clustering engine is bundled under `scripts/keyword_clustering/` and run locally via `scripts/run_clustering.py` — there is **no external `keyword-cluster` CLI**. Core Python packages are declared in `scripts/requirements.txt`. The opt-in setup uses a persistent data-directory environment, not a skill-local venv. Optional models/corpora may require separately authorised downloads; an offline first run is not guaranteed.
 
 Key behaviours:
 - **Page-type & intent-aware mapping** — every page is classified (`service / landing / blog / guide / news / tool / nav`) and commercial keywords are steered to service/landing pages, never blog/news/tool pages. A commercial cluster with no suitable page becomes a genuine gap rather than being mis-mapped to a blog.
@@ -86,7 +91,7 @@ If no arguments were provided, ask for the CSV path or offer to retrieve the mos
 Ensure the bundled engine can run locally — no external CLI.
 
 1. Let `SCRIPTS="${CLAUDE_PLUGIN_ROOT}/skills/keyword-clustering-and-mapping/scripts"`.
-2. Run `python "${SCRIPTS}/setup_env.py"`. Capture the `PYTHON=<path>` line from its output; call that interpreter `$PY` for the rest of the run. First run can take several minutes (torch). If it fails, tell the user — the runner will still work in tf-idf mode with only the core packages.
+2. Run `python "${SCRIPTS}/setup_env.py"` as a read-only readiness check. If it reports missing dependencies, explain the requirements and obtain download/install approval before rerunning with `--install`. Add `--optional` only when advanced or semantic dependencies are needed and approved. Capture `PYTHON=<path>` only from a successful check/install; use that interpreter as `$PY`. Failed setup does not prove core packages are available: verify them before proposing TF-IDF fallback.
 
 ### Output
 A working `$PY` interpreter with the engine importable.
@@ -258,7 +263,7 @@ Use the template at `templates/output-template.md`. Preserve all raw CSV paths i
 
 ## Edge Cases
 
-1. **Environment setup failed** — re-run `scripts/setup_env.py`. If the semantic/advanced deps won't install (e.g. no `torch` wheel), the runner still works in tf-idf mode on the core packages; tell the user quality will be lower and proceed only if they accept.
+1. **Environment setup failed** — report the actual failure. A readiness check alone does not install anything. With approval, use `scripts/setup_env.py --install` for core packages; optional semantic/advanced packages need `--optional`. TF-IDF fallback is possible only after core dependencies are verified. Explain the methodological difference without asserting an unmeasured quality penalty.
 2. **No pages CSV available** — offer to run `sitemap_parser.py` with the user's domain, or accept a manually provided CSV. Without a pages CSV, clustering can still run but page-mapping will be empty — flag this clearly.
 3. **CSV column mismatch** — if the input CSV is missing required columns, display a migration command to add the missing columns as empty strings before retrying.
 4. **Clustering produces only 1–2 clusters** — likely too few keywords or a poorly-fitting count. Recommend raising `--clusters`, trying `--auto-k silhouette`, or switching to `hdbscan` (and lowering `--min-cluster-size`). Surface the engine's quality metrics (`cluster_quality_report.csv`) to help the user diagnose.

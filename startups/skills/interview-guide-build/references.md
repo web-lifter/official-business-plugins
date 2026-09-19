@@ -1,6 +1,6 @@
 # interview-guide-build — references
 
-The interview-guide structure this skill enforces (≤ 30 minutes, open questions, behavioural recall, four mandatory closers) comes from Lean Startup customer-discovery practice. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The interview-guide structure this skill enforces (≤ 30 minutes, open questions, behavioural recall, four mandatory closers) comes from Lean Startup customer-discovery practice. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## Lean-Startup interview discipline
 

@@ -19,7 +19,7 @@ Common failure modes — refuse and ask for sharpening:
 | "It's a big market" | No falsifiable threshold | "≥ 100k matching businesses on the ABS register" |
 | "If we charge $X they'll pay" | Missing threshold and timeframe | "≥ 60% of segment-A pre-orders at $X within 14 days" |
 
-The full ruleset is in `claude-memex/templates/profiles/venture/.memex/.rules/hypothesis-rules.md`.
+Apply these local rules explicitly; no external Memex ruleset or hook is required. Retain hypothesis IDs, evidence links and an audit trail for status changes.
 
 ## §2. Why per-row status, not per-page
 

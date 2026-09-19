@@ -1,10 +1,15 @@
 ---
 name: pricing-architecture-designer
 description: Select pricing model (tiered / usage / freemium / value / outcome) and design packaging, fences, anchors with revenue projections for AU SMB and growth-stage businesses.
-argument-hint: [product-and-segments]
+argument-hint: "[product-and-segments]"
 allowed-tools: Read Write Edit AskUserQuestion
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Pricing Architecture Designer
 ultrathink

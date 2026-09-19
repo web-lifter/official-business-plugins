@@ -1,13 +1,18 @@
 ---
 name: moat-strength-audit
 description: Score durability across 7 moat types (network, switching, scale, brand, IP, data, regulatory) with 0–10 per moat + decay-rate forecast. Routes to red-team-strategist.
-argument-hint: [business-or-target]
+argument-hint: "[business-or-target]"
 allowed-tools: Read Write Edit Agent AskUserQuestion
 paths:
   - "**/moat*.md"
   - "**/7-powers*.md"
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Moat Strength Audit
 ultrathink
