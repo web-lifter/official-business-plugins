@@ -1,10 +1,15 @@
 ---
 name: core-web-vitals-report
 description: Audit Core Web Vitals (LCP, INP, CLS) for a URL list or sitemap via PageSpeed Insights and CrUX — producing a per-URL scorecard, worst-offender summary, and root-cause remediation plan.
-argument-hint: [url-list-or-sitemap]
+argument-hint: "[url-list-or-sitemap]"
 allowed-tools: Read Write Bash
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Core Web Vitals Report
 ultrathink

@@ -1,10 +1,15 @@
 ---
 name: mvp-tech-plan
 description: Translate the MVP scope into a tech plan — sequenced delegation to tech-stack-recommender → architecture-design → adr-writer. Thin orchestrator. Outputs reside under 09-mvp/.
-argument-hint: [optional: --override-stack=<keyword>]
+argument-hint: "[optional: --override-stack=<keyword>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # mvp-tech-plan
 
@@ -20,7 +25,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `mvp-spec.md`. Halt if missing.
 3. Check whether `tech-stack.md` exists; if recent (< 7 days) and no
    override, ask user whether to refresh.

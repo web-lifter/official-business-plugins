@@ -5,13 +5,16 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # relationships-channels-orchestrator
 
 ## Before you start
 
 Read:
 
-1. `memex.config.json`
+1. the verified venture root (see `../RUNTIME.md`)
 2. Latest BMC — Customer Relationships and Channels cells
 3. `06-relationships-channels/` — what files already exist?
 4. Segment profiles — to ground channel choice

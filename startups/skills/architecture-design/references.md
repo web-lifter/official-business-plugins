@@ -20,6 +20,6 @@
 2. **Components annotated with providers.** "App" is useless; "Vercel — Next.js 15 SSR" is informative.
 3. **Sync/async called out per boundary.** Most architectural defects live at these boundaries.
 4. **Risks have mitigations or are open questions.** No risk without a follow-up.
-5. **No infra mutations.** This skill is a planner; deployment work lives in `vercel-deploy-plan` and `cloudflare-deploy-plan`.
+5. **No infra mutations.** This skill is a planner; deployment work lives in `mvp-deploy-plan` and `cloudflare-deploy-plan`.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

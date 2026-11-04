@@ -1,6 +1,6 @@
 # customer-discovery-status — references
 
-The four-question gate this skill enforces operationalises Steve Blank's verify / pivot / refine decision from the customer-development model. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The four-question gate this skill enforces operationalises Steve Blank's verify / pivot / refine decision from the customer-development model. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## Why a blocking gate
 
@@ -11,7 +11,7 @@ The four-question gate this skill enforces operationalises Steve Blank's verify 
 
 ## Override discipline
 
-The skill itself is read-only. When a *dependent* skill bypasses the gate with `--force`, that dependent skill must append the override to `.memex/log.md`:
+The skill itself is read-only. When a *dependent* skill bypasses the gate with `--force`, that dependent skill must append the override to `log.md`:
 
 ```
 ## [<today>] gate-override | <skill> bypassed customer-discovery-status (<rollup>)

@@ -5,6 +5,9 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # business-model-orchestrator
 
 Plan-time agent for the Ch. 2 BMC sequence.
@@ -13,7 +16,7 @@ Plan-time agent for the Ch. 2 BMC sequence.
 
 Read:
 
-1. `memex.config.json`
+1. the verified venture root (see `../RUNTIME.md`)
 2. Latest `bmc-v*.md` (in `05-business-model/` or `01-hypotheses/`)
 3. Hypothesis register — flips since the latest BMC's `updated:`
 4. Latest VPCs and segments

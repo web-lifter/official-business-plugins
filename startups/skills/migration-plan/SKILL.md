@@ -1,15 +1,20 @@
 ---
 name: migration-plan
 description: Sequence migrations for a green-field MVP — bootstrap, seed data, RLS, edge functions, types regeneration. Pairs with supabase-schema-design. Optionally orchestrates apply_migration calls via the connector-confirmation flow.
-argument-hint: [optional: --apply-through=<migration-N>]
+argument-hint: "[optional: --apply-through=<migration-N>]"
 allowed-tools: Read Write Edit Glob Grep AskUserQuestion
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # migration-plan
 
 Cites the connector-confirmation idiom in
-[`shared/reference/connector-confirmation.md`](../../../../shared/reference/connector-confirmation.md).
+[`connector-confirmation.md`](../../references/connector-confirmation.md).
 
 Idempotency: destructive on re-run when `--apply-through` is used; refuses to re-apply migrations already in `list_migrations`. Without `--apply-through` it is side-effect-free.
 
@@ -21,7 +26,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `09-mvp/schema/migrations-plan.md`. Halt if missing — route to
    `/supabase-schema-design`.
 3. If Supabase MCP available, call `list_migrations` to see what's
@@ -55,7 +60,7 @@ For each migration `1..N`:
 2. `AskUserQuestion` with "Yes, apply" / "No, abort."
 3. If yes:
    - Call `apply_migration` via the Supabase MCP.
-   - On success, log the migration name to `.memex/log.md`.
+   - On success, log the migration name to `log.md`.
    - On failure, surface the error, do not proceed.
 4. If no, log the abort and stop.
 

@@ -1,7 +1,7 @@
 """Moz API client for marketing (stub).
 
 Provides Domain Authority and link metrics via the Moz Links API v2.
-Credentials (Access ID + Secret) are read from the encrypted vault under
+Credentials (Access ID + Secret) are read from the plaintext credentials file or environment under
 provider ``moz``.
 
 Usage::

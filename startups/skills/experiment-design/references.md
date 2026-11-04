@@ -8,7 +8,7 @@ The experiment-type menu — customer interview, survey, smoke test, concierge M
 
 The "confidence × cost" recommendation logic prefers the cheapest experiment that can produce a clear answer — Maurya's risk × impact × ease rubric (see `experiment-prioritise/references.md`) applied at the experiment-type granularity rather than the hypothesis granularity.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

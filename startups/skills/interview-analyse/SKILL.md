@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # interview-analyse
 
 Idempotency: re-running on a segment after new interviews produces a fresh `interview-summary.md`; the prior is overwritten. History lives in the individual interview files.
 
-Method: Blank's verify/pivot/refine gate — aggregate evidence across ≥ 5 interviews before proposing a hypothesis status change. See `startups/SOURCES.md`.
+Method: Blank's verify/pivot/refine gate — aggregate evidence across ≥ 5 interviews before proposing a hypothesis status change. See [Startups sources](../../SOURCES.md).
 
 This skill is the bridge between *running* interviews and *deciding*
 what they mean. It produces a per-segment summary plus a list of
@@ -26,7 +31,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify the segment has ≥ 5 interviews logged. Refuse if fewer:
    "Need ≥ 5 interviews per segment before aggregating; currently <N>."
 3. Read the segment's `profile.md`, `early-adopters.md`, and all

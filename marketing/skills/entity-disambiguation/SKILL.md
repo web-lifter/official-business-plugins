@@ -1,10 +1,15 @@
 ---
 name: entity-disambiguation
 description: Resolve entity ambiguity across data sources — produce canonical records, merge decisions, and sameAs link mappings for structured data
-argument-hint: [entity-list-or-data-sources]
+argument-hint: "[entity-list-or-data-sources]"
 allowed-tools: Read Grep Glob Write Edit Bash(python:*)
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Entity Disambiguation Prompt
 

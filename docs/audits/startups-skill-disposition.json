@@ -1,0 +1,623 @@
+[
+  {
+    "skill": "adr-writer",
+    "path": "startups/skills/adr-writer/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 109
+  },
+  {
+    "skill": "api-design",
+    "path": "startups/skills/api-design/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 113
+  },
+  {
+    "skill": "architecture-design",
+    "path": "startups/skills/architecture-design/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 117
+  },
+  {
+    "skill": "auth-model-design",
+    "path": "startups/skills/auth-model-design/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 149
+  },
+  {
+    "skill": "bmc-build",
+    "path": "startups/skills/bmc-build/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 134
+  },
+  {
+    "skill": "bmc-front-back-split",
+    "path": "startups/skills/bmc-front-back-split/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 120
+  },
+  {
+    "skill": "bmc-link-vpc",
+    "path": "startups/skills/bmc-link-vpc/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 67
+  },
+  {
+    "skill": "bmc-revenue-cost-sketch",
+    "path": "startups/skills/bmc-revenue-cost-sketch/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 116
+  },
+  {
+    "skill": "bmc-update",
+    "path": "startups/skills/bmc-update/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 89
+  },
+  {
+    "skill": "channel-select",
+    "path": "startups/skills/channel-select/SKILL.md",
+    "group": "channels",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain decision boundaries; share funnel units/denominators and retention model assumptions.",
+    "lines": 114
+  },
+  {
+    "skill": "churn-model",
+    "path": "startups/skills/churn-model/SKILL.md",
+    "group": "channels",
+    "disposition": "retain-repaired",
+    "evidence": "Repaired: retention/churn reversal, lifetime and worked economics. Added a deterministic bounded helper.",
+    "recommendation": "Retain decision boundaries; share funnel units/denominators and retention model assumptions.",
+    "lines": 41
+  },
+  {
+    "skill": "cloudflare-deploy-plan",
+    "path": "startups/skills/cloudflare-deploy-plan/SKILL.md",
+    "group": "deployment",
+    "disposition": "retain-repaired",
+    "evidence": "Repaired missing confirmation reference; forbid delegation back into the calling deployment orchestrator.",
+    "recommendation": "Keep provider-neutral entrypoint; make provider recipes conditional references, no reverse delegation or automatic deployment.",
+    "lines": 174
+  },
+  {
+    "skill": "competitor-bmc-shadow",
+    "path": "startups/skills/competitor-bmc-shadow/SKILL.md",
+    "group": "competitor",
+    "disposition": "retain-repaired",
+    "evidence": "Added missing reference; distinguish observed competitor evidence from inferred business-model cells.",
+    "recommendation": "Candidate combined evidence-to-positioning workflow; optional shadow canvas, no invented competitor business model.",
+    "lines": 101
+  },
+  {
+    "skill": "competitor-discover",
+    "path": "startups/skills/competitor-discover/SKILL.md",
+    "group": "competitor",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate combined evidence-to-positioning workflow; optional shadow canvas, no invented competitor business model.",
+    "lines": 107
+  },
+  {
+    "skill": "competitor-insights",
+    "path": "startups/skills/competitor-insights/SKILL.md",
+    "group": "competitor",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate combined evidence-to-positioning workflow; optional shadow canvas, no invented competitor business model.",
+    "lines": 125
+  },
+  {
+    "skill": "competitor-table-build",
+    "path": "startups/skills/competitor-table-build/SKILL.md",
+    "group": "competitor",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate combined evidence-to-positioning workflow; optional shadow canvas, no invented competitor business model.",
+    "lines": 104
+  },
+  {
+    "skill": "converge-ideas",
+    "path": "startups/skills/converge-ideas/SKILL.md",
+    "group": "ideation",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Strong consolidation candidate: one diverge/evaluate/select workflow with six-ways as a reference module.",
+    "lines": 121
+  },
+  {
+    "skill": "customer-discovery-status",
+    "path": "startups/skills/customer-discovery-status/SKILL.md",
+    "group": "discovery",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain distinct collection/analysis/status contracts; share evidence schema, preserve dissent and avoid sample-count fit claims.",
+    "lines": 185
+  },
+  {
+    "skill": "customer-profile-build",
+    "path": "startups/skills/customer-profile-build/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 181
+  },
+  {
+    "skill": "customer-segment-define",
+    "path": "startups/skills/customer-segment-define/SKILL.md",
+    "group": "discovery",
+    "disposition": "retain-repaired",
+    "evidence": "Repaired singular/plural reference mismatch and mandatory legacy preflight.",
+    "recommendation": "Retain distinct collection/analysis/status contracts; share evidence schema, preserve dissent and avoid sample-count fit claims.",
+    "lines": 150
+  },
+  {
+    "skill": "data-model-from-vpc",
+    "path": "startups/skills/data-model-from-vpc/SKILL.md",
+    "group": "schema",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate one data-design workflow with conceptual/physical/migration modes; keep migrations separately authorised.",
+    "lines": 119
+  },
+  {
+    "skill": "digital-prototype",
+    "path": "startups/skills/digital-prototype/SKILL.md",
+    "group": "prototype",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate prototype workflow with paper/digital modes; retain feedback and learning gates, not arbitrary production scope.",
+    "lines": 122
+  },
+  {
+    "skill": "divergent-ideate",
+    "path": "startups/skills/divergent-ideate/SKILL.md",
+    "group": "ideation",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Strong consolidation candidate: one diverge/evaluate/select workflow with six-ways as a reference module.",
+    "lines": 124
+  },
+  {
+    "skill": "early-adopter-profile",
+    "path": "startups/skills/early-adopter-profile/SKILL.md",
+    "group": "discovery",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain distinct collection/analysis/status contracts; share evidence schema, preserve dissent and avoid sample-count fit claims.",
+    "lines": 170
+  },
+  {
+    "skill": "experiment-data-collection-plan",
+    "path": "startups/skills/experiment-data-collection-plan/SKILL.md",
+    "group": "metrics",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate one measurement contract: hypothesis, direction, denominator, minimum sample, events and evidence quality.",
+    "lines": 120
+  },
+  {
+    "skill": "experiment-design",
+    "path": "startups/skills/experiment-design/SKILL.md",
+    "group": "experiments",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate experiment lifecycle with separate design/run/readout stages; do not fabricate results from an open test card.",
+    "lines": 91
+  },
+  {
+    "skill": "experiment-prioritise",
+    "path": "startups/skills/experiment-prioritise/SKILL.md",
+    "group": "experiments",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate experiment lifecycle with separate design/run/readout stages; do not fabricate results from an open test card.",
+    "lines": 78
+  },
+  {
+    "skill": "experiment-run-tracker",
+    "path": "startups/skills/experiment-run-tracker/SKILL.md",
+    "group": "experiments",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate experiment lifecycle with separate design/run/readout stages; do not fabricate results from an open test card.",
+    "lines": 72
+  },
+  {
+    "skill": "figma-design-handoff",
+    "path": "startups/skills/figma-design-handoff/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 131
+  },
+  {
+    "skill": "funnel-instrumentation-spec",
+    "path": "startups/skills/funnel-instrumentation-spec/SKILL.md",
+    "group": "metrics",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate one measurement contract: hypothesis, direction, denominator, minimum sample, events and evidence quality.",
+    "lines": 113
+  },
+  {
+    "skill": "funnel-model",
+    "path": "startups/skills/funnel-model/SKILL.md",
+    "group": "channels",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain decision boundaries; share funnel units/denominators and retention model assumptions.",
+    "lines": 107
+  },
+  {
+    "skill": "get-keep-grow-design",
+    "path": "startups/skills/get-keep-grow-design/SKILL.md",
+    "group": "channels",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain decision boundaries; share funnel units/denominators and retention model assumptions.",
+    "lines": 112
+  },
+  {
+    "skill": "hypothesis-falsifiability-check",
+    "path": "startups/skills/hypothesis-falsifiability-check/SKILL.md",
+    "group": "experiments",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate experiment lifecycle with separate design/run/readout stages; do not fabricate results from an open test card.",
+    "lines": 100
+  },
+  {
+    "skill": "hypothesis-register",
+    "path": "startups/skills/hypothesis-register/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain-repaired",
+    "evidence": "Removed missing external hook/rules dependency; maintain local state explicitly.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 141
+  },
+  {
+    "skill": "interview-analyse",
+    "path": "startups/skills/interview-analyse/SKILL.md",
+    "group": "discovery",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain distinct collection/analysis/status contracts; share evidence schema, preserve dissent and avoid sample-count fit claims.",
+    "lines": 203
+  },
+  {
+    "skill": "interview-guide-build",
+    "path": "startups/skills/interview-guide-build/SKILL.md",
+    "group": "discovery",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain distinct collection/analysis/status contracts; share evidence schema, preserve dissent and avoid sample-count fit claims.",
+    "lines": 204
+  },
+  {
+    "skill": "interview-log",
+    "path": "startups/skills/interview-log/SKILL.md",
+    "group": "discovery",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain distinct collection/analysis/status contracts; share evidence schema, preserve dissent and avoid sample-count fit claims.",
+    "lines": 200
+  },
+  {
+    "skill": "learning-card-build",
+    "path": "startups/skills/learning-card-build/SKILL.md",
+    "group": "experiments",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate experiment lifecycle with separate design/run/readout stages; do not fabricate results from an open test card.",
+    "lines": 127
+  },
+  {
+    "skill": "migration-plan",
+    "path": "startups/skills/migration-plan/SKILL.md",
+    "group": "schema",
+    "disposition": "retain-repaired",
+    "evidence": "Bundled missing confirmation policy; planning is not permission to apply migrations.",
+    "recommendation": "Candidate one data-design workflow with conceptual/physical/migration modes; keep migrations separately authorised.",
+    "lines": 87
+  },
+  {
+    "skill": "mvp-analytics-plan",
+    "path": "startups/skills/mvp-analytics-plan/SKILL.md",
+    "group": "metrics",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate one measurement contract: hypothesis, direction, denominator, minimum sample, events and evidence quality.",
+    "lines": 149
+  },
+  {
+    "skill": "mvp-build-plan",
+    "path": "startups/skills/mvp-build-plan/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 129
+  },
+  {
+    "skill": "mvp-deploy-plan",
+    "path": "startups/skills/mvp-deploy-plan/SKILL.md",
+    "group": "deployment",
+    "disposition": "retain-repaired",
+    "evidence": "Rebuilt: removed nonexistent Vercel delegation and plan/execution ambiguity.",
+    "recommendation": "Keep provider-neutral entrypoint; make provider recipes conditional references, no reverse delegation or automatic deployment.",
+    "lines": 31
+  },
+  {
+    "skill": "mvp-feasibility",
+    "path": "startups/skills/mvp-feasibility/SKILL.md",
+    "group": "mvp",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain useful standalone outputs; make stage gates evidence-based and optional adapters explicit.",
+    "lines": 134
+  },
+  {
+    "skill": "mvp-metrics",
+    "path": "startups/skills/mvp-metrics/SKILL.md",
+    "group": "metrics",
+    "disposition": "retain-repaired",
+    "evidence": "Repaired impossible decision conditions, directionless thresholds and premature scale recommendation.",
+    "recommendation": "Candidate one measurement contract: hypothesis, direction, denominator, minimum sample, events and evidence quality.",
+    "lines": 117
+  },
+  {
+    "skill": "mvp-open-questions",
+    "path": "startups/skills/mvp-open-questions/SKILL.md",
+    "group": "mvp",
+    "disposition": "retain-repaired",
+    "evidence": "Rebuilt: exclude the aggregate from its own scan and preserve annotations; no missing Memex hook.",
+    "recommendation": "Retain useful standalone outputs; make stage gates evidence-based and optional adapters explicit.",
+    "lines": 35
+  },
+  {
+    "skill": "mvp-schema-plan",
+    "path": "startups/skills/mvp-schema-plan/SKILL.md",
+    "group": "schema",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate one data-design workflow with conceptual/physical/migration modes; keep migrations separately authorised.",
+    "lines": 64
+  },
+  {
+    "skill": "mvp-scope",
+    "path": "startups/skills/mvp-scope/SKILL.md",
+    "group": "mvp",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain useful standalone outputs; make stage gates evidence-based and optional adapters explicit.",
+    "lines": 138
+  },
+  {
+    "skill": "mvp-tech-plan",
+    "path": "startups/skills/mvp-tech-plan/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 70
+  },
+  {
+    "skill": "mvp-type-select",
+    "path": "startups/skills/mvp-type-select/SKILL.md",
+    "group": "mvp",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain useful standalone outputs; make stage gates evidence-based and optional adapters explicit.",
+    "lines": 71
+  },
+  {
+    "skill": "paper-prototype",
+    "path": "startups/skills/paper-prototype/SKILL.md",
+    "group": "prototype",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate prototype workflow with paper/digital modes; retain feedback and learning gates, not arbitrary production scope.",
+    "lines": 128
+  },
+  {
+    "skill": "phase-router",
+    "path": "startups/skills/phase-router/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain-repaired",
+    "evidence": "Repaired premature learning-card routing; counts are local heuristics, not validated fit or source-certified thresholds.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 129
+  },
+  {
+    "skill": "pitch-1min-build",
+    "path": "startups/skills/pitch-1min-build/SKILL.md",
+    "group": "mvp",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain useful standalone outputs; make stage gates evidence-based and optional adapters explicit.",
+    "lines": 108
+  },
+  {
+    "skill": "pivot-refine-log",
+    "path": "startups/skills/pivot-refine-log/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 164
+  },
+  {
+    "skill": "product-channel-fit-check",
+    "path": "startups/skills/product-channel-fit-check/SKILL.md",
+    "group": "channels",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain decision boundaries; share funnel units/denominators and retention model assumptions.",
+    "lines": 90
+  },
+  {
+    "skill": "prototype-feedback-collect",
+    "path": "startups/skills/prototype-feedback-collect/SKILL.md",
+    "group": "prototype",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate prototype workflow with paper/digital modes; retain feedback and learning gates, not arbitrary production scope.",
+    "lines": 113
+  },
+  {
+    "skill": "prototype-vs-mvp-distinguish",
+    "path": "startups/skills/prototype-vs-mvp-distinguish/SKILL.md",
+    "group": "prototype",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate prototype workflow with paper/digital modes; retain feedback and learning gates, not arbitrary production scope.",
+    "lines": 96
+  },
+  {
+    "skill": "six-ways-to-innovate",
+    "path": "startups/skills/six-ways-to-innovate/SKILL.md",
+    "group": "ideation",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Strong consolidation candidate: one diverge/evaluate/select workflow with six-ways as a reference module.",
+    "lines": 114
+  },
+  {
+    "skill": "supabase-schema-design",
+    "path": "startups/skills/supabase-schema-design/SKILL.md",
+    "group": "schema",
+    "disposition": "retain-repaired",
+    "evidence": "Bundled missing confirmation policy; provider-specific guidance remains optional, no automatic live SQL.",
+    "recommendation": "Candidate one data-design workflow with conceptual/physical/migration modes; keep migrations separately authorised.",
+    "lines": 170
+  },
+  {
+    "skill": "swot-build",
+    "path": "startups/skills/swot-build/SKILL.md",
+    "group": "mvp",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain useful standalone outputs; make stage gates evidence-based and optional adapters explicit.",
+    "lines": 117
+  },
+  {
+    "skill": "tech-stack-recommender",
+    "path": "startups/skills/tech-stack-recommender/SKILL.md",
+    "group": "engineering",
+    "disposition": "retain-repaired",
+    "evidence": "Removed unsupported 80% claim, mandatory Next.js 15 default and connector-driven provider choice.",
+    "recommendation": "Retain planning interface; consider optional engineering pack after assessing usage, rather than forcing a provider stack.",
+    "lines": 125
+  },
+  {
+    "skill": "test-card-build",
+    "path": "startups/skills/test-card-build/SKILL.md",
+    "group": "experiments",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate experiment lifecycle with separate design/run/readout stages; do not fabricate results from an open test card.",
+    "lines": 126
+  },
+  {
+    "skill": "uvp-statement",
+    "path": "startups/skills/uvp-statement/SKILL.md",
+    "group": "competitor",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate combined evidence-to-positioning workflow; optional shadow canvas, no invented competitor business model.",
+    "lines": 96
+  },
+  {
+    "skill": "value-map-build",
+    "path": "startups/skills/value-map-build/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 124
+  },
+  {
+    "skill": "venture-handoff-doc",
+    "path": "startups/skills/venture-handoff-doc/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 148
+  },
+  {
+    "skill": "venture-init",
+    "path": "startups/skills/venture-init/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain-repaired",
+    "evidence": "Rebuilt: self-contained workspace initialisation with non-overwrite, recovery and idempotence tests.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 39
+  },
+  {
+    "skill": "venture-status",
+    "path": "startups/skills/venture-status/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain-repaired",
+    "evidence": "Added missing reference and portable workspace resolution; preserve read-only operation.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 122
+  },
+  {
+    "skill": "vision-sketch",
+    "path": "startups/skills/vision-sketch/SKILL.md",
+    "group": "workspace",
+    "disposition": "retain",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Retain the workspace entrypoints; share state parsing and logging, with status/router kept read-only.",
+    "lines": 141
+  },
+  {
+    "skill": "vpc-fit-check",
+    "path": "startups/skills/vpc-fit-check/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 91
+  },
+  {
+    "skill": "vpc-version",
+    "path": "startups/skills/vpc-version/SKILL.md",
+    "group": "canvas",
+    "disposition": "retain; consolidation candidate",
+    "evidence": "Shared runtime preflight, scalar argument metadata and native UI added. No usage evidence establishes obsolescence.",
+    "recommendation": "Candidate shared canvas workflow with explicit create/update/link/review modes; preserve distinct outputs and aliases.",
+    "lines": 76
+  }
+]

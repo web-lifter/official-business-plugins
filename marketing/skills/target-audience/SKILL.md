@@ -1,10 +1,15 @@
 ---
 name: target-audience
 description: Build buyer personas, ICPs, and audience segments with psychographics, demographics, jobs-to-be-done, channel preferences, and objection mapping
-argument-hint: [product-or-service-description]
+argument-hint: "[product-or-service-description]"
 allowed-tools: Read Write Edit Grep Glob
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Target Audience
 

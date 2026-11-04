@@ -1,3 +1,11 @@
+# Marketplace changes - 19 September 2026
+
+- Fix rejected marketing MCP metadata; add native OpenAI packaging and runtime fallbacks.
+- Business Operations 1.1.0; Data Science 2.1.0; Economics 2.1.0; Marketing 2.1.0; Startups 1.1.0.
+- Correct setup, API, cache, SQL, numerical and parsing defects with regression coverage.
+- Make Startups self-contained without deleting existing skill identifiers.
+- See the detailed audit and compatibility guide for migration and acceptance limits.
+
 # Changelog
 
 All notable changes to the Web Lifter Official Business Plugins marketplace are

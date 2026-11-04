@@ -1,10 +1,15 @@
 ---
 name: content-brief-generator
 description: Generate a single-keyword or cluster-grounded editorial brief — covering heading structure, SERP intent, link plan, and schema for a writer-ready handoff.
-argument-hint: [target-keyword-or-cluster-id]
+argument-hint: "[target-keyword-or-cluster-id]"
 allowed-tools: Read Write
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Content Brief Generator
 

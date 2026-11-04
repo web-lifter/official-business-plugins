@@ -60,9 +60,10 @@ def parse_robots(url: str) -> dict:
     user_agents: dict[str, dict] = {}
     sitemaps: list[str] = []
     current_agents: list[str] = []
+    group_has_rules = False
 
     for line in text.splitlines():
-        line = line.strip()
+        line = line.partition("#")[0].strip()
         if not line or line.startswith("#"):
             continue
 
@@ -74,19 +75,26 @@ def parse_robots(url: str) -> dict:
         value = value.strip()
 
         if directive == "user-agent":
-            current_agents = [value] if value else []
+            if group_has_rules:
+                current_agents = []
+                group_has_rules = False
+            if value and value not in current_agents:
+                current_agents.append(value)
             for agent in current_agents:
                 if agent not in user_agents:
                     user_agents[agent] = {"disallow": [], "allow": [], "crawl_delay": None}
         elif directive == "disallow":
+            group_has_rules = True
             for agent in current_agents:
                 if agent in user_agents and value:
                     user_agents[agent]["disallow"].append(value)
         elif directive == "allow":
+            group_has_rules = True
             for agent in current_agents:
                 if agent in user_agents and value:
                     user_agents[agent]["allow"].append(value)
         elif directive == "crawl-delay":
+            group_has_rules = True
             try:
                 delay = float(value)
             except ValueError:

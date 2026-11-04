@@ -1,16 +1,21 @@
 ---
 name: phase-router
 description: Recommend the next 1–3 actions for the venture based on its current state. Reads the index, hypothesis register, learning cards, and open questions. Outputs a prioritised plan with the skill name to invoke for each action. Read-only.
-argument-hint: [optional focus area: discovery|vpc|bmc|competitor|channels|prototype|mvp]
+argument-hint: "[optional focus area: discovery|vpc|bmc|competitor|channels|prototype|mvp]"
 allowed-tools: Read Glob Grep Bash
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # phase-router
 
 Idempotency: read-only. Running this skill multiple times against unchanged state produces identical recommendations.
 
-Decides what to do next. Encodes Steve Blank's four-step customer-development model (discovery → validation → creation → company building) as a set of inspectable rules in `reference.md` so the routing is auditable, not buried in a prompt. See `startups/SOURCES.md` for citations.
+Decides what to do next. Encodes Steve Blank's four-step customer-development model (discovery → validation → creation → company building) as a set of inspectable rules in `reference.md` so the routing is auditable, not buried in a prompt. See [Startups sources](../../SOURCES.md) for citations.
 
 ## User Context
 
@@ -28,13 +33,13 @@ actions.
 
 1. Confirm a venture profile is active (same check as `venture-status`).
 2. Read these in parallel:
-   - `.memex/index.md` head (first 80 lines)
-   - `.memex/log.md` tail (last 20 entries)
+   - `index.md` head (first 80 lines)
+   - `log.md` tail (last 20 entries)
    - `01-hypotheses/hypothesis-register.md`
    - All filenames under `02-customer-discovery/segments/*/interviews/`
    - All filenames under `02-customer-discovery/{test-cards,learning-cards}/`
    - `07-validation/pivot-refine-log.md` (count of pivots in last 90 days)
-   - All filenames in `.memex/.open-questions/` (excluding `README.md`)
+   - All filenames in `.open-questions/` (excluding `README.md`)
 
 ---
 
@@ -57,7 +62,7 @@ The decision rules live in `reference.md`. Summary:
 8. **BMC has unflipped hypotheses** → recommend `/test-card-build` for
    the highest-priority hypothesis (use the experimentation plugin's
    `experiment-prioritise` if available).
-9. **Open test cards with no learning cards** → recommend
+9. **Concluded test cards with observed results but no learning cards** → recommend
    `/learning-card-build`.
 10. **No UVP, ≥ 3 competitors** → recommend `/uvp-statement`.
 11. **No channel strategy, BMC channels cell is `hypothesis`** →
@@ -99,7 +104,7 @@ End with one line of metadata: which routing rule(s) matched.
 - **Read-only.** Never modify state; never append to log.
 - **At most three recommendations.** A founder with 12 next-actions has
   no next action.
-- **Cite the research.** Each rule references the relevant section of `reference.md` and the underlying source in `startups/SOURCES.md`.
+- **Cite the research.** Each rule references the relevant section of `reference.md` and the underlying source in [Startups sources](../../SOURCES.md).
 - **Don't override blocking gates.** If `customer-discovery-status` is
   RED, don't recommend `/mvp-scope` even if `--force` would unblock it.
   Recommend the gap-filling action instead.
@@ -118,3 +123,7 @@ End with one line of metadata: which routing rule(s) matched.
 5. **Three pivots in 90 days** — explicitly recommend slowing down. The
    point of routing is sometimes "stop adding things; revisit
    discovery."
+
+## Evidence guardrails
+
+Unrun or incomplete tests need execution/data collection, not invented learning cards. Interview and competitor counts are triage heuristics, not sufficient evidence of market fit. Canvas mapping coverage is not validation. Inconclusive results do not authorise scale.

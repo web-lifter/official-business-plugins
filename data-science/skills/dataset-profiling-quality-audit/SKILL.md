@@ -1,10 +1,15 @@
 ---
 name: dataset-profiling-quality-audit
 description: Profile datasets and audit data quality across six dimensions, producing prioritised cleaning recommendations
-argument-hint: [dataset-description-or-file-path]
+argument-hint: "[dataset-description-or-file-path]"
 allowed-tools: Read Grep Glob Write Edit Bash
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Dataset Profiling Quality Audit
 

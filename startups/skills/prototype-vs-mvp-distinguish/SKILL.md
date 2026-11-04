@@ -6,6 +6,11 @@ allowed-tools: Read Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # prototype-vs-mvp-distinguish
 
 Methodology: Lean Startup MVP definition (Ries, 2011) — "the version of a new product that allows a team to collect the maximum amount of validated learning about customers with the least effort." Combined with the Strategyzer testing literature (test card / learning card discipline). See `references.md`.
@@ -24,7 +29,7 @@ file the user is considering relabelling.
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the artifact and any spec it references.
 
 ## Phase 2: Apply the five dimensions

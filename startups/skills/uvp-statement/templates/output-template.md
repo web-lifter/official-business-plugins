@@ -28,4 +28,4 @@ updated: {{YYYY-MM-DD}}
 
 ## Headline polish
 
-{{If `--delegate-headline`, hand off to brand-manager/website-copy.}}
+{{If `--delegate-headline`, hand off to marketing:website-copy.}}

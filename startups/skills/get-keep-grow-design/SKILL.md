@@ -1,10 +1,15 @@
 ---
 name: get-keep-grow-design
 description: Walk the three stages of customer relationships — Get (acquisition), Keep (retention), Grow (expansion). Each stage has its own metrics and investments. Writes 06-relationships-channels/get-keep-grow.md.
-argument-hint: [optional: --segment=<slug>]
+argument-hint: "[optional: --segment=<slug>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # get-keep-grow-design
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read latest BMC (especially Customer Relationships and Channels
    cells), latest VPCs, segment profiles.
 

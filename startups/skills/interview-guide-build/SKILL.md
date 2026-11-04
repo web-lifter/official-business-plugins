@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # interview-guide-build
 
 Idempotency: re-runs replace the segment's `interview-guide.md` with a freshly generated guide. Use a purpose suffix (e.g. `interview-guide-pricing.md`) to keep parallel guides.
 
-Method: Lean Startup customer-discovery interview techniques (Ries, *The Lean Startup*, 2011; Maurya, *Running Lean*, 2022) — open questions, behavioural recall, the four closers. See `references.md` and `startups/SOURCES.md`.
+Method: Lean Startup customer-discovery interview techniques (Ries, *The Lean Startup*, 2011; Maurya, *Running Lean*, 2022) — open questions, behavioural recall, the four closers. See `references.md` and [Startups sources](../../SOURCES.md).
 
 The guide is structured but not scripted: ≤ 30 minutes total, open
 questions, follow-up depth, and the four closers ("why," "why not,"
@@ -28,7 +33,7 @@ covers the full hypothesis register.
 
 ## Phase 1: Pre-flight
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify the segment folder exists with at least `profile.md` and
    `early-adopters.md` populated. The guide is built around them.
 3. Read the hypothesis register and filter to hypotheses tagged with

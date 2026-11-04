@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # prototype-feedback-collect
 
 Idempotency: append-only. Session number auto-increments; once filed, a session file is immutable.
@@ -16,7 +21,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Confirm a prototype exists at
    `08-prototype/paper/<slug>.md` or `08-prototype/digital/<slug>/`.
 3. Compute next session number: max existing

@@ -41,9 +41,9 @@ updated: 2026-05-21
 
 ## Open questions blocking
 
-- [`wcfw-cpu-ceiling`](../.memex/.open-questions/wcfw-cpu-ceiling.md): high — must resolve before C-05 starts
-- [`pdf-scan-scope`](../.memex/.open-questions/pdf-scan-scope.md): medium — resolved by scoping decision above
-- [`anthropic-zdr-contract`](../.memex/.open-questions/anthropic-zdr-contract.md): high — Priya to sign Anthropic ZDR addendum by end of week
+- [`wcfw-cpu-ceiling`](../.open-questions/wcfw-cpu-ceiling.md): high — must resolve before C-05 starts
+- [`pdf-scan-scope`](../.open-questions/pdf-scan-scope.md): medium — resolved by scoping decision above
+- [`anthropic-zdr-contract`](../.open-questions/anthropic-zdr-contract.md): high — Priya to sign Anthropic ZDR addendum by end of week
 
 ## Connector advisories (probed via MCP)
 

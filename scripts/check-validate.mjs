@@ -43,12 +43,9 @@ if (!Array.isArray(marketplace.plugins) || marketplace.plugins.length === 0) {
   process.exit(1);
 }
 
-// On Windows, the `claude` launcher is a .cmd / .ps1 shim, so we need shell
-// resolution to pick it up via PATHEXT. We pass the full command as one string
-// (avoids Node's DEP0190 shell-arg-escape deprecation) and quote embedded paths.
-const quote = (s) => `"${String(s).replace(/"/g, '\\"')}"`;
-
-const probe = spawnSync("claude --version", { encoding: "utf8", shell: true });
+// Use the native executable without shell interpolation. CLAUDE_BIN may select an explicit executable.
+const executable = process.env.CLAUDE_BIN || "claude";
+const probe = spawnSync(executable, ["--version"], { encoding: "utf8" });
 if (probe.status !== 0) {
   console.error(
     red(`✗ \`claude\` CLI not available on PATH. Install Claude Code or add it to PATH.`),
@@ -69,9 +66,9 @@ for (const entry of marketplace.plugins) {
   }
 
   const pluginDir = join(repoRoot, source);
-  const result = spawnSync(`claude plugin validate ${quote(pluginDir)}`, {
+  const result = spawnSync(executable, ["plugin", "validate", pluginDir], {
     encoding: "utf8",
-    shell: true,
+    timeout: 120000,
   });
   const output = (result.stdout || "") + (result.stderr || "");
 

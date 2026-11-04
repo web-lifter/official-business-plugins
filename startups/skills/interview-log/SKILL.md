@@ -6,11 +6,16 @@ allowed-tools: Read Write Bash Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # interview-log
 
 Idempotency: append-only. Every invocation creates a new `interview-NNN.md` file; existing interviews are never overwritten.
 
-Method: Lean Startup customer-discovery interview practice (Ries, 2011; Maurya, 2022) plus Blank's evidence-trail discipline (each interview is the canonical record behind any hypothesis flip). See `startups/SOURCES.md`.
+Method: Lean Startup customer-discovery interview practice (Ries, 2011; Maurya, 2022) plus Blank's evidence-trail discipline (each interview is the canonical record behind any hypothesis flip). See [Startups sources](../../SOURCES.md).
 
 Each logged interview is an immutable artifact. Edits create follow-up
 notes, never overwrite the original. This is the bedrock of the
@@ -26,7 +31,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify segment folder exists with `interview-guide.md`.
 3. Compute the next interview number: scan
    `02-customer-discovery/segments/<slug>/interviews/interview-*.md`,

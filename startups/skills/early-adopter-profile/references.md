@@ -1,6 +1,6 @@
 # early-adopter-profile — references
 
-The five-criteria earlyvangelist definition this skill enforces comes from Steve Blank's customer-development model. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The five-criteria earlyvangelist definition this skill enforces comes from Steve Blank's customer-development model. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## The five criteria
 

@@ -1,10 +1,15 @@
 ---
 name: cost-benefit-analysis-framework
 description: Compare 2-5 investment or decision options using NPV, IRR, payback, profitability index, and qualitative strategic weighting — with sensitivity analysis, risk adjustment, and a ranked recommendation that surfaces the conditions under which the ranking flips.
-argument-hint: [decision-context-and-options]
+argument-hint: "[decision-context-and-options]"
 allowed-tools: "Read Write Edit AskUserQuestion Bash(python:*) Bash(python3:*) Bash(mkdir:*)"
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Cost-Benefit Analysis Framework
 
@@ -325,3 +330,8 @@ Two machine-readable sidecars in the same directory:
 | Intangibles dominate | Phase 4 carries more weight than Phase 3; flag this and present the qualitative scorecard before the quantitative one. |
 | Long horizons (>10 years) | Surface terminal-value uncertainty; offer to truncate to 10y + terminal value rather than projecting cashflows year-by-year. |
 | Conflicting financial and strategic ranks | Do NOT collapse; present both rankings and use the narrative to explain when each should dominate. |
+
+
+### Net-only calculator boundary
+
+The bundled calculator accepts signed **net** cashflows. It returns `benefit_cost_ratio: null` because gross benefits and gross costs cannot be recovered from their net difference. Its `net_flow_ratio` must not be labelled a gross BCR. Any BCR in a worked example requires separately supplied gross streams. IRR is a finite-bracket estimate, not proof of uniqueness or absence of another root.

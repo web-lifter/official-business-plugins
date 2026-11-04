@@ -1,10 +1,15 @@
 ---
 name: vision-sketch
 description: Capture the venture's initial vision as a sketch (not a spec). Forces answers to three questions — top customer problems, how the idea helps, day-in-the-life before vs after — and writes them to 00-vision/vision-sketch.md and day-in-life.md.
-argument-hint: [optional one-line venture description]
+argument-hint: "[optional one-line venture description]"
 allowed-tools: Read Write Bash Glob
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # vision-sketch
 
@@ -27,7 +32,7 @@ seed for the vision questions; otherwise prompt the user via
 
 **Objective:** Don't run on the wrong directory.
 
-1. Verify `memex.config.json#/profile == "venture"`. If not, halt with
+1. Resolve the venture workspace using `../../RUNTIME.md`. If not, halt with
    the message `not a venture workspace — run /venture-init first`.
 2. Read the existing `00-vision/vision-sketch.md` if any. If it has
    `status: active` and the user did not pass `--update`, ask via

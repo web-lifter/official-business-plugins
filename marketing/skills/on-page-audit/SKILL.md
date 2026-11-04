@@ -1,7 +1,7 @@
 ---
 name: on-page-audit
 description: Audit a single URL or sitemap for on-page SEO — title, meta, headings, internal links, schema, alt text, word count — produces per-URL scorecards and a prioritised fix list.
-argument-hint: [url-or-sitemap]
+argument-hint: "[url-or-sitemap]"
 allowed-tools: Read Write Bash(python *) Bash(curl *)
 # Tool justification:
 #   Read           — read sitemap XML and any local URL-list CSV supplied by the user
@@ -10,6 +10,11 @@ allowed-tools: Read Write Bash(python *) Bash(curl *)
 #   Bash(curl *)   — fallback page fetch when crawler.py is unavailable (per Prerequisites)
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # On-Page Audit
 ultrathink

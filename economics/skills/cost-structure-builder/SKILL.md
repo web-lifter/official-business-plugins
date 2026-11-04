@@ -1,10 +1,15 @@
 ---
 name: cost-structure-builder
 description: Map fixed vs variable costs by line, contribution-margin waterfall, and scale curve (how costs change at 2× / 5× / 10× volume).
-argument-hint: [business-snapshot]
+argument-hint: "[business-snapshot]"
 allowed-tools: Read Write Edit AskUserQuestion
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Cost Structure Builder
 

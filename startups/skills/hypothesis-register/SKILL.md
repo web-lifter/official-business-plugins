@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # hypothesis-register
 
 Idempotency: `add` and `update` modes are deterministic on identical inputs. `flip` writes one row change plus one log entry per invocation.
 
-Method: hypothesis-status conventions from Blank (`open` / `accepted` / `refuted` / `superseded`) and Maurya's *Running Lean* hypothesis tracking. See `references.md` and `startups/SOURCES.md`.
+Method: hypothesis-status conventions from Blank (`open` / `accepted` / `refuted` / `superseded`) and Maurya's *Running Lean* hypothesis tracking. See `references.md` and [Startups sources](../../SOURCES.md).
 
 The hypothesis register is the venture's master list of every guess
 we're testing. Every test card references it; every learning card
@@ -84,7 +89,7 @@ register.
 4. Use `Edit` to change the row's `status` and `updated`. Append a line
    to the row's `evidence:` field with the supplied link.
 5. **Cascade.** When a flip happens:
-   - Append an entry to `.memex/log.md`:
+   - Append an entry to `log.md`:
      `## [<today>] hypothesis-flip | H-<NN> <old> → <new>`
    - Surface to the user: "BMC update needed — recommend running
      `/bmc-update H-<NN>` to bump to v(N+1)"

@@ -1,12 +1,17 @@
 ---
 name: competitor-analysis
 description: Analyse competitor brands across positioning, visual identity, messaging, pricing, and audience — producing a differentiation map and white-space opportunity report
-argument-hint: [business-and-competitor-list]
+argument-hint: "[business-and-competitor-list]"
 allowed-tools: Read Write Edit Grep Glob WebFetch
 effort: high
 context: fork
 agent: Explore
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Competitor Analysis
 

@@ -1,10 +1,15 @@
 ---
 name: kpi-framework-generator
 description: Build a layered KPI framework — North-Star metric → input metrics → functional KPIs per team — tied to OKRs and reporting cadences
-argument-hint: [business-stage-and-goals]
+argument-hint: "[business-stage-and-goals]"
 allowed-tools: Read Write Edit
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # KPI Framework Generator
 ultrathink

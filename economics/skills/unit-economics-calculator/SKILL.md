@@ -1,10 +1,15 @@
 ---
 name: unit-economics-calculator
 description: Calculate unit economics — CAC, LTV, payback period, contribution margin, effective hourly rate with scenario analysis for service, SaaS, and hybrid businesses
-argument-hint: [business-model-description]
+argument-hint: "[business-model-description]"
 allowed-tools: Read Grep Glob Write Edit Bash(python:*) Bash(python3:*)
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Unit Economics Calculator
 

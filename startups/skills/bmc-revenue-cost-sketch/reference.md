@@ -58,5 +58,5 @@ The sketch is enough until:
   load)
 - A meaningful go-to-market plan that needs CAC / LTV math
 
-When all three are true, run `business-economics/unit-economics` and
+When all three are true, run `economics:unit-economics-calculator` and
 link its output back to the sketch.

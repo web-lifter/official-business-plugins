@@ -1,10 +1,15 @@
 ---
 name: product-channel-fit-check
 description: Ensure the product type and chosen channel are coherent — SaaS sold via retail is incoherent; mass-market consumer good sold by inside sales is incoherent. Outputs a fit verdict per primary channel.
-argument-hint: [no args]
+argument-hint: "[no args]"
 allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # product-channel-fit-check
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `06-relationships-channels/channel-strategy.md`. Halt if
    missing — route to `/channel-select`.
 3. Read latest BMC's value-propositions cell to determine product

@@ -37,5 +37,5 @@ Adopting {{stack}}. ADR to follow via `/adr-writer`.
 
 - Supabase MCP → schema via `supabase-schema-design`, apply via `migration-plan`
 - Cloudflare MCP → deploy plan via `cloudflare-deploy-plan`
-- Vercel CLI → deploy plan via `vercel-deploy-plan` (no MCP, plan only)
+- Vercel CLI → deploy plan via `mvp-deploy-plan` (no MCP, plan only)
 - Figma MCP → design handoff via `figma-design-handoff` (if installed)

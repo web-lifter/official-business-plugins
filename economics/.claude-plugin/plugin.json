@@ -1,6 +1,6 @@
 {
   "name": "economics",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "9 skills — unit economics (CAC/LTV), market sizing (TAM/SAM/SOM), pricing architecture, cost-structure modelling, break-even scenario modelling, cost-benefit analysis, competitive-dynamics analysis, elasticity estimation, and moat-strength audit",
   "author": {
     "name": "John O'Connor",

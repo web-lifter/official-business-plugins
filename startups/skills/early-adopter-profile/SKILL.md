@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Bash Glob
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # early-adopter-profile
 
 Idempotency: re-running adds new named earlyvangelists to the roster without erasing existing rows.
 
-Method: the five-criteria earlyvangelist definition from Steve Blank & Bob Dorf, *The Startup Owner's Manual* (K&S Ranch, 2012). See `references.md` and `startups/SOURCES.md`.
+Method: the five-criteria earlyvangelist definition from Steve Blank & Bob Dorf, *The Startup Owner's Manual* (K&S Ranch, 2012). See `references.md` and [Startups sources](../../SOURCES.md).
 
 Earlyvangelists aren't just "early customers"; they're the sub-set who
 will *evangelise* for the venture if it solves their problem. They are
@@ -26,7 +31,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify the segment folder exists with at least a `profile.md`. If
    the profile is empty, recommend running `customer-profile-build`
    first.

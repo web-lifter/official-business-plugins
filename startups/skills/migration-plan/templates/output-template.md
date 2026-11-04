@@ -35,4 +35,4 @@ For each pending migration, when `--apply-through={{N}}` is passed:
 
 - [ ] Regenerate TypeScript types via `generate_typescript_types`.
 - [ ] Write to `{{src/lib/database.types.ts}}`.
-- [ ] Append `## [{{date}}] migration-plan | {{applied}} of {{N}}` to `.memex/log.md`.
+- [ ] Append `## [{{date}}] migration-plan | {{applied}} of {{N}}` to `log.md`.

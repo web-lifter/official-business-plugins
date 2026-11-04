@@ -1,10 +1,15 @@
 ---
 name: elasticity-estimator
 description: Select the right price-elasticity estimation method (historical regression / survey / experimental) given data availability, and produce an implementation plan with required N.
-argument-hint: [product-and-data-available]
+argument-hint: "[product-and-data-available]"
 allowed-tools: Read Write Edit AskUserQuestion
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Elasticity Estimator
 ultrathink

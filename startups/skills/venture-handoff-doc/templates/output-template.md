@@ -61,7 +61,7 @@ A self-contained five-minute brief on the venture for a new team member, investo
 
 ## Open risks
 
-{{Top 3 entries from `.memex/.open-questions/`.}}
+{{Top 3 entries from `.open-questions/`.}}
 
 ## What to do next
 
@@ -69,5 +69,5 @@ A self-contained five-minute brief on the venture for a new team member, investo
 
 ## Where to dig in
 
-- Index: [`index.md`](.memex/index.md)
+- Index: [`index.md`](index.md)
 - Workspace: open in the `@web-lifter/memex` desktop app for graph view and BM25 search.

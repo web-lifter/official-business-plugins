@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Bash Glob
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # customer-profile-build
 
 Idempotency: re-running on the same segment refreshes the table in place; pass `--archive` to keep the prior version as `profile.md.archive-<YYYY-MM-DD>`.
 
-Method: the customer profile (right half of the Value Proposition Canvas) per Osterwalder et al., *Value Proposition Design* (Wiley, 2014). Jobs are tagged functional/social/emotional per Christensen's jobs-to-be-done lens (*Competing Against Luck*). See `references.md` and `startups/SOURCES.md`.
+Method: the customer profile (right half of the Value Proposition Canvas) per Osterwalder et al., *Value Proposition Design* (Wiley, 2014). Jobs are tagged functional/social/emotional per Christensen's jobs-to-be-done lens (*Competing Against Luck*). See `references.md` and [Startups sources](../../SOURCES.md).
 
 This skill produces the right side of the VPC. The left side
 (products/services, pain relievers, gain creators) is built later by
@@ -26,7 +31,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify `02-customer-discovery/segments/<slug>/` exists (run
    `customer-segment-define` first if not).
 3. Read `02-customer-discovery/segments/<slug>/README.md` for the

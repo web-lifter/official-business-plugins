@@ -234,3 +234,8 @@ Revisit this analysis if any of the following occur:
 ## When NOT to Use This Analysis
 
 The decision to replace the ERP is forced by vendor end-of-life (a must-do). This CBA is therefore answering the implementation-path question, not the do-vs-don't question. The "do-nothing" baseline is included only to make the cost of inaction visible and to anchor the audit/security risk numbers.
+
+
+### Net-only calculator boundary
+
+The bundled calculator accepts signed **net** cashflows. It returns `benefit_cost_ratio: null` because gross benefits and gross costs cannot be recovered from their net difference. Its `net_flow_ratio` must not be labelled a gross BCR. Any BCR in a worked example requires separately supplied gross streams. IRR is a finite-bracket estimate, not proof of uniqueness or absence of another root.

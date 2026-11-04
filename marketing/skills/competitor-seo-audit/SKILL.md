@@ -1,7 +1,7 @@
 ---
 name: competitor-seo-audit
 description: Audit one or more competitor domains across indexed footprint, content topics, top keywords, backlinks, on-page patterns, and technical signals — produces a comparative matrix vs your domain.
-argument-hint: [competitor-domain-or-list]
+argument-hint: "[competitor-domain-or-list]"
 allowed-tools: Read Write Bash(curl *) Bash(bash *)
 # Tool justification:
 #   Read         — load any baseline-domain CSV or prior audit data supplied by the user
@@ -13,6 +13,11 @@ context: fork
 # fork rationale: audit spans multiple external API calls (SerpAPI + DataForSEO) and up to 5 domains; isolation prevents context contamination across long runs
 agent: seo-auditor
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Competitor SEO Audit
 ultrathink

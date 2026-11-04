@@ -4,7 +4,7 @@ Generated 2026-05-21. Primary segment: `au-midmarket-inhouse-counsel`.
 
 ## Venture rollup: 🟡
 
-The primary segment passes Q1 and Q2: 7 logged interviews surface the late-night-MSA-review pain unprompted in 6 of 7, and `profile.md` plus `early-adopters.md` are filled with prioritised jobs/pains/gains and 5/5 criteria filled. Q3 fails because only 2 named earlyvangelists meet 5/5 criteria with ≥ 2× engagement (need 3). Q4 fails because no learning cards yet record a hard commitment (pre-order, LOI, signed pilot scope). MVP-planning skills should not run yet; close Q3 and Q4 before any `/mvp-scope` work. If a downstream skill is forced past this gate it must append `## [<today>] gate-override | <skill> bypassed customer-discovery-status (yellow)` to `.memex/log.md`.
+The primary segment passes Q1 and Q2: 7 logged interviews surface the late-night-MSA-review pain unprompted in 6 of 7, and `profile.md` plus `early-adopters.md` are filled with prioritised jobs/pains/gains and 5/5 criteria filled. Q3 fails because only 2 named earlyvangelists meet 5/5 criteria with ≥ 2× engagement (need 3). Q4 fails because no learning cards yet record a hard commitment (pre-order, LOI, signed pilot scope). MVP-planning skills should not run yet; close Q3 and Q4 before any `/mvp-scope` work. If a downstream skill is forced past this gate it must append `## [<today>] gate-override | <skill> bypassed customer-discovery-status (yellow)` to `log.md`.
 
 ## Per-segment
 

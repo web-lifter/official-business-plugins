@@ -1,10 +1,15 @@
 ---
 name: stakeholder-brief-builder
 description: Generate a tight 1-page stakeholder brief tailored by audience type (board, investors, staff, customers, suppliers) using SCQA structure and calibrated tone
-argument-hint: [topic-and-audience]
+argument-hint: "[topic-and-audience]"
 allowed-tools: Read Write Edit
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Stakeholder Brief Builder
 

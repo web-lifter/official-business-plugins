@@ -1,0 +1,7 @@
+# Optional semantic/advanced clustering and static image exports.
+-r requirements.txt
+sentence-transformers>=2.6
+hdbscan>=0.8
+umap-learn>=0.5
+hnswlib>=0.8.0
+kaleido<1.0

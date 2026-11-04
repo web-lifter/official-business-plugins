@@ -15,7 +15,7 @@ The skill enforces three rules that follow from these sources:
 2. **Threshold immutable after design.** Setting the threshold after seeing the data is the canonical p-hacking failure mode; the test-card template makes this hard by capturing the threshold before run starts.
 3. **Cost / time is required.** Even a sketch ("4h, $0") forces the user to think about throughput — a habit reinforced in Maurya's risk × impact × ease prioritisation.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

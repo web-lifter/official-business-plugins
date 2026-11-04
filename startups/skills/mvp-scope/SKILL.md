@@ -1,14 +1,19 @@
 ---
 name: mvp-scope
 description: Define the smallest feature set that lets us test the *primary* hypothesis. Forces a cut/keep/maybe classification of every candidate feature. Blocking — refuses without a green customer-discovery-status (override with --force, logged).
-argument-hint: [optional: --primary-hypothesis=<H-NN>]
+argument-hint: "[optional: --primary-hypothesis=<H-NN>]"
 allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # mvp-scope
 
-Method: smallest-testable-feature-set discipline from Ries 2011 (*The Lean Startup*) and Maurya 2022 (*Running Lean*) — see `startups/SOURCES.md`.
+Method: smallest-testable-feature-set discipline from Ries 2011 (*The Lean Startup*) and Maurya 2022 (*Running Lean*) — see [Startups sources](../../SOURCES.md).
 
 Idempotency: safe to re-run; v1 stays as written. A re-run that materially changes scope writes `mvp-spec-v2.md` rather than overwriting v1.
 
@@ -21,7 +26,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Run `customer-discovery-status` (read-only). If not 🟢 and no
    `--force`, refuse with the gap list.
 3. If `--primary-hypothesis` not given, identify the most-blocked

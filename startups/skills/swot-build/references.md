@@ -13,7 +13,7 @@ Confusing the two (a common failure mode — "great brand" listed as an Opportun
 
 The "What it means for us" insight section in each SWOT closes the loop back to the venture's own hypothesis register — every quadrant should yield at least one candidate hypothesis or strategic action.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

@@ -1,10 +1,15 @@
 ---
 name: cohort-analysis-builder
 description: Design cohort analysis frameworks with SQL queries and visualisation specs for retention, revenue, and churn
-argument-hint: [dataset-or-business-context]
+argument-hint: "[dataset-or-business-context]"
 allowed-tools: Read Grep Glob Write Edit Bash
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Cohort Analysis Builder
 

@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "business-operations",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "description": "5 skills for SMB operations — revenue channel mapping, KPI frameworks, stakeholder briefs, bottleneck detection, and pricing strategy",
       "source": "./business-operations",
       "category": "operations",
@@ -27,7 +27,7 @@
     },
     {
       "name": "data-science",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "description": "9 data-science skills — dataset profiling & quality audit, data-dictionary generation, data-pipeline architecture, cohort analysis, anomaly-detection rule building, A/B test design, experiment readouts, forecasting model specs, and causal-impact analysis",
       "source": "./data-science",
       "category": "data-science",
@@ -45,7 +45,7 @@
     },
     {
       "name": "economics",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "description": "9 skills — unit economics (CAC/LTV), market sizing (TAM/SAM/SOM), pricing architecture, cost-structure modelling, break-even scenario modelling, cost-benefit analysis, competitive-dynamics analysis, elasticity estimation, and moat-strength audit",
       "source": "./economics",
       "category": "economics",
@@ -63,8 +63,8 @@
     },
     {
       "name": "marketing",
-      "version": "2.0.0",
-      "description": "28 marketing skills — end-to-end brand creation (identity, guidelines, audience, competitors, logo, colour, design tokens, disclaimers, copy) plus end-to-end SEO (keyword research + clustering, SERP & competitor analysis, on-page/technical/CWV audits, backlinks, content briefs, schema + entity modelling, local SEO)",
+      "version": "2.1.0",
+      "description": "30 marketing skills — end-to-end brand creation (identity, guidelines, audience, competitors, logo, colour, design tokens, disclaimers, copy) plus end-to-end SEO (keyword research + clustering, SERP & competitor analysis, on-page/technical/CWV audits, backlinks, content briefs, schema + entity modelling, local SEO)",
       "source": "./marketing",
       "category": "marketing",
       "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/marketing",
@@ -82,8 +82,8 @@
     },
     {
       "name": "startups",
-      "version": "1.0.0",
-      "description": "70 skills across the full venture-building workflow — venture chassis, customer discovery, Strategyzer value-proposition & business-model canvases, competitor analysis, relationships & channels, prototyping, MVP planning + engineering bridge, and Lean-Startup experimentation",
+      "version": "1.1.0",
+      "description": "69 skills across the full venture-building workflow — venture chassis, customer discovery, Strategyzer value-proposition & business-model canvases, competitor analysis, relationships & channels, prototyping, MVP planning + engineering bridge, and Lean-Startup experimentation",
       "source": "./startups",
       "category": "startups",
       "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/startups",

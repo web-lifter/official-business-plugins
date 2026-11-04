@@ -1,7 +1,7 @@
 ---
 name: technical-seo-audit
 description: Audit a domain across the four Google pillars — Crawl, Render, Index, Rank — covering robots.txt, sitemaps, canonicalisation, hreflang, JS rendering, Core Web Vitals, schema, and 4xx/5xx prevalence.
-argument-hint: [domain]
+argument-hint: "[domain]"
 allowed-tools: Read Write Bash(python *) Bash(curl *) Bash(bash *)
 # Tool justification:
 #   Read           — read robots.txt, sitemap XML, and any prior crawl JSON
@@ -14,6 +14,11 @@ context: fork
 # fork rationale: crawl + render + PSI runs are long-lived and multi-phase; isolation prevents context overflow on large sites
 agent: seo-auditor
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Technical SEO Audit
 ultrathink

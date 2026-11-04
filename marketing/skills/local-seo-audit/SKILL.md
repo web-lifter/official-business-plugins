@@ -1,10 +1,15 @@
 ---
 name: local-seo-audit
 description: Audit a local business's NAP consistency, Google Business Profile completeness, citation coverage, review velocity, and Local Pack presence — with a prioritised action plan.
-argument-hint: [business-name-and-locality]
+argument-hint: "[business-name-and-locality]"
 allowed-tools: Read Write WebFetch
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Local SEO Audit
 

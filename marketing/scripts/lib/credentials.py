@@ -6,7 +6,7 @@ passphrase, no OAuth, no setup wizard. You edit one file, every skill reads it.
 File location (first match wins):
 
     1. $SEO_CREDENTIALS_FILE                              (explicit override)
-    2. $CLAUDE_PLUGIN_DATA/credentials.json               (installed plugin data dir)
+    2. $PLUGIN_DATA/credentials.json or $CLAUDE_PLUGIN_DATA/credentials.json               (installed plugin data dir)
     3. ~/.claude/plugins/data/marketing/credentials.json  (canonical default)
 
 File shape::
@@ -35,7 +35,6 @@ from __future__ import annotations
 
 import json
 import os
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -57,8 +56,8 @@ def _candidate_paths() -> list[Path]:
     paths: list[Path] = []
     override = os.environ.get("SEO_CREDENTIALS_FILE")
     if override:
-        paths.append(Path(override))
-    plugin_data = os.environ.get("CLAUDE_PLUGIN_DATA")
+        return [Path(override).expanduser()]
+    plugin_data = os.environ.get("PLUGIN_DATA") or os.environ.get("CLAUDE_PLUGIN_DATA")
     if plugin_data:
         paths.append(Path(plugin_data) / "credentials.json")
     paths.append(canonical_path())
@@ -73,7 +72,6 @@ def credentials_path() -> Path | None:
     return None
 
 
-@lru_cache(maxsize=1)
 def load_credentials() -> dict[str, Any]:
     """Load and parse the credentials file.
 
@@ -84,7 +82,12 @@ def load_credentials() -> dict[str, Any]:
     if path is None:
         return {}
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict) or any(not isinstance(v, dict) for v in data.values()):
+            raise ValueError("marketing: credentials must be an object of provider objects")
+        if any(not isinstance(v, str) for fields in data.values() for v in fields.values()):
+            raise ValueError("marketing: credential values must be strings")
+        return data
     except json.JSONDecodeError as exc:
         raise ValueError(
             f"marketing: {path} is not valid JSON ({exc}). "
@@ -108,4 +111,5 @@ def get_credential(provider: str, key: str, env_var: str | None = None) -> str |
         val = os.environ.get(env_var)
         if val:
             return val
-    return load_credentials().get(provider, {}).get(key) or None
+    value = load_credentials().get(provider, {}).get(key)
+    return value if value and value.strip() else None

@@ -22,6 +22,6 @@ The Strategyzer test-card and learning-card templates (Osterwalder et al., *Valu
 
 ## Override behaviour
 
-`--force` proceeds despite a failed check. The override is logged to `.memex/log.md` as `gate-override | hypothesis-falsifiability-check bypassed for H-NN (issues: <list>)` so the audit trail is intact. Use override when the user has accepted the risk knowingly (e.g. a quick exploratory test on a directional claim).
+`--force` proceeds despite a failed check. The override is logged to `log.md` as `gate-override | hypothesis-falsifiability-check bypassed for H-NN (issues: <list>)` so the audit trail is intact. Use override when the user has accepted the risk knowingly (e.g. a quick exploratory test on a directional claim).
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.

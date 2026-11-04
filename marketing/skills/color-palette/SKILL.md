@@ -1,10 +1,15 @@
 ---
 name: color-palette
 description: Generate brand colour palettes with primary, secondary, semantic, and neutral colours — including HEX/RGB/HSL/OKLCH values and WCAG-validated contrast pairs
-argument-hint: [brand-personality-or-existing-colour]
+argument-hint: "[brand-personality-or-existing-colour]"
 allowed-tools: Read Write Edit Bash Grep Glob
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Colour Palette
 

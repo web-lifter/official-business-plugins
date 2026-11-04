@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # experiment-run-tracker
 
 Append-only log of an experiment's execution against an open test card — distinct from per-interview notes. Tracks the experiment as a unit.
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the test card. Halt if status is `concluded` — route to
    `/learning-card-build`.
 

@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # value-map-build
 
 Idempotency: each run produces `vpc-<segment>-v<N>.md` where N is `(latest + 1)` unless `--version=N` overrides. Re-running with an existing version refuses unless overridden.
 
-Method: the value-map half of the Value Proposition Canvas — products & services, pain relievers, gain creators — per Osterwalder, Pigneur, Bernarda & Smith, *Value Proposition Design* (Wiley, 2014). See `references.md` and `startups/SOURCES.md`.
+Method: the value-map half of the Value Proposition Canvas — products & services, pain relievers, gain creators — per Osterwalder, Pigneur, Bernarda & Smith, *Value Proposition Design* (Wiley, 2014). See `references.md` and [Startups sources](../../SOURCES.md).
 
 ## User Context
 
@@ -20,7 +25,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify the venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify `02-customer-discovery/segments/<slug>/profile.md` exists with
    `status: active`. Refuse if profile is `draft` — the right half
    of the VPC must be sharp before designing the left half.

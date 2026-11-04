@@ -1,10 +1,15 @@
 ---
 name: mvp-analytics-plan
 description: Translate mvp-metrics into an analytics implementation — event taxonomy, properties, identity model, tool selection (PostHog / GA4 / Plausible / Mixpanel). Writes 09-mvp/analytics/events-spec.md.
-argument-hint: [optional: --tool=posthog|ga4|plausible|mixpanel]
+argument-hint: "[optional: --tool=posthog|ga4|plausible|mixpanel]"
 allowed-tools: Read Write Edit Glob Grep
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # mvp-analytics-plan
 
@@ -16,7 +21,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `mvp-metrics.md`. Halt if missing.
 3. Read `mvp-spec.md` for the user flows to instrument.
 4. Read `funnel-model.md` if it exists.

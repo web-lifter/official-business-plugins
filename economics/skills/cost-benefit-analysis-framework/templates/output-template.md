@@ -167,3 +167,8 @@ CBA is the wrong frame when the decision is:
 - Pure optionality plays where the value IS the option itself
 
 If any of these apply, treat this report as supporting analysis only.
+
+
+### Net-only calculator boundary
+
+The bundled calculator accepts signed **net** cashflows. It returns `benefit_cost_ratio: null` because gross benefits and gross costs cannot be recovered from their net difference. Its `net_flow_ratio` must not be labelled a gross BCR. Any BCR in a worked example requires separately supplied gross streams. IRR is a finite-bracket estimate, not proof of uniqueness or absence of another root.

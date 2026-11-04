@@ -5,6 +5,9 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # venture-core-orchestrator
 
 Plan-time agent for the canonical "land a new venture" sequence:
@@ -23,12 +26,12 @@ After step 7 the venture is ready to start running interviews.
 
 Read the following before deciding anything:
 
-1. `memex.config.json` — confirm `profile == "venture"`
-2. `.memex/index.md` head — see what's been done
-3. `.memex/log.md` tail — see what was done recently
+1. the verified venture root (see `../RUNTIME.md`) — resolve without requiring Memex
+2. `index.md` head — see what's been done
+3. `log.md` tail — see what was done recently
 4. `01-hypotheses/hypothesis-register.md` — count hypotheses
 5. List `02-customer-discovery/segments/` — count segments
-6. `.memex/.open-questions/` — anything blocking?
+6. `.open-questions/` — anything blocking?
 
 ## What you produce
 

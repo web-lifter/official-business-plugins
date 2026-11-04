@@ -1,0 +1,27 @@
+{
+  "name": "marketing",
+  "version": "2.1.0",
+  "description": "30 marketing skills across two disciplines — end-to-end brand creation (identity, guidelines, target audience, competitor analysis, logo brief, colour palette, design tokens, legal disclaimers, website copy) and end-to-end SEO (keyword research + list development + clustering/mapping, SERP & competitor analysis, on-page + technical + Core Web Vitals audits, backlinks, broken-link & redirect mapping, internal linking, content briefs + gap analysis, schema/structured-data + entity modelling, local SEO). Explicit setup/status skills; optional local credentials or authorised connectors.",
+  "author": {
+    "name": "John O'Connor",
+    "email": "john@weblifter.com.au",
+    "url": "https://github.com/johnoconnor0"
+  },
+  "homepage": "https://github.com/web-lifter/official-business-plugins/tree/main/marketing",
+  "repository": "https://github.com/web-lifter/official-business-plugins",
+  "license": "MIT",
+  "keywords": [
+    "marketing",
+    "brand",
+    "seo",
+    "keyword-research",
+    "keyword-clustering",
+    "content",
+    "schema",
+    "core-web-vitals",
+    "local-seo",
+    "structured-data",
+    "design-tokens"
+  ],
+  "skills": "./skills/"
+}

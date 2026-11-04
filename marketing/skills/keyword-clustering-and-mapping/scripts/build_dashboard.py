@@ -25,6 +25,7 @@ if _HERE not in sys.path:
     sys.path.insert(0, _HERE)
 
 import pandas as pd  # noqa: E402
+import bleach  # noqa: E402
 
 try:
     import markdown as _markdown
@@ -57,7 +58,8 @@ def _render_markdown(path: str) -> str:
     with open(path, encoding="utf-8") as f:
         text = f.read()
     if _markdown is not None:
-        return _markdown.markdown(text, extensions=["tables", "fenced_code", "toc"])
+        rendered = _markdown.markdown(text, extensions=["tables", "fenced_code", "toc"])
+        return bleach.clean(rendered, tags={"p", "br", "pre", "code", "strong", "em", "blockquote", "ul", "ol", "li", "h1", "h2", "h3", "h4", "h5", "h6", "table", "thead", "tbody", "tr", "th", "td", "a", "hr"}, attributes={"a": ["href", "title"]}, protocols={"http", "https", "mailto"}, strip=True)
     return f"<pre>{html.escape(text)}</pre>"
 
 

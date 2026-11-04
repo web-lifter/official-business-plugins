@@ -1,10 +1,15 @@
 ---
 name: uvp-statement
 description: Produce the standard UVP statement — "For [customer] who [need], our [product] is a [category] that [unique benefit]. Unlike [competitor], we [differentiator]."
-argument-hint: [optional: --delegate-headline]
+argument-hint: "[optional: --delegate-headline]"
 allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # uvp-statement
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read latest VPCs, latest BMC, segment profiles, competitor table.
 
 ## Phase 2: Compose
@@ -72,7 +77,7 @@ updated: <today>
 
 ## Headline polish
 
-(If `--delegate-headline`, hand off to `brand-manager/website-copy`.)
+(If `--delegate-headline`, hand off to `marketing:website-copy`.)
 ```
 
 ## Phase 4: Log

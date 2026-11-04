@@ -45,7 +45,7 @@ Not yet split into folders; pain priorities differ subtly (the team-of-five has 
 
 ## Optional persona
 
-Not delegated to brand-manager yet. Priya's first-person knowledge as a former GC at a mid-market AU SaaS is the working persona until the segment is 🟢 on `customer-discovery-status`.
+Not delegated to marketing yet. Priya's first-person knowledge as a former GC at a mid-market AU SaaS is the working persona until the segment is 🟢 on `customer-discovery-status`.
 
 ## Next steps
 

@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # converge-ideas
 
 Methodology: design-thinking convergence (impact vs feasibility, dot-voting). See `references.md`.
@@ -20,7 +25,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the matching divergent file.
 3. Read segment profiles, VPCs, BMC, competitor insights.
 

@@ -16,7 +16,7 @@ The skill drives candidate discovery through five complementary research surface
 4. Peer recommendations from interview subjects ("who else have you looked at?")
 5. Job-to-be-done search queries (search by job, not by product category)
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

@@ -1,6 +1,6 @@
 # vpc-fit-check — references
 
-The fit check this skill performs comes from Strategyzer's Value Proposition Canvas. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The fit check this skill performs comes from Strategyzer's Value Proposition Canvas. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## What "fit" means
 

@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # learning-card-build
 
 Builds the four-part learning card (we tested / observed / learned / will now) from Strategyzer's *Value Proposition Design* (Osterwalder, Pigneur, Bernarda & Smith, 2014). See `references.md`.
@@ -20,7 +25,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `02-customer-discovery/test-cards/TC-<NNN>.md`. Halt if it's
    already `concluded`.
 3. Compute the next `LC-NNN` ID.

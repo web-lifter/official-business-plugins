@@ -50,4 +50,4 @@ updated: {{YYYY-MM-DD}}
 
 ## Override
 
-{{If --force, this section logs the override to .memex/log.md.}}
+{{If --force, this section logs the override to log.md.}}

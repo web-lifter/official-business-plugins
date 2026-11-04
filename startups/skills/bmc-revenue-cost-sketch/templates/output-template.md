@@ -11,7 +11,7 @@ updated: {{YYYY-MM-DD}}
 # Revenue / cost sketch — BMC v{{N}}
 
 This is a **sketch**, not a financial model. Brackets and labels, not
-spreadsheets. Run `business-economics/unit-economics` once real numbers
+spreadsheets. Run `economics:unit-economics-calculator` once real numbers
 exist (≥ 1 paid pilot, ≥ 1 month of infra billing, a go-to-market plan
 needing CAC / LTV math).
 

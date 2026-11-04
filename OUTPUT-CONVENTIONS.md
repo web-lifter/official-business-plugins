@@ -107,3 +107,14 @@ When scaffolding a new skill with `skill-creator`:
 3. If the skill writes multiple files, use
    `.project/<type>/<skill-name>/<artefact>` instead.
 4. Update `templates/` and `scripts/` to match.
+
+
+## Startups and hosted-chat exceptions
+
+New Startups ventures use `.project/plans/startups/<slug>/`. Every numbered phase
+path is relative to that selected venture root. Existing verified Memex ventures
+may remain in `.memex/` as an explicit compatibility exception; no implicit copy,
+second workspace or migration is permitted. See `startups/RUNTIME.md`.
+
+Without a mounted user project, return actual sandbox artefacts or Markdown with
+its intended relative path. A sandbox file is not a write to the user's repository.

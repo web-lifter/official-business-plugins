@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # competitor-bmc-shadow
 
 Builds an inferred BMC for a competitor using the same nine-cell structure as `bmc-build` (Osterwalder & Pigneur, 2010), tagged `inferred` rather than `hypothesis`/`fact`. See `references.md`.
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Verify the competitor has a SWOT (`04-competitors/swot/<slug>/README.md`).
    Halt if not — route to `/swot-build`.
 3. Determine target version: existing

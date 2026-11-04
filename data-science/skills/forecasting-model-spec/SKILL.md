@@ -1,10 +1,15 @@
 ---
 name: forecasting-model-spec
 description: Time-series forecast spec (ARIMA / Prophet / ML) with validation strategy, monitoring plan, and retraining triggers.
-argument-hint: [series-data-and-horizon]
+argument-hint: "[series-data-and-horizon]"
 allowed-tools: Read Write Edit AskUserQuestion
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Forecasting Model Spec
 ultrathink

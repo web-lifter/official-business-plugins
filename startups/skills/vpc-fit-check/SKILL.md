@@ -6,11 +6,16 @@ allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # vpc-fit-check
 
 Idempotency: re-runs overwrite the `## Fit report` section in the latest VPC. The skill never appends duplicate fit reports.
 
-Method: the "fit" check of the Value Proposition Canvas — does every prioritised pain have a reliever and every prioritised gain a creator? Per Osterwalder et al., *Value Proposition Design* (Wiley, 2014). See `references.md` and `startups/SOURCES.md`.
+Method: the "fit" check of the Value Proposition Canvas — does every prioritised pain have a reliever and every prioritised gain a creator? Per Osterwalder et al., *Value Proposition Design* (Wiley, 2014). See `references.md` and [Startups sources](../../SOURCES.md).
 
 ## User Context
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `02-customer-discovery/segments/<slug>/profile.md` — extract
    the pains and gains tables, only `high` and `medium` priority rows.
 3. Read the latest `03-value-proposition/vpc-<slug>-v*.md` —

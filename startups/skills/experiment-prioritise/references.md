@@ -14,7 +14,7 @@ Defaults:
 
 The "ease is honest" rule (a 3-week test is not easy) is a direct reaction to a common failure mode where teams describe a multi-week experiment as "quick" and then never start it.
 
-See `startups/SOURCES.md` for the full bibliography.
+See [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

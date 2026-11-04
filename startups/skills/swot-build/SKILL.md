@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # swot-build
 
 Builds a four-quadrant SWOT for a competitor, enforcing the internal (Strengths / Weaknesses) vs external (Opportunities / Threats) distinction credited to Albert Humphrey's SRI work in the 1960s. See `references.md`.
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Look up the competitor in `competitor-table.md`. Halt if not
    present — route to `/competitor-table-build`.
 3. Slugify the competitor name for the folder.

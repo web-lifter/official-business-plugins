@@ -1,7 +1,7 @@
 ---
 name: keyword-list-developer
 description: Build a deduplicated, intent-classified, volume/difficulty-annotated master keyword list from seed terms — output CSV feeds straight into keyword-clustering-and-mapping.
-argument-hint: [seed-terms-and-business-context]
+argument-hint: "[seed-terms-and-business-context]"
 allowed-tools: Read Write Edit
 # Tool justification:
 #   Read  — load seed CSVs from prior keyword-research runs and the pages CSV (Phase 1)
@@ -11,6 +11,11 @@ effort: medium
 # agent rationale: content-strategist persona governs intent classification and parent-topic tagging
 agent: content-strategist
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Keyword List Developer
 ultrathink

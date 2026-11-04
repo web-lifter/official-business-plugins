@@ -16,10 +16,15 @@ Outputs:
 from __future__ import annotations
 
 import argparse
+import math
 import sys
 
 
 def compute(fixed: float, variable_per_unit: float, price: float, target_profit: float = 0) -> dict:
+    if not all(math.isfinite(v) for v in (fixed, variable_per_unit, price, target_profit)):
+        return {"error": "Inputs must be finite."}
+    if fixed < 0 or variable_per_unit < 0 or price <= 0 or target_profit < 0:
+        return {"error": "Costs and target profit must be non-negative; price must be positive."}
     cm_per_unit = price - variable_per_unit
     cm_ratio = cm_per_unit / price if price else 0
     if cm_per_unit <= 0:
@@ -30,9 +35,11 @@ def compute(fixed: float, variable_per_unit: float, price: float, target_profit:
     return {
         "cm_per_unit": round(cm_per_unit, 2),
         "cm_ratio": round(cm_ratio, 4),
-        "break_even_units": round(break_even_units, 1),
+        "break_even_units": math.ceil(break_even_units),
+        "break_even_units_exact": break_even_units,
         "break_even_aud": round(break_even_aud, 2),
-        "target_units": round(target_units, 1),
+        "target_units": math.ceil(target_units),
+        "target_units_exact": target_units,
     }
 
 
@@ -65,7 +72,7 @@ def main(argv: list[str]) -> int:
     print(f"Contribution margin/unit: ${base['cm_per_unit']:>10,.2f}")
     print(f"Contribution margin ratio:  {base['cm_ratio'] * 100:>6.1f}%")
     print(f"Break-even units:          {base['break_even_units']:>10,.0f}")
-    print(f"Break-even AUD:            ${base['break_even_aud']:>10,.0f}")
+    print(f"Break-even AUD (continuous):            ${base['break_even_aud']:>10,.0f}")
     print(f"Units to hit target:       {base['target_units']:>10,.0f}")
     sens = sensitivity(a.fixed, a.variable_per_unit, a.price, a.target_profit)
     print("\nSensitivity (break-even units):")

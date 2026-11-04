@@ -30,4 +30,4 @@
 4. **Read-only on the venture.** Writes only `tech-stack.md`. Mutations belong to `/migration-plan` and the deploy plan skills.
 5. **No connector calls.** This skill is local-only; the chosen stack determines which MCPs the downstream skills will probe.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

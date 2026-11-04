@@ -5,6 +5,6 @@ tenacity>=8
 beautifulsoup4>=4.12
 lxml>=5
 requests>=2.31
-# Local install of the keyword-clustering package (used by keyword-clustering-and-mapping skill).
-# Replace with PyPI version when published.
-keyword-clustering[app,semantic,advanced] @ file:///C:/Development/JOHN_OCONNOR/keyword-clustering
+
+# Bundled clustering engine; no unpublished external package is required.
+-r skills/keyword-clustering-and-mapping/scripts/requirements.txt

@@ -1,6 +1,6 @@
 # customer-segment-define — references
 
-The user-vs-paying-customer distinction this skill enforces comes from Steve Blank's customer-development model. See [`startups/SOURCES.md`](../../../SOURCES.md) for full citations.
+The user-vs-paying-customer distinction this skill enforces comes from Steve Blank's customer-development model. See [Startups sources](../../SOURCES.md) for full citations.
 
 ## User ≠ paying customer
 

@@ -70,6 +70,6 @@ Sole in-house counsel at 50–500-staff AU/NZ companies review 8–25 contracts 
 
 ## Where to dig in
 
-- Index: [`.memex/index.md`](.memex/index.md)
+- Index: [`index.md`](index.md)
 - Founder: Priya Natarajan (former GC). CTO: Tom Whitaker (Python + Streamlit prototype).
 - Domain: `contractiq.com.au`.

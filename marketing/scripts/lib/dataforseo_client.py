@@ -1,8 +1,7 @@
 """DataForSEO client for marketing.
 
 Provides keyword suggestions and search volume lookups via the DataForSEO
-Keywords Data API. Credentials (login + password) are read from the encrypted
-vault under provider ``dataforseo``.
+Keywords Data API. Credentials (login + password) are read from the plaintext credentials file or environment under provider ``dataforseo``.
 
 Location code 2036 = Australia.
 
@@ -51,7 +50,16 @@ def _post(endpoint: str, payload: list[dict[str, Any]]) -> list[dict[str, Any]]:
         )
         response.raise_for_status()
     body: dict[str, Any] = response.json()
-    tasks: list[dict[str, Any]] = body.get("tasks", [])
+    if not isinstance(body, dict) or body.get("status_code") != 20000:
+        raise RuntimeError("DataForSEO request failed; check status code and account configuration")
+    tasks = body.get("tasks")
+    if not isinstance(tasks, list) or not tasks:
+        raise RuntimeError("DataForSEO returned no task results")
+    for task in tasks:
+        if not isinstance(task, dict) or task.get("status_code") != 20000:
+            raise RuntimeError("DataForSEO task failed; do not treat this as zero search volume")
+        if task.get("result") is not None and not isinstance(task["result"], list):
+            raise RuntimeError("DataForSEO returned an unexpected result shape")
     return tasks
 
 
@@ -71,22 +79,22 @@ def keyword_suggestions(
 
     Returns:
         List of keyword dicts with ``keyword``, ``search_volume``,
-        ``competition``, ``cpc``, and ``keyword_difficulty`` fields.
+        ``competition``, ``cpc`` fields where returned by the API.
     """
+    if not isinstance(seed, str) or not seed.strip() or isinstance(limit, bool) or not isinstance(limit, int) or limit < 1:
+        raise ValueError("seed must be non-empty and limit a positive integer")
     payload = [
         {
-            "keyword": seed,
+            "keywords": [seed],
             "location_code": location_code,
             "language_code": language_code,
-            "limit": limit,
         }
     ]
     tasks = _post("keywords_data/google_ads/keywords_for_keywords/live", payload)
     results: list[dict[str, Any]] = []
     for task in tasks:
-        for item in (task.get("result") or []):
-            results.extend(item.get("items") or [])
-    return results
+        results.extend(task.get("result") or [])
+    return results[:limit]
 
 
 def keyword_volume(
@@ -103,8 +111,12 @@ def keyword_volume(
 
     Returns:
         List of dicts with ``keyword``, ``search_volume``, ``competition``,
-        ``cpc``, and ``keyword_difficulty`` fields.
+        ``cpc`` fields where returned by the API.
     """
+    if not keywords:
+        return []
+    if len(keywords) > 700 or any(not isinstance(k, str) or not k.strip() for k in keywords):
+        raise ValueError("provide 1-700 non-empty keywords (the local client batch limit)")
     payload = [
         {
             "keywords": keywords,
@@ -115,6 +127,5 @@ def keyword_volume(
     tasks = _post("keywords_data/google_ads/search_volume/live", payload)
     results: list[dict[str, Any]] = []
     for task in tasks:
-        for item in (task.get("result") or []):
-            results.extend(item.get("items") or [])
+        results.extend(task.get("result") or [])
     return results

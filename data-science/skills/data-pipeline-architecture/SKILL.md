@@ -1,12 +1,17 @@
 ---
 name: data-pipeline-architecture
 description: Design ETL/ELT pipeline architectures with data flow diagrams and transformation specs for Supabase and BigQuery
-argument-hint: [source-systems-and-requirements]
+argument-hint: "[source-systems-and-requirements]"
 allowed-tools: Read Grep Glob Write Edit Bash Agent
 context: fork
 agent: Explore
 effort: max
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Data Pipeline Architecture Prompt
 

@@ -1,7 +1,7 @@
 {
   "name": "marketing",
-  "version": "2.0.0",
-  "description": "28 marketing skills across two disciplines — end-to-end brand creation (identity, guidelines, target audience, competitor analysis, logo brief, colour palette, design tokens, legal disclaimers, website copy) and end-to-end SEO (keyword research + list development + clustering/mapping, SERP & competitor analysis, on-page + technical + Core Web Vitals audits, backlinks, broken-link & redirect mapping, internal linking, content briefs + gap analysis, schema/structured-data + entity modelling, local SEO). SEO credentials via a single plaintext credentials.json.",
+  "version": "2.1.0",
+  "description": "30 marketing skills across two disciplines — end-to-end brand creation (identity, guidelines, target audience, competitor analysis, logo brief, colour palette, design tokens, legal disclaimers, website copy) and end-to-end SEO (keyword research + list development + clustering/mapping, SERP & competitor analysis, on-page + technical + Core Web Vitals audits, backlinks, broken-link & redirect mapping, internal linking, content briefs + gap analysis, schema/structured-data + entity modelling, local SEO). Explicit setup/status skills; optional local credentials or authorised connectors.",
   "author": {
     "name": "John O'Connor",
     "email": "john@weblifter.com.au",
@@ -24,7 +24,6 @@
     "design-tokens"
   ],
   "skills": "./skills/",
-  "commands": "./commands/",
   "agents": [
     "./skills/technical-seo-audit/agents/seo-auditor.md",
     "./skills/serp-analysis/agents/serp-analyst.md",

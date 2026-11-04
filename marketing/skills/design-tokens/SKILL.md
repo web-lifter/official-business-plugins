@@ -1,10 +1,15 @@
 ---
 name: design-tokens
 description: Generate design token systems exportable to CSS variables, Tailwind config, JSON, and Style Dictionary — covering colour, typography, spacing, radius, shadow, and motion
-argument-hint: [existing-palette-or-brand-spec]
+argument-hint: "[existing-palette-or-brand-spec]"
 allowed-tools: Read Write Edit Bash Grep Glob
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Design Tokens
 

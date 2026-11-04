@@ -18,7 +18,7 @@ The nine cells (right side = front-stage / customer-facing; left side = back-sta
 8. Key Partnerships
 9. Cost Structure
 
-See also `startups/SOURCES.md` for the full bibliography.
+See also [Startups sources](../../SOURCES.md) for the full bibliography.
 
 ## Related skills
 

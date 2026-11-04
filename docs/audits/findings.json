@@ -1,0 +1,342 @@
+[
+  {
+    "id": "F01",
+    "severity": "Blocker",
+    "path": "marketing/.mcp.json",
+    "line": 2,
+    "title": "Unsupported MCP top-level field",
+    "impact": "Reported marketplace import rejects the plugin before any skill runs. The file has no actual server definitions.",
+    "fix": "Remove the unused MCP file; regression-check unknown top-level MCP keys.",
+    "status": "fixed"
+  },
+  {
+    "id": "F02",
+    "severity": "High",
+    "path": ".github/workflows/validate-marketplace.yml",
+    "line": 56,
+    "title": "CI checked JSON syntax and versions, not portability or helper regressions",
+    "impact": "Valid JSON could still contain unsupported import fields; original CI did not run the existing four smoke tests or official validation.",
+    "fix": "Add metadata parity, portability, pytest, PostgreSQL execution and official Claude validation.",
+    "status": "fixed"
+  },
+  {
+    "id": "F03",
+    "severity": "High",
+    "path": "marketing/requirements.txt",
+    "line": 10,
+    "title": "Developer-machine dependency path",
+    "impact": "An absolute Windows file URI prevents installation on another machine.",
+    "fix": "Use the shipped clustering requirements; split optional heavyweight packages.",
+    "status": "fixed"
+  },
+  {
+    "id": "H4",
+    "severity": "Medium",
+    "path": "business-operations/hooks/scripts/suggest-related.sh",
+    "line": 1,
+    "title": "Retired nonportable lifecycle helper",
+    "impact": "Automatic setup/suggestions couple installation to host-specific shell/transcript assumptions; package downloads should be explicit.",
+    "fix": "Remove lifecycle helpers; explicit seo-setup/seo-status and optional workflow suggestions replace them.",
+    "status": "fixed"
+  },
+  {
+    "id": "H5",
+    "severity": "Medium",
+    "path": "marketing/hooks/scripts/check-credentials.sh",
+    "line": 6,
+    "title": "Retired nonportable lifecycle helper",
+    "impact": "Automatic setup/suggestions couple installation to host-specific shell/transcript assumptions; package downloads should be explicit.",
+    "fix": "Remove lifecycle helpers; explicit seo-setup/seo-status and optional workflow suggestions replace them.",
+    "status": "fixed"
+  },
+  {
+    "id": "H6",
+    "severity": "Medium",
+    "path": "marketing/hooks/scripts/ensure-venv.sh",
+    "line": 6,
+    "title": "Retired nonportable lifecycle helper",
+    "impact": "Automatic setup/suggestions couple installation to host-specific shell/transcript assumptions; package downloads should be explicit.",
+    "fix": "Remove lifecycle helpers; explicit seo-setup/seo-status and optional workflow suggestions replace them.",
+    "status": "fixed"
+  },
+  {
+    "id": "H7",
+    "severity": "Medium",
+    "path": "marketing/hooks/scripts/suggest-related.sh",
+    "line": 28,
+    "title": "Retired nonportable lifecycle helper",
+    "impact": "Automatic setup/suggestions couple installation to host-specific shell/transcript assumptions; package downloads should be explicit.",
+    "fix": "Remove lifecycle helpers; explicit seo-setup/seo-status and optional workflow suggestions replace them.",
+    "status": "fixed"
+  },
+  {
+    "id": "F04",
+    "severity": "High",
+    "path": "marketing/scripts/lib/dataforseo_client.py",
+    "line": 78,
+    "title": "Incorrect DataForSEO request/response contract",
+    "impact": "Keyword suggestion requests use the wrong seed field and result parser; task-level failures can masquerade as empty data.",
+    "fix": "Use keywords array, direct result list, status checks and mocked regression tests; no paid calls made.",
+    "status": "fixed"
+  },
+  {
+    "id": "F05",
+    "severity": "High",
+    "path": "marketing/scripts/lib/http_cache.py",
+    "line": 43,
+    "title": "GET cache ignores account identity",
+    "impact": "Two credential contexts can share a cache key; delimiter-based parameter encoding may collide.",
+    "fix": "Hash canonical URL/parameters/normalised headers; atomic private writes, corrupt-cache recovery and TTL validation.",
+    "status": "fixed"
+  },
+  {
+    "id": "F06",
+    "severity": "Medium",
+    "path": "marketing/scripts/lib/credentials.py",
+    "line": 38,
+    "title": "Stale credential cache and insufficient shape checks",
+    "impact": "Edited credentials can remain stale; malformed provider structures fail unpredictably.",
+    "fix": "Reload on access, validate shapes, respect native persistent data and an exclusive explicit override.",
+    "status": "fixed"
+  },
+  {
+    "id": "F07",
+    "severity": "Medium",
+    "path": "marketing/scripts/lighthouse_runner.sh",
+    "line": 9,
+    "title": "Unsupported Lighthouse invocation and implicit installation",
+    "impact": "CLI options do not match the documented Lighthouse interface; automatic package execution obscures dependencies.",
+    "fix": "Use mobile defaults/desktop preset, explicit installed binary, no automatic installation or sandbox disabling.",
+    "status": "fixed"
+  },
+  {
+    "id": "F08",
+    "severity": "High",
+    "path": "data-science/skills/cohort-analysis-builder/scripts/cohort-query-builder.py",
+    "line": 41,
+    "title": "Cohort revenue multiplication and calendar errors",
+    "impact": "Repeated user events are joined again and inflate revenue; epoch-based month division is not a calendar-month offset. Behaviour queries ignore the metric argument.",
+    "fix": "One join to one first-event row per user; calendar offsets; metric-aware aggregation; identifier/literal validation and executable SQL tests.",
+    "status": "fixed"
+  },
+  {
+    "id": "F09",
+    "severity": "Medium",
+    "path": "data-science/scripts/power-calc.py",
+    "line": 21,
+    "title": "Probability/sample-size boundary handling",
+    "impact": "Invalid probabilities or impossible baseline+MDE combinations should not yield apparently meaningful sample sizes.",
+    "fix": "Use stdlib inverse normal CDF and explicit finite/domain checks; retain approximation caveat.",
+    "status": "fixed"
+  },
+  {
+    "id": "F10",
+    "severity": "Medium",
+    "path": "economics/scripts/cvp-calc.py",
+    "line": 27,
+    "title": "Break-even rounding can understate required units",
+    "impact": "Whole units rounded down can fail to cover fixed costs.",
+    "fix": "Ceiling required units, keep exact continuous values, validate finite/non-negative inputs.",
+    "status": "fixed"
+  },
+  {
+    "id": "F11",
+    "severity": "High",
+    "path": "economics/skills/cost-benefit-analysis-framework/scripts/cba-calculator.py",
+    "line": 135,
+    "title": "Net cashflows mislabelled as gross benefit-cost ratio",
+    "impact": "Gross benefits/costs cannot be reconstructed from signed net flows; profitability index mishandles later negative flows.",
+    "fix": "Correct PI, label net-flow ratio separately, return null gross BCR, clarify finite IRR search and validate inputs.",
+    "status": "fixed"
+  },
+  {
+    "id": "F12",
+    "severity": "Medium",
+    "path": "data-science/skills/anomaly-detection-rule-builder/scripts/validate-thresholds.py",
+    "line": 58,
+    "title": "Even-length median and unsupported false-positive inference",
+    "impact": "Upper-middle order statistic is not an even-sample median; breach counts alone cannot establish false-positive rates.",
+    "fix": "Use statistics.median, finite values/bounds, describe observed alert workload.",
+    "status": "fixed"
+  },
+  {
+    "id": "F13",
+    "severity": "Medium",
+    "path": "data-science/skills/data-pipeline-architecture/scripts/pipeline-validator.py",
+    "line": 47,
+    "title": "Disabled configuration counted as configured protection",
+    "impact": "A key set to false can pass recursive presence checks; malformed step shapes are not rejected consistently.",
+    "fix": "Require enabled/nonempty values and structured step containers; describe this as a heuristic checklist.",
+    "status": "fixed"
+  },
+  {
+    "id": "F14",
+    "severity": "Medium",
+    "path": "marketing/scripts/robots_parser.py",
+    "line": 62,
+    "title": "robots.txt loses contiguous user-agent groups",
+    "impact": "Rules following several User-agent lines should apply to every agent in the group; inline comments are not path text.",
+    "fix": "Accumulate the group until rules start and strip comments; mocked parser tests.",
+    "status": "fixed"
+  },
+  {
+    "id": "F15",
+    "severity": "Medium",
+    "path": "marketing/scripts/schema_validator.py",
+    "line": 121,
+    "title": "Malformed JSON-LD silently omitted and coverage overstated",
+    "impact": "A broken block can disappear from results; empty type arrays can crash, and presence coverage is not schema conformance.",
+    "fix": "Report invalid blocks, handle bad type shapes and label coverage only; full conformance remains out of scope.",
+    "status": "fixed"
+  },
+  {
+    "id": "F16",
+    "severity": "Medium",
+    "path": "marketing/skills/design-tokens/scripts/token-converter.py",
+    "line": 88,
+    "title": "Token types lost; modern dimension objects emitted as invalid CSS",
+    "impact": "Legacy type metadata is dropped and structured values can become JSON-like CSS instead of a dimension.",
+    "fix": "Preserve type, support dimension/nested-shadow cases, reject unsupported composites instead of silent invalid output.",
+    "status": "fixed"
+  },
+  {
+    "id": "F17",
+    "severity": "Medium",
+    "path": "marketing/skills/keyword-clustering-and-mapping/scripts/run_clustering.py",
+    "line": 59,
+    "title": "Invalid focus inputs silently ignored",
+    "impact": "A missing/malformed exclusions file or wrong mode can change the intended clustering scope.",
+    "fix": "Validate explicit focus files and mode choices; test the pure input function without pretending to exercise optional models.",
+    "status": "fixed"
+  },
+  {
+    "id": "F18",
+    "severity": "High",
+    "path": "marketing/skills/keyword-clustering-and-mapping/scripts/build_dashboard.py",
+    "line": 60,
+    "title": "Untrusted Markdown rendered as active HTML",
+    "impact": "A report assembled from untrusted text can embed HTML/unsafe links in the offline dashboard. No deployed exploitation is claimed.",
+    "fix": "Sanitise rendered fragments with Bleach; preserve tables/headings, strip active elements and unsafe protocols.",
+    "status": "fixed"
+  },
+  {
+    "id": "F19",
+    "severity": "High",
+    "path": "startups/skills/venture-init/SKILL.md",
+    "line": 3,
+    "title": "Startups bootstrap requires an absent external workspace system",
+    "impact": "The marketplace is not self-contained; downstream paths, logging and updates assume external installation/hooks.",
+    "fix": "Add local venture resolver/initialiser and a shared runtime contract; preserve legacy data without migration.",
+    "status": "fixed"
+  },
+  {
+    "id": "F20",
+    "severity": "High",
+    "path": "startups/skills/mvp-open-questions/SKILL.md",
+    "line": 2,
+    "title": "Open-question aggregation can ingest its own output",
+    "impact": "Repeated runs can duplicate already aggregated questions and rely on nonexistent promotion hooks.",
+    "fix": "Exclude aggregate/archive sources; deduplicate by source and question; preserve annotations and explicitly update state.",
+    "status": "fixed"
+  },
+  {
+    "id": "F21",
+    "severity": "High",
+    "path": "startups/skills/churn-model/SKILL.md",
+    "line": 3,
+    "title": "Retention/churn formula reversal",
+    "impact": "Retention variable is applied as churn in survival/lifetime calculations, producing materially incorrect projections.",
+    "fix": "Use survival r^n and lifetime 1/(1-r), correct example economics and add boundary-tested helper.",
+    "status": "fixed"
+  },
+  {
+    "id": "F22",
+    "severity": "High",
+    "path": "startups/skills/mvp-metrics/examples/example-output.md",
+    "line": 21,
+    "title": "Impossible metric branch and premature scale language",
+    "impact": "Mutually incompatible comparisons make a decision branch unreachable; qualitative interview evidence is not validated paid demand.",
+    "fix": "Use disjoint ranges, direction-aware thresholds, sample/guardrail checks and cautious evidence decisions.",
+    "status": "fixed"
+  },
+  {
+    "id": "F23",
+    "severity": "High",
+    "path": "startups/skills/mvp-deploy-plan/SKILL.md",
+    "line": 3,
+    "title": "Delegation to a nonexistent Vercel skill",
+    "impact": "The orchestrator depends on an unbundled workflow and can make its deployment plan incomplete.",
+    "fix": "Provide an inline provider-neutral plan; retain optional provider recipes without a recursive handoff.",
+    "status": "fixed"
+  },
+  {
+    "id": "F24",
+    "severity": "Medium",
+    "path": "startups/skills/tech-stack-recommender/SKILL.md",
+    "line": 123,
+    "title": "Unsupported stack default and stale version assumption",
+    "impact": "The stack is recommended by default based on an unsubstantiated percentage and tooling availability rather than requirements.",
+    "fix": "Remove forced provider stack and fixed framework version; compare simpler candidates and verify support/prices when needed.",
+    "status": "fixed"
+  },
+  {
+    "id": "F25",
+    "severity": "Medium",
+    "path": "startups/skills/phase-router/SKILL.md",
+    "line": 60,
+    "title": "Learning-card routing before test results exist",
+    "impact": "An open test with no learning card is not a completed experiment with observations.",
+    "fix": "Route concluded tests with evidence; distinguish heuristic counts and unvalidated market-fit gates.",
+    "status": "fixed"
+  },
+  {
+    "id": "F26",
+    "severity": "Medium",
+    "path": "scripts/check-version-bumps.mjs",
+    "line": 125,
+    "title": "Release guard accepts version downgrade",
+    "impact": "Only equality is blocked; a lower version can pass as a change. Working-tree metadata can differ from the tested head.",
+    "fix": "Require increasing release triplets; read catalogue from head ref; null-delimited changed paths; regression temp repositories.",
+    "status": "fixed"
+  },
+  {
+    "id": "F27",
+    "severity": "Medium",
+    "path": "scripts/check-validate.mjs",
+    "line": 51,
+    "title": "Shell-based validator invocation",
+    "impact": "CLI execution unnecessarily uses a shell, making paths and command handling brittle.",
+    "fix": "Use spawnSync argument arrays, explicit missing-CLI failure and timeout.",
+    "status": "fixed"
+  },
+  {
+    "id": "F28",
+    "severity": "Medium",
+    "path": "startups/skills/",
+    "line": null,
+    "title": "Missing packaged references and source registry",
+    "impact": "Four skill references and startups/SOURCES.md are absent or misnamed; connector/curriculum policies point outside the package.",
+    "fix": "Bundle concise references, a transparent source registry and local confirmation policy; do not invent curriculum citations.",
+    "status": "fixed"
+  },
+  {
+    "id": "F29",
+    "severity": "Medium",
+    "path": "*/skills/*/SKILL.md",
+    "line": null,
+    "title": "Host-specific metadata and execution assumptions",
+    "impact": "93 argument hints parse as YAML lists, and no native OpenAI manifests or UI metadata exist. Names of Claude tools do not make them available in ChatGPT.",
+    "fix": "Quote scalar hints, generate native metadata, add runtime preflights and sequential/missing-capability fallbacks.",
+    "status": "fixed"
+  },
+  {
+    "id": "F30",
+    "severity": "Low",
+    "path": "README.md; .claude-plugin/marketplace.json",
+    "line": null,
+    "title": "Skill counts and setup documentation drift",
+    "impact": "Startups advertises 70 while shipping 69; root advertises 121 while shipping 120.",
+    "fix": "Correct counts; marketing command-to-skill conversion makes the new total 122, including 30 marketing skills.",
+    "status": "fixed"
+  }
+]

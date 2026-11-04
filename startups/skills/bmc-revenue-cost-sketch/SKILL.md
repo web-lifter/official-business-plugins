@@ -1,14 +1,19 @@
 ---
 name: bmc-revenue-cost-sketch
-description: Back-of-envelope pass at the BMC's Revenue Streams and Cost Structure using customer profile, channels, and pricing hypotheses. A sketch, not a financial model. Delegates to business-economics/unit-economics for the rigorous version.
-argument-hint: [optional: --segment=<slug> for per-segment sketches]
+description: Back-of-envelope pass at the BMC's Revenue Streams and Cost Structure using customer profile, channels, and pricing hypotheses. A sketch, not a financial model. Delegates to economics:unit-economics-calculator for the rigorous version.
+argument-hint: "[optional: --segment=<slug> for per-segment sketches]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # bmc-revenue-cost-sketch
 
-A bracketed, range-only sketch of the BMC's Revenue Streams and Cost Structure cells. Intentionally pre-rigour; delegates to `business-economics/unit-economics` for the modelled version. See `references.md`.
+A bracketed, range-only sketch of the BMC's Revenue Streams and Cost Structure cells. Intentionally pre-rigour; delegates to `economics:unit-economics-calculator` for the modelled version. See `references.md`.
 
 **Idempotency:** re-running overwrites the sketch at the same version; cost-range deltas land in the changelog footer.
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the latest BMC, latest VPCs, channel strategy, hypothesis
    register (filter to revenue / cost / pricing hypotheses).
 3. Read `04-competitors/competitor-table.md` if it exists — for
@@ -66,7 +71,7 @@ updated: <today>
 # Revenue / cost sketch — BMC v<N>
 
 This is a sketch, not a financial model. Brackets and labels, not
-spreadsheets. Run `business-economics/unit-economics` for the rigorous
+spreadsheets. Run `economics:unit-economics-calculator` for the rigorous
 version once real numbers exist.
 
 ## Revenue

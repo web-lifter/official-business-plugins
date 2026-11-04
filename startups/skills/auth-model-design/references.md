@@ -25,4 +25,4 @@
 5. **Service role is server-only.** Never reachable from the browser; only Workers and trusted server routes use it.
 6. **Indexes on FKs.** Postgres does not auto-index foreign-key columns; RLS predicates that join over FKs will sequential-scan without them.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

@@ -1,16 +1,21 @@
 ---
 name: mvp-type-select
 description: Choose between pre-order, audience-building, show-and-tell, or partial-product MVP types. Each is a real MVP; they test different things. Updates 09-mvp/mvp-spec.md.
-argument-hint: [no args]
+argument-hint: "[no args]"
 allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # mvp-type-select
 
-Method: the four MVP archetypes (pre-order / audience-building / show-and-tell / partial product) sit alongside the build-measure-learn loop in Ries 2011 — see `startups/SOURCES.md`.
+Method: the four MVP archetypes (pre-order / audience-building / show-and-tell / partial product) sit alongside the build-measure-learn loop in Ries 2011 — see [Startups sources](../../SOURCES.md).
 
-Idempotency: safe to re-run; updates the "MVP type" section of `mvp-spec.md` in place. Rationale history captured in `.memex/log.md`.
+Idempotency: safe to re-run; updates the "MVP type" section of `mvp-spec.md` in place. Rationale history captured in `log.md`.
 
 ## User Context
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `09-mvp/mvp-spec.md`. Halt if missing — route to `/mvp-scope`.
 3. Read primary hypothesis (linked from spec).
 

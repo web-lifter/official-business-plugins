@@ -1,16 +1,21 @@
 ---
 name: mvp-metrics
 description: Define the success metrics per hypothesis the MVP tests. No hypothesis without a metric, no metric without a threshold, no threshold without a timeframe. Writes 09-mvp/mvp-metrics.md.
-argument-hint: [no args]
+argument-hint: "[no args]"
 allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # mvp-metrics
 
-Method: Lean Startup validated-learning discipline — metric / threshold / timeframe triple. See `startups/SOURCES.md` (Ries 2011; Maurya 2022) and `references.md` for the binding rule.
+Method: Lean Startup validated-learning discipline — metric / threshold / timeframe triple. See [Startups sources](../../SOURCES.md) (Ries 2011; Maurya 2022) and `references.md` for the binding rule.
 
-Idempotency: safe to re-run; rewrites `09-mvp/mvp-metrics.md` in place. Append-only history lives in `.memex/log.md`.
+Idempotency: safe to re-run; rewrites `09-mvp/mvp-metrics.md` in place. Append-only history lives in `log.md`.
 
 ## User Context
 
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Pre-flight
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `09-mvp/mvp-spec.md` — primary hypothesis + MVP type.
 3. Read hypothesis register; pull the primary hypothesis row and any
    secondary hypotheses the MVP would also touch.
@@ -28,7 +33,8 @@ $ARGUMENTS
 For each hypothesis the MVP tests, define:
 
 - **Metric** (the event / measure)
-- **Threshold** (the line)
+- **Threshold and direction** (minimum, maximum or interval)
+- **Minimum usable sample and guardrails** (including an inconclusive outcome)
 - **Timeframe** (when we decide)
 - **Source** (where the data comes from)
 
@@ -74,9 +80,9 @@ MVP spec: [mvp-spec](mvp-spec.md)
 
 ## Hypothesis-driven metrics
 
-| Hypothesis | Metric | Threshold | Timeframe | Source |
-|---|---|---|---|---|
-| H-NN | <event> | <line> | <window> | <where> |
+| Hypothesis | Metric | Direction | Threshold | Timeframe | Source | Minimum sample / guardrails |
+|---|---|---|---|---|---|---|
+| H-NN | <event> | <comparison> | <line> | <window> | <where> | <criteria> |
 
 ## MVP-type metrics
 
@@ -84,12 +90,11 @@ MVP spec: [mvp-spec](mvp-spec.md)
 
 ## Decision rules
 
-When timeframe ends:
+When the timeframe ends:
 
-- All hypothesis metrics ≥ threshold → MVP succeeded; proceed to
-  scale (and the next phase of customer development).
-- Any hypothesis metric < threshold → MVP refuted on that hypothesis;
-  build a learning card and decide pivot vs refine.
+- All pre-specified directional comparisons pass, the sample is sufficient and guardrails hold: evidence supports the tested hypothesis; assess generalisability before scaling.
+- Missing or unreliable data, insufficient sample or mixed evidence: inconclusive; repair instrumentation or collect more evidence.
+- A decision criterion fails with adequate evidence: record the result and decide whether to refine, retest or pivot. Do not claim every failed metric disproves the entire business model.
 
 ## Hand-off
 

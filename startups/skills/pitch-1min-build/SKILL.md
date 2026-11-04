@@ -1,10 +1,15 @@
 ---
 name: pitch-1min-build
 description: Generate a 1-minute pitch from the current BMC + UVP + MVP scope. Outputs a script (~150 words) plus a slide-skeleton outline. Suitable for pitch competitions, investor coffee chats, customer cold-opens.
-argument-hint: [optional: --audience=investor|customer|partner]
+argument-hint: "[optional: --audience=investor|customer|partner]"
 allowed-tools: Read Write Edit Glob Grep
 effort: low
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # pitch-1min-build
 
@@ -16,7 +21,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read `04-competitors/uvp.md`, latest `bmc-v*.md`,
    `09-mvp/mvp-spec.md`, primary segment profile, latest VPC.
 

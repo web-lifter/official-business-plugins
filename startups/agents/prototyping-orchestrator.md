@@ -5,13 +5,16 @@ tools: Read, Grep, Glob, Bash
 isolation: worktree
 ---
 
+Read [the runtime contract](../RUNTIME.md). If the host cannot spawn agents, execute these steps sequentially using the available skills.
+
+
 # prototyping-orchestrator
 
 ## Before you start
 
 Read:
 
-1. `memex.config.json`
+1. the verified venture root (see `../RUNTIME.md`)
 2. `08-prototype/divergent-*.md` — most recent divergent file
 3. `08-prototype/converged-*.md` — most recent converged file
 4. `08-prototype/paper/*.md` — count

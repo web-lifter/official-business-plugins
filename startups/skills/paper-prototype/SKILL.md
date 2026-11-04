@@ -6,6 +6,11 @@ allowed-tools: Read Write Edit Glob Grep
 effort: medium
 ---
 
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
+
 # paper-prototype
 
 Methodology: "paper before pixels" — low-fidelity sketches are cheaper to be wrong on than digital prototypes.
@@ -18,7 +23,7 @@ $ARGUMENTS
 
 ## Phase 1: Read
 
-1. Verify venture profile.
+1. Resolve the venture workspace as specified in `../../RUNTIME.md`.
 2. Read the converged finalists; find the one matching `$ARGUMENTS`.
 3. Read segment profile and VPC for context.
 

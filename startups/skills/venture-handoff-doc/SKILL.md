@@ -1,10 +1,15 @@
 ---
 name: venture-handoff-doc
 description: Generate a one-page brief summarising the venture — problem, segment, UVP, validated hypotheses, MVP scope, open risks, current phase. Suitable for a new team member, investor, or future-you. Read-only; writes a single handoff.md.
-argument-hint: [optional output filename]
+argument-hint: "[optional output filename]"
 allowed-tools: Read Write Glob Grep Bash
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # venture-handoff-doc
 
@@ -41,8 +46,8 @@ Read in parallel:
 - `07-validation/pivot-refine-log.md` head (3 most recent entries)
 - `09-mvp/mvp-spec.md`, `mvp-metrics.md`, `feasibility.md` if they
   exist
-- `.memex/.open-questions/` — count + headline
-- `.memex/log.md` tail
+- `.open-questions/` — count + headline
+- `log.md` tail
 
 ---
 
@@ -82,7 +87,7 @@ Sections, in order:
 9. **Recent pivots / refines**
    - Last 3 entries from `pivot-refine-log.md`, summarised.
 10. **Open risks**
-    - The 3 most critical entries from `.memex/.open-questions/` (sort
+    - The 3 most critical entries from `.open-questions/` (sort
       by `updated:` desc).
 11. **What to do next**
     - Output of `/phase-router` (top 1-3 actions).
@@ -138,6 +143,6 @@ Append a log entry:
 2. **Venture in three pivots in 90 days** — the brief should say so
    prominently in section 9, not bury it.
 3. **Open-questions count > 20** — list the top 3 in the body, append
-   a footnote: "X more open questions; see `.memex/.open-questions/`."
+   a footnote: "X more open questions; see `.open-questions/`."
 4. **Custom output path** — write only to that path; don't update
    `handoff.md` in the root.

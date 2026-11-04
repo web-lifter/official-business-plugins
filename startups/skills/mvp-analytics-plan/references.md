@@ -27,4 +27,4 @@
 5. **Identity model documented up front.** Anonymous → identified alias must be defined; orphaned funnel steps are a known defect class.
 6. **Server-side events for trust-critical funnels.** `checkout_completed`, `user_signed_up` fire from the server, not the browser.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

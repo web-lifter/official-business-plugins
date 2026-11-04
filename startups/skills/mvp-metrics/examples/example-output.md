@@ -31,13 +31,12 @@ updated: 2026-05-21
 
 ## Decision rules
 
-At end of each metric's timeframe:
+These are illustrative, pre-specified decision rules, not observed results. First check usable sample, event completeness and the declared cohort for each metric.
 
-- **All H-001/H-002/H-003 metrics meet threshold** → MVP succeeded on demand + usability + scale. Proceed to: H-001 expansion (paid waitlist conversion via Stripe), H-002 widen cohort (12 → 40 counsel), H-003 hold and monitor.
-- **H-001 < threshold and H-002 ≥ threshold** → product works but pricing is off; build learning card LC-001 covering pricing tier exploration; refine pricing.
-- **H-002 < 25 min but ≥ 45 min** → refine UX (likely findings UI density); rerun TC-007 with same cohort.
-- **H-002 ≥ 45 min OR H-003 < 70%** → MVP refuted on usability or core technical bet. Build learning card; decide pivot vs refine. Pivot options: structured wizard UI (more guidance) OR narrower clause taxonomy (more precision, fewer categories).
-- **Activation < 70%** is a secondary indicator — only acts as a tie-breaker; it doesn't carry the decision alone.
+- H-001: willingness-to-pay at or above 30% supports an interview-based demand signal only; it is not a paid conversion or proof of market demand. Investigate alternatives when below the threshold, not pricing alone.
+- H-002: median below 25 minutes meets the usability threshold; 25 to under 45 minutes triggers UX refinement; 45 minutes or more fails the target. These ranges do not overlap.
+- H-003: precision at least 85% meets the technical target; 70% to under 85% requires refinement; below 70% fails. None proves scalability without load and cost evidence.
+- Missing data, insufficient samples or conflicting guardrails are inconclusive. Passing all three supports a controlled follow-on pilot, not immediate scale.
 
 ## Hand-off
 

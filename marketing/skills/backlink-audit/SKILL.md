@@ -1,10 +1,15 @@
 ---
 name: backlink-audit
 description: Audit a domain's backlink profile via Ahrefs, Moz, or a free-tier fallback — producing a referring-domain register, anchor histogram, and a toxic-link disavow plan.
-argument-hint: [domain]
+argument-hint: "[domain]"
 allowed-tools: Read Write Bash
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Backlink Audit
 ultrathink

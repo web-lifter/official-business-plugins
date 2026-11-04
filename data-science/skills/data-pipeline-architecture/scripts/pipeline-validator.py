@@ -44,7 +44,9 @@ def load_spec(path: str) -> dict:
 
 def check_key_present(spec: dict, key: str, path: str = "") -> bool:
     """Recursively check if a key exists anywhere in the spec."""
-    if key in spec:
+    if not isinstance(spec, dict):
+        return False
+    if key in spec and bool(spec[key]):
         return True
     for v in spec.values():
         if isinstance(v, dict) and check_key_present(v, key, path):
@@ -58,6 +60,8 @@ def check_key_present(spec: dict, key: str, path: str = "") -> bool:
 
 def validate(spec: dict) -> list[dict]:
     """Run validation checks and return findings."""
+    if not isinstance(spec, dict):
+        return [{"severity": "ERROR", "message": "Pipeline spec must be an object", "suggestion": "Provide a mapping with steps."}]
     issues = []
 
     def add(severity: str, message: str, suggestion: str):
@@ -92,8 +96,12 @@ def validate(spec: dict) -> list[dict]:
     if not steps:
         add("ERROR", "No pipeline steps/stages/tasks found",
             "Define pipeline steps under a 'steps', 'stages', or 'tasks' key.")
+    elif not isinstance(steps, (list, dict)):
+        add("ERROR", "Steps must be a list or mapping", "Use structured step objects.")
     elif isinstance(steps, list):
         for i, step in enumerate(steps):
+            if not isinstance(step, dict):
+                add("ERROR", f"Step {i} must be an object", "Provide a named step with configuration.")
             if isinstance(step, dict):
                 if not step.get("name") and not step.get("id"):
                     add("WARNING", f"Step {i} has no name or id", "Name each step for traceability.")

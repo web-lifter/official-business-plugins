@@ -18,4 +18,4 @@
 4. **Supersede, do not delete.** Old ADRs get `status: superseded by ADR-NNN` and forward-link. The history is the point.
 5. **One decision per ADR.** If you find yourself recording two decisions, write two ADRs.
 
-See `startups/SOURCES.md` for the broader citation context.
+See [Startups sources](../../SOURCES.md) for the broader citation context.

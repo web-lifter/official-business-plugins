@@ -15,7 +15,7 @@ Emitted JSON::
       "results": [
         {
           "@type": "Article",
-          "status": "valid",
+          "status": "coverage_pass",
           "score": 0.85,
           "missing_required": [],
           "missing_recommended": ["author", "dateModified"],
@@ -119,6 +119,7 @@ def _extract_json_ld(html: str) -> list[dict[str, Any]]:
         try:
             data = json.loads(text)
         except json.JSONDecodeError:
+            schemas.append({"_parse_error": "Malformed JSON-LD block"})
             continue
         # Handle both single objects and @graph arrays
         if isinstance(data, list):
@@ -139,12 +140,18 @@ def _validate_schema(schema: dict[str, Any]) -> dict[str, Any]:
         Validation result dict with ``@type``, ``status``, ``score``,
         ``missing_required``, ``missing_recommended``, and ``errors``.
     """
+    if not isinstance(schema, dict) or "_parse_error" in schema:
+        return {"@type": "Unknown", "status": "invalid_json_ld", "score": None,
+                "missing_required": [], "missing_recommended": [],
+                "errors": [schema.get("_parse_error", "JSON-LD node must be an object") if isinstance(schema, dict) else "JSON-LD node must be an object"]}
     schema_type = schema.get("@type", "Unknown")
     # Handle arrays of types — use the first known type
     if isinstance(schema_type, list):
-        known = [t for t in schema_type if t in _SCHEMA_RULES]
-        schema_type = known[0] if known else schema_type[0]
+        known = [t for t in schema_type if isinstance(t, str) and t in _SCHEMA_RULES]
+        schema_type = known[0] if known else "Unknown"
 
+    if not isinstance(schema_type, str):
+        schema_type = "Unknown"
     rules = _SCHEMA_RULES.get(schema_type)
     if not rules:
         return {
@@ -156,8 +163,8 @@ def _validate_schema(schema: dict[str, Any]) -> dict[str, Any]:
             "errors": [f"No validation rules for type '{schema_type}'"],
         }
 
-    missing_required = [f for f in rules["required"] if f not in schema]
-    missing_recommended = [f for f in rules["recommended"] if f not in schema]
+    missing_required = [f for f in rules["required"] if not schema.get(f)]
+    missing_recommended = [f for f in rules["recommended"] if not schema.get(f)]
     errors: list[str] = []
 
     if missing_required:
@@ -167,7 +174,7 @@ def _validate_schema(schema: dict[str, Any]) -> dict[str, Any]:
     present = total_fields - len(missing_required) - len(missing_recommended)
     score = round(present / total_fields, 2) if total_fields > 0 else 1.0
 
-    status = "valid" if not missing_required else "invalid"
+    status = "coverage_pass" if not missing_required else "coverage_gaps"
 
     return {
         "@type": schema_type,
@@ -193,6 +200,7 @@ def validate(source: str) -> dict[str, Any]:
     results = [_validate_schema(s) for s in schemas]
     return {
         "url": source,
+        "validation_scope": "Local field-presence heuristic, not Schema.org conformance or Google rich-result eligibility",
         "schemas_found": len(schemas),
         "results": results,
     }

@@ -1,18 +1,23 @@
 ---
 name: customer-discovery-status
-description: Run the four-question customer-discovery gate and emit a RAG-style readiness report. Blocking — MVP-planning skills check this gate before running. Overrides log automatically to .memex/log.md.
-argument-hint: [optional segment-slug to check just one]
+description: Run the four-question customer-discovery gate and emit a RAG-style readiness report. Blocking — MVP-planning skills check this gate before running. Overrides log automatically to log.md.
+argument-hint: "[optional segment-slug to check just one]"
 allowed-tools: Read Glob Grep Bash
 effort: medium
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # customer-discovery-status
 
 Idempotency: read-only. The skill itself never mutates state; override logging is the responsibility of the *dependent* skill that bypassed the gate.
 
-**Blocking gate.** `mvp-planning` skills (and the `mvp-scope` orchestrator sequence) check this gate before running. Override with `--force` on the dependent skill; the override **must be logged** to `.memex/log.md` as `## [<today>] gate-override | <skill> bypassed customer-discovery-status (<rollup>)`.
+**Blocking gate.** `mvp-planning` skills (and the `mvp-scope` orchestrator sequence) check this gate before running. Override with `--force` on the dependent skill; the override **must be logged** to `log.md` as `## [<today>] gate-override | <skill> bypassed customer-discovery-status (<rollup>)`.
 
-**Why the gate exists.** Steve Blank's customer-development model (*The Four Steps to the Epiphany*; *The Startup Owner's Manual*) treats discovery as gated work: a startup that moves to solution-building before validating the problem, segment, early adopters, and willingness-to-engage produces a product nobody buys. The four checks below operationalise Blank's verify/pivot/refine decision. See `references.md` and `startups/SOURCES.md`.
+**Why the gate exists.** Steve Blank's customer-development model (*The Four Steps to the Epiphany*; *The Startup Owner's Manual*) treats discovery as gated work: a startup that moves to solution-building before validating the problem, segment, early adopters, and willingness-to-engage produces a product nobody buys. The four checks below operationalise Blank's verify/pivot/refine decision. See `references.md` and [Startups sources](../../SOURCES.md).
 
 ## User Context
 

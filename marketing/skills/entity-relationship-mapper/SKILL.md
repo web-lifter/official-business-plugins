@@ -1,10 +1,15 @@
 ---
 name: entity-relationship-mapper
 description: Map business domains to entity-relationship models with Schema.org types, JSON-LD @graph output, consistent @id structures, and sameAs connections
-argument-hint: [domain-or-business-description]
+argument-hint: "[domain-or-business-description]"
 allowed-tools: Read Grep Glob Write Edit Bash(python:*)
 effort: high
 ---
+
+## Runtime preflight
+
+Read [the runtime guide](../../RUNTIME.md) before this workflow.
+
 
 # Entity Relationship Mapper
 
